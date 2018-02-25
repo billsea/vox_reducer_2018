@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "playbackViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	
+	UIViewController *playViewController = [[playbackViewController alloc] init];
+	
+	// Create navigation controller with main vc
+	UINavigationController *navController = [[UINavigationController alloc]
+																					 initWithRootViewController:playViewController];
+	
+	// Place navigation controller's view in the window hierarchy
+	[[self window] setRootViewController:navController];
+	
+	[[self window] makeKeyAndVisible];
+	
 	return YES;
 }
 

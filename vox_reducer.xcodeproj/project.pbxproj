@@ -21,8 +21,50 @@
 		A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
 		A9287A0B204246E5000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
-		A9A41D8D204249180025DCD7 /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A41D8C204249180025DCD7 /* libcommon_dsp.a */; };
 		A9A41D8E204249240025DCD7 /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A41D8C204249180025DCD7 /* libcommon_dsp.a */; };
+		A9C2CF0020424F24006373B5 /* playbackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CEFD20424F24006373B5 /* playbackViewController.mm */; };
+		A9C2CF0120424F24006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
+		A9C2CF0320425175006373B5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0220425175006373B5 /* MediaPlayer.framework */; };
+		A9C2CF0420425187006373B5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0220425175006373B5 /* MediaPlayer.framework */; };
+		A9C2CF06204254DD006373B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF05204254DD006373B5 /* Foundation.framework */; };
+		A9C2CF08204254F9006373B5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF07204254F9006373B5 /* CoreMedia.framework */; };
+		A9C2CF0A20425500006373B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0920425500006373B5 /* AVFoundation.framework */; };
+		A9C2CF0C20425513006373B5 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0B20425513006373B5 /* CoreAudio.framework */; };
+		A9C2CF0E2042551A006373B5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0D20425519006373B5 /* AudioToolbox.framework */; };
+		A9C2CF1020425536006373B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0F20425536006373B5 /* UIKit.framework */; };
+		A9C2CF122042553E006373B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF112042553D006373B5 /* CoreGraphics.framework */; };
+		A9C2CF162042556E006373B5 /* utility.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF152042556E006373B5 /* utility.mm */; };
+		A9C2CF172042556E006373B5 /* utility.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF152042556E006373B5 /* utility.mm */; };
+		A9C2CF18204255DB006373B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF112042553D006373B5 /* CoreGraphics.framework */; };
+		A9C2CF19204255E2006373B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0F20425536006373B5 /* UIKit.framework */; };
+		A9C2CF1A204255F5006373B5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0D20425519006373B5 /* AudioToolbox.framework */; };
+		A9C2CF1B20425602006373B5 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0B20425513006373B5 /* CoreAudio.framework */; };
+		A9C2CF1C2042560B006373B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0920425500006373B5 /* AVFoundation.framework */; };
+		A9C2CF1D20425615006373B5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF07204254F9006373B5 /* CoreMedia.framework */; };
+		A9C2CF1E2042561C006373B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF05204254DD006373B5 /* Foundation.framework */; };
+		A9C2CF222042581F006373B5 /* TargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CF1F2042581E006373B5 /* TargetViewController.xib */; };
+		A9C2CF232042581F006373B5 /* TargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CF1F2042581E006373B5 /* TargetViewController.xib */; };
+		A9C2CF242042581F006373B5 /* TargetViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF202042581E006373B5 /* TargetViewController.mm */; };
+		A9C2CF252042581F006373B5 /* TargetViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF202042581E006373B5 /* TargetViewController.mm */; };
+		A9C2CF2C20425830006373B5 /* InfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF2620425830006373B5 /* InfoViewController.mm */; };
+		A9C2CF2D20425830006373B5 /* InfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF2620425830006373B5 /* InfoViewController.mm */; };
+		A9C2CF2E20425830006373B5 /* PresetsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF2920425830006373B5 /* PresetsViewController.mm */; };
+		A9C2CF2F20425830006373B5 /* PresetsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF2920425830006373B5 /* PresetsViewController.mm */; };
+		A9C2CF3020425830006373B5 /* PresetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CF2A20425830006373B5 /* PresetsViewController.xib */; };
+		A9C2CF3120425830006373B5 /* PresetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CF2A20425830006373B5 /* PresetsViewController.xib */; };
+		A9C2CF3220425830006373B5 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CF2B20425830006373B5 /* InfoViewController.xib */; };
+		A9C2CF3320425830006373B5 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CF2B20425830006373B5 /* InfoViewController.xib */; };
+		A9C2CF3620425865006373B5 /* loudRotaryKnob.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */; };
+		A9C2CF3720425865006373B5 /* loudRotaryKnob.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */; };
+		A9C2CF3C204258A7006373B5 /* Preset.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF38204258A7006373B5 /* Preset.mm */; };
+		A9C2CF3D204258A7006373B5 /* Preset.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF38204258A7006373B5 /* Preset.mm */; };
+		A9C2CF3E204258A7006373B5 /* PresetStore.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF3A204258A7006373B5 /* PresetStore.mm */; };
+		A9C2CF3F204258A7006373B5 /* PresetStore.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF3A204258A7006373B5 /* PresetStore.mm */; };
+		A9C2CF4220425910006373B5 /* FileHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF4120425910006373B5 /* FileHelpers.mm */; };
+		A9C2CF4320425910006373B5 /* FileHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF4120425910006373B5 /* FileHelpers.mm */; };
+		A9C2CF4520425C4D006373B5 /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A41D8C204249180025DCD7 /* libcommon_dsp.a */; };
+		A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CEFD20424F24006373B5 /* playbackViewController.mm */; };
+		A9C2CF7020425EA1006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +86,38 @@
 		A9287A0F204246E5000F6638 /* vox_reducer_fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer_fe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
 		A9A41D8C204249180025DCD7 /* libcommon_dsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp.a; path = vox_reducer/lib/libcommon_dsp.a; sourceTree = "<group>"; };
+		A9C2CEFD20424F24006373B5 /* playbackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = playbackViewController.mm; sourceTree = "<group>"; };
+		A9C2CEFE20424F24006373B5 /* playbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = playbackViewController.xib; sourceTree = "<group>"; };
+		A9C2CEFF20424F24006373B5 /* playbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playbackViewController.h; sourceTree = "<group>"; };
+		A9C2CF0220425175006373B5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A9C2CF05204254DD006373B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9C2CF07204254F9006373B5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A9C2CF0920425500006373B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A9C2CF0B20425513006373B5 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A9C2CF0D20425519006373B5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A9C2CF0F20425536006373B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A9C2CF112042553D006373B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9C2CF142042556E006373B5 /* utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
+		A9C2CF152042556E006373B5 /* utility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = utility.mm; sourceTree = "<group>"; };
+		A9C2CF1F2042581E006373B5 /* TargetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TargetViewController.xib; sourceTree = "<group>"; };
+		A9C2CF202042581E006373B5 /* TargetViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TargetViewController.mm; sourceTree = "<group>"; };
+		A9C2CF212042581E006373B5 /* TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewController.h; sourceTree = "<group>"; };
+		A9C2CF2620425830006373B5 /* InfoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InfoViewController.mm; sourceTree = "<group>"; };
+		A9C2CF2720425830006373B5 /* PresetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresetsViewController.h; sourceTree = "<group>"; };
+		A9C2CF2820425830006373B5 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		A9C2CF2920425830006373B5 /* PresetsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PresetsViewController.mm; sourceTree = "<group>"; };
+		A9C2CF2A20425830006373B5 /* PresetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresetsViewController.xib; sourceTree = "<group>"; };
+		A9C2CF2B20425830006373B5 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		A9C2CF3420425864006373B5 /* loudRotaryKnob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loudRotaryKnob.h; sourceTree = "<group>"; };
+		A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = loudRotaryKnob.mm; sourceTree = "<group>"; };
+		A9C2CF38204258A7006373B5 /* Preset.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Preset.mm; sourceTree = "<group>"; };
+		A9C2CF39204258A7006373B5 /* PresetStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresetStore.h; sourceTree = "<group>"; };
+		A9C2CF3A204258A7006373B5 /* PresetStore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PresetStore.mm; sourceTree = "<group>"; };
+		A9C2CF3B204258A7006373B5 /* Preset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preset.h; sourceTree = "<group>"; };
+		A9C2CF4020425910006373B5 /* FileHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelpers.h; sourceTree = "<group>"; };
+		A9C2CF4120425910006373B5 /* FileHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelpers.mm; sourceTree = "<group>"; };
+		A9C2CF44204259BA006373B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A9C2CF6E20425CDB006373B5 /* vox_reducer_free-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_free-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_free-Info.plist"; sourceTree = "<absolute>"; };
 		C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vox_reducer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,6 +126,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C2CF122042553E006373B5 /* CoreGraphics.framework in Frameworks */,
+				A9C2CF1020425536006373B5 /* UIKit.framework in Frameworks */,
+				A9C2CF0420425187006373B5 /* MediaPlayer.framework in Frameworks */,
+				A9C2CF0E2042551A006373B5 /* AudioToolbox.framework in Frameworks */,
+				A9C2CF0C20425513006373B5 /* CoreAudio.framework in Frameworks */,
+				A9C2CF0A20425500006373B5 /* AVFoundation.framework in Frameworks */,
+				A9C2CF08204254F9006373B5 /* CoreMedia.framework in Frameworks */,
+				A9C2CF06204254DD006373B5 /* Foundation.framework in Frameworks */,
 				A9A41D8E204249240025DCD7 /* libcommon_dsp.a in Frameworks */,
 				49F97CEEA01A8013D9D544B8 /* libPods-vox_reducer.a in Frameworks */,
 			);
@@ -61,7 +143,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A41D8D204249180025DCD7 /* libcommon_dsp.a in Frameworks */,
+				A9C2CF4520425C4D006373B5 /* libcommon_dsp.a in Frameworks */,
+				A9C2CF1E2042561C006373B5 /* Foundation.framework in Frameworks */,
+				A9C2CF1D20425615006373B5 /* CoreMedia.framework in Frameworks */,
+				A9C2CF1C2042560B006373B5 /* AVFoundation.framework in Frameworks */,
+				A9C2CF1B20425602006373B5 /* CoreAudio.framework in Frameworks */,
+				A9C2CF1A204255F5006373B5 /* AudioToolbox.framework in Frameworks */,
+				A9C2CF0320425175006373B5 /* MediaPlayer.framework in Frameworks */,
+				A9C2CF19204255E2006373B5 /* UIKit.framework in Frameworks */,
+				A9C2CF18204255DB006373B5 /* CoreGraphics.framework in Frameworks */,
 				79A1D497C6C4B8028DC2517C /* libPods-vox_reducer_fe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +173,14 @@
 		9E6FE7F1B0307EE8EA3FCC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9C2CF112042553D006373B5 /* CoreGraphics.framework */,
+				A9C2CF0F20425536006373B5 /* UIKit.framework */,
+				A9C2CF0D20425519006373B5 /* AudioToolbox.framework */,
+				A9C2CF0B20425513006373B5 /* CoreAudio.framework */,
+				A9C2CF0920425500006373B5 /* AVFoundation.framework */,
+				A9C2CF07204254F9006373B5 /* CoreMedia.framework */,
+				A9C2CF05204254DD006373B5 /* Foundation.framework */,
+				A9C2CF0220425175006373B5 /* MediaPlayer.framework */,
 				A9A41D8C204249180025DCD7 /* libcommon_dsp.a */,
 				C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */,
 				0024DB3A745A78FA12404943 /* libPods-vox_reducer_fe.a */,
@@ -98,6 +196,7 @@
 				A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */,
 				2C4CCF32D900E925AE2C85DE /* Pods */,
 				9E6FE7F1B0307EE8EA3FCC9D /* Frameworks */,
+				A9C2CF6E20425CDB006373B5 /* vox_reducer_free-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +212,10 @@
 		A92879EB20424699000F6638 /* vox_reducer */ = {
 			isa = PBXGroup;
 			children = (
+				A9C2CF1320425559006373B5 /* helper */,
+				A9C2CEFC20424EF9006373B5 /* View */,
+				A9C2CEFB20424EE4006373B5 /* Xib */,
+				A9C2CEFA20424ED9006373B5 /* Controller */,
 				A92879EC20424699000F6638 /* AppDelegate.h */,
 				A92879ED20424699000F6638 /* AppDelegate.mm */,
 				A92879EF20424699000F6638 /* ViewController.h */,
@@ -122,8 +225,59 @@
 				A92879F720424699000F6638 /* LaunchScreen.storyboard */,
 				A92879FA20424699000F6638 /* Info.plist */,
 				A92879FB20424699000F6638 /* main.m */,
+				A9C2CF44204259BA006373B5 /* PrefixHeader.pch */,
 			);
 			path = vox_reducer;
+			sourceTree = "<group>";
+		};
+		A9C2CEFA20424ED9006373B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2CEFF20424F24006373B5 /* playbackViewController.h */,
+				A9C2CEFD20424F24006373B5 /* playbackViewController.mm */,
+				A9C2CF212042581E006373B5 /* TargetViewController.h */,
+				A9C2CF202042581E006373B5 /* TargetViewController.mm */,
+				A9C2CF2820425830006373B5 /* InfoViewController.h */,
+				A9C2CF2620425830006373B5 /* InfoViewController.mm */,
+				A9C2CF2720425830006373B5 /* PresetsViewController.h */,
+				A9C2CF2920425830006373B5 /* PresetsViewController.mm */,
+				A9C2CF3420425864006373B5 /* loudRotaryKnob.h */,
+				A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A9C2CEFB20424EE4006373B5 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2CEFE20424F24006373B5 /* playbackViewController.xib */,
+				A9C2CF1F2042581E006373B5 /* TargetViewController.xib */,
+				A9C2CF2B20425830006373B5 /* InfoViewController.xib */,
+				A9C2CF2A20425830006373B5 /* PresetsViewController.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		A9C2CEFC20424EF9006373B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9C2CF1320425559006373B5 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2CF142042556E006373B5 /* utility.h */,
+				A9C2CF152042556E006373B5 /* utility.mm */,
+				A9C2CF3B204258A7006373B5 /* Preset.h */,
+				A9C2CF38204258A7006373B5 /* Preset.mm */,
+				A9C2CF39204258A7006373B5 /* PresetStore.h */,
+				A9C2CF3A204258A7006373B5 /* PresetStore.mm */,
+				A9C2CF4020425910006373B5 /* FileHelpers.h */,
+				A9C2CF4120425910006373B5 /* FileHelpers.mm */,
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +366,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92879F920424699000F6638 /* LaunchScreen.storyboard in Resources */,
+				A9C2CF222042581F006373B5 /* TargetViewController.xib in Resources */,
+				A9C2CF0120424F24006373B5 /* playbackViewController.xib in Resources */,
 				A92879F620424699000F6638 /* Assets.xcassets in Resources */,
 				A92879F420424699000F6638 /* Main.storyboard in Resources */,
+				A9C2CF3220425830006373B5 /* InfoViewController.xib in Resources */,
+				A9C2CF3020425830006373B5 /* PresetsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,9 +379,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C2CF7020425EA1006373B5 /* playbackViewController.xib in Resources */,
 				A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */,
 				A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */,
 				A9287A0B204246E5000F6638 /* Main.storyboard in Resources */,
+				A9C2CF3120425830006373B5 /* PresetsViewController.xib in Resources */,
+				A9C2CF3320425830006373B5 /* InfoViewController.xib in Resources */,
+				A9C2CF232042581F006373B5 /* TargetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,9 +495,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C2CF2C20425830006373B5 /* InfoViewController.mm in Sources */,
 				A92879F120424699000F6638 /* ViewController.mm in Sources */,
+				A9C2CF3620425865006373B5 /* loudRotaryKnob.mm in Sources */,
+				A9C2CF242042581F006373B5 /* TargetViewController.mm in Sources */,
+				A9C2CF3C204258A7006373B5 /* Preset.mm in Sources */,
 				A92879FC20424699000F6638 /* main.m in Sources */,
 				A92879EE20424699000F6638 /* AppDelegate.mm in Sources */,
+				A9C2CF3E204258A7006373B5 /* PresetStore.mm in Sources */,
+				A9C2CF2E20425830006373B5 /* PresetsViewController.mm in Sources */,
+				A9C2CF4220425910006373B5 /* FileHelpers.mm in Sources */,
+				A9C2CF162042556E006373B5 /* utility.mm in Sources */,
+				A9C2CF0020424F24006373B5 /* playbackViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +514,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */,
+				A9C2CF3720425865006373B5 /* loudRotaryKnob.mm in Sources */,
 				A9287A04204246E5000F6638 /* ViewController.mm in Sources */,
+				A9C2CF2F20425830006373B5 /* PresetsViewController.mm in Sources */,
+				A9C2CF3D204258A7006373B5 /* Preset.mm in Sources */,
+				A9C2CF252042581F006373B5 /* TargetViewController.mm in Sources */,
+				A9C2CF2D20425830006373B5 /* InfoViewController.mm in Sources */,
 				A9287A05204246E5000F6638 /* main.m in Sources */,
+				A9C2CF172042556E006373B5 /* utility.mm in Sources */,
+				A9C2CF3F204258A7006373B5 /* PresetStore.mm in Sources */,
+				A9C2CF4320425910006373B5 /* FileHelpers.mm in Sources */,
 				A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +589,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = vox_reducer/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -419,9 +601,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -462,13 +644,15 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = vox_reducer/PrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -532,6 +716,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZGJ2UYWJY;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					TARGET_ADS,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -557,6 +746,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZZGJ2UYWJY;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					TARGET_ADS,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
