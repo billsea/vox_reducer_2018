@@ -124,28 +124,36 @@
 }
 
 - (IBAction)addPreset:(id)sender {
-  UIAlertView *alertView =
-      [[UIAlertView alloc] initWithTitle:@"Preset name"
-                                 message:@"Enter Preset name:"
-                                delegate:self
-                       cancelButtonTitle:@"Cancel"
-                       otherButtonTitles:@"Ok", nil];
-  alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-  [alertView show];
-}
+	UIAlertController *alert = [UIAlertController
+															alertControllerWithTitle:@"Preset name"
+															message:@"Enter Preset name:"
+															preferredStyle:UIAlertControllerStyleAlert];
 
-// callback method - TODO: interrupts audio - put on a background thread?
-- (void)alertView:(UIAlertView *)alertView
-    willDismissWithButtonIndex:(NSInteger)buttonIndex {
-  if (buttonIndex != [alertView cancelButtonIndex]) {
-    NSString *entered = [[alertView textFieldAtIndex:0] text];
-    PresetStore *ps = [PresetStore defaultStore];
-    [ps createPresetWithName:entered
-                   andTarget:_player.targetFrequency
-                    andWidth:_player.targetBandwidth
-                andIntensity:_player.reductionIntensity];
-    [ps saveChanges];
-    [self loadUserPresets];
-  }
+	[alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+		textField.placeholder = @"Enter Preset Name";
+		textField.secureTextEntry = NO;
+	}];
+	
+	UIAlertAction *okAction =
+	[UIAlertAction actionWithTitle:@"OK"
+													 style:UIAlertActionStyleDefault
+												 handler:^(UIAlertAction *action){
+													 NSString *entered = [[alert textFields][0] text];
+													 PresetStore *ps = [PresetStore defaultStore];
+													 [ps createPresetWithName:entered
+																					andTarget:_player.targetFrequency
+																					 andWidth:_player.targetBandwidth
+																			 andIntensity:_player.reductionIntensity];
+													 [ps saveChanges];
+													 [self loadUserPresets];
+												 }];
+	[alert addAction:okAction];
+	UIAlertAction *cancelAction =
+	[UIAlertAction actionWithTitle:@"Cancel"
+													 style:UIAlertActionStyleDefault
+												 handler:^(UIAlertAction *action){
+												 }];
+	[alert addAction:cancelAction];
+	[self presentViewController:alert animated:YES completion:nil];
 }
 @end
