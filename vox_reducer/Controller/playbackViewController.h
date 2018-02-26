@@ -6,8 +6,6 @@
 //  Copyright 2011 _Loudsoftware_. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 //#import "audioPlayback.h"
 #import "TargetViewController.h"

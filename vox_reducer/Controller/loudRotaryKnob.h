@@ -29,9 +29,6 @@
  * \author Matthijs Hollemans <mail@hollance.com>
  */
 
-
-#import <UIKit/UIKit.h>
-
 @interface loudRotaryKnob : UIControl {
     
 	UIImageView* _backgroundImageView;  ///< shows the background image

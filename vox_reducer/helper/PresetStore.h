@@ -6,8 +6,6 @@
 //  Copyright 2011 _Loudsoftware_. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @class Preset;
 
 @interface PresetStore : NSObject {

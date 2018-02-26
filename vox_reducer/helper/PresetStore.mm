@@ -8,7 +8,6 @@
 
 #import "PresetStore.h"
 #import "Preset.h"
-#import "FileHelpers.h"
 
 static PresetStore *defaultStore = nil;
 

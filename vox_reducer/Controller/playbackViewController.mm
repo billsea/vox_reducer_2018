@@ -148,63 +148,63 @@
 	r.origin.y = _playbackBarView.frame.origin.y + _playbackBarView.frame.size.height;
 	_tableView.frame = r;
 }
-//- (IBAction)showTarget:(id)sender {
-//  TargetViewController *targetViewController =
-//      [[TargetViewController alloc] init];
-//
-//  // passes and sets the audioPlayer object in the targetViewController
-//  [targetViewController setPlayer:_player];
-//
-//  // passes and sets type
-//  [targetViewController setSenderName:@"Target"];
-//
-//  // Push it onto the top of the navigation controller's stack
-//  [[self navigationController] pushViewController:targetViewController
-//                                         animated:YES];
-//}
-//
-//- (IBAction)showWidth:(id)sender {
-//
-//  TargetViewController *targetViewController =
-//      [[TargetViewController alloc] init];
-//
-//  // passes and sets the audioPlayer object in the targetViewController
-//  [targetViewController setPlayer:_player];
-//
-//  // passes and sets type
-//  [targetViewController setSenderName:@"Width"];
-//
-//  // Push it onto the top of the navigation controller's stack
-//  [[self navigationController] pushViewController:targetViewController
-//                                         animated:YES];
-//}
-//
-//- (IBAction)showIntensity:(id)sender {
-//  TargetViewController *targetViewController =
-//      [[TargetViewController alloc] init];
-//
-//  // passes and sets the audioPlayer object in the targetViewController
-//  [targetViewController setPlayer:_player];
-//
-//  // passes and sets type
-//  [targetViewController setSenderName:@"Intensity"];
-//
-//  // Push it onto the top of the navigation controller's stack
-//  [[self navigationController] pushViewController:targetViewController
-//                                         animated:YES];
-//}
-//
-//- (IBAction)showPresets:(id)sender {
-//  PresetsViewController *presetsViewController =
-//      [[PresetsViewController alloc] init];
-//
-//  // passes and sets the audioPlayer object in the targetViewController
-//  [presetsViewController setPlayer:_player];
-//
-//  // Push it onto the top of the navigation controller's stack
-//  [[self navigationController] pushViewController:presetsViewController
-//                                         animated:YES];
-//}
+- (IBAction)showTarget:(id)sender {
+  TargetViewController *targetViewController =
+      [[TargetViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [targetViewController setPlayer:_player];
+
+  // passes and sets type
+  [targetViewController setSenderName:@"Target"];
+
+  // Push it onto the top of the navigation controller's stack
+  [[self navigationController] pushViewController:targetViewController
+                                         animated:YES];
+}
+
+- (IBAction)showWidth:(id)sender {
+
+  TargetViewController *targetViewController =
+      [[TargetViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [targetViewController setPlayer:_player];
+
+  // passes and sets type
+  [targetViewController setSenderName:@"Width"];
+
+  // Push it onto the top of the navigation controller's stack
+  [[self navigationController] pushViewController:targetViewController
+                                         animated:YES];
+}
+
+- (IBAction)showIntensity:(id)sender {
+  TargetViewController *targetViewController =
+      [[TargetViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [targetViewController setPlayer:_player];
+
+  // passes and sets type
+  [targetViewController setSenderName:@"Intensity"];
+
+  // Push it onto the top of the navigation controller's stack
+  [[self navigationController] pushViewController:targetViewController
+                                         animated:YES];
+}
+
+- (IBAction)showPresets:(id)sender {
+  PresetsViewController *presetsViewController =
+      [[PresetsViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [presetsViewController setPlayer:_player];
+
+  // Push it onto the top of the navigation controller's stack
+  [[self navigationController] pushViewController:presetsViewController
+                                         animated:YES];
+}
 
 - (IBAction)setOnOff:(UIButton *)sender {
   if ([[sender currentTitle] isEqualToString:@"OFF"]) {
