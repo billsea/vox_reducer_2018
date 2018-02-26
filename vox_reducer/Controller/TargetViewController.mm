@@ -9,7 +9,6 @@
 #import "TargetViewController.h"
 #include "audioPlayback.h"
 #import "loudRotaryKnob.h"
-#import "utility.h"
 
 @implementation TargetViewController {
   float maxKnobValue;

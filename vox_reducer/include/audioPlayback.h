@@ -12,9 +12,7 @@
 #include <AVFoundation/AVFoundation.h>
 #include "center_reducer.h"
 
-@interface audioPlayback : NSObject <UIAlertViewDelegate> {
-  UIAlertView *_alert;
-}
+@interface audioPlayback : NSObject 
 
 @property(nonatomic, retain) MPMediaItemCollection *userMediaItemCollection;
 @property(nonatomic, retain) NSString *artist;
