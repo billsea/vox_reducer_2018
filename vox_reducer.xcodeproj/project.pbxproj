@@ -22,6 +22,52 @@
 		A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
 		A9287A0B204246E5000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
 		A9A41D8E204249240025DCD7 /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A41D8C204249180025DCD7 /* libcommon_dsp.a */; };
+		A9ADC21E2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
+		A9ADC21F2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
+		A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */; };
+		A9ADC2212044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */; };
+		A9ADC2222044B92D001B5D63 /* voxReducerIOSNewIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */; };
+		A9ADC2232044B92D001B5D63 /* voxReducerIOSNewIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */; };
+		A9ADC2242044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21C2044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg */; };
+		A9ADC2252044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21C2044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg */; };
+		A9ADC2262044B92D001B5D63 /* voxReducerIOSNewIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21D2044B92D001B5D63 /* voxReducerIOSNewIcon80.png */; };
+		A9ADC2272044B92D001B5D63 /* voxReducerIOSNewIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21D2044B92D001B5D63 /* voxReducerIOSNewIcon80.png */; };
+		A9ADC2292044BA66001B5D63 /* bypassButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2282044BA65001B5D63 /* bypassButton.png */; };
+		A9ADC22A2044BA66001B5D63 /* bypassButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2282044BA65001B5D63 /* bypassButton.png */; };
+		A9ADC2312044BAA9001B5D63 /* playerButtonsStopOn.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22B2044BAA7001B5D63 /* playerButtonsStopOn.png */; };
+		A9ADC2322044BAA9001B5D63 /* playerButtonsStopOn.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22B2044BAA7001B5D63 /* playerButtonsStopOn.png */; };
+		A9ADC2332044BAA9001B5D63 /* playerButtonsPauseOn.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22C2044BAA8001B5D63 /* playerButtonsPauseOn.png */; };
+		A9ADC2342044BAA9001B5D63 /* playerButtonsPauseOn.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22C2044BAA8001B5D63 /* playerButtonsPauseOn.png */; };
+		A9ADC2352044BAA9001B5D63 /* playerButtonsPlayOn.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22D2044BAA8001B5D63 /* playerButtonsPlayOn.png */; };
+		A9ADC2362044BAA9001B5D63 /* playerButtonsPlayOn.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22D2044BAA8001B5D63 /* playerButtonsPlayOn.png */; };
+		A9ADC2372044BAA9001B5D63 /* playerButtonsPlayOff.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22E2044BAA8001B5D63 /* playerButtonsPlayOff.png */; };
+		A9ADC2382044BAA9001B5D63 /* playerButtonsPlayOff.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22E2044BAA8001B5D63 /* playerButtonsPlayOff.png */; };
+		A9ADC2392044BAA9001B5D63 /* playerButtonsStopOff.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22F2044BAA8001B5D63 /* playerButtonsStopOff.png */; };
+		A9ADC23A2044BAA9001B5D63 /* playerButtonsStopOff.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC22F2044BAA8001B5D63 /* playerButtonsStopOff.png */; };
+		A9ADC23B2044BAA9001B5D63 /* playerButtonsPauseOff.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2302044BAA9001B5D63 /* playerButtonsPauseOff.png */; };
+		A9ADC23C2044BAA9001B5D63 /* playerButtonsPauseOff.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2302044BAA9001B5D63 /* playerButtonsPauseOff.png */; };
+		A9ADC23E2044BABC001B5D63 /* brushedMetal.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC23D2044BABC001B5D63 /* brushedMetal.png */; };
+		A9ADC23F2044BABC001B5D63 /* brushedMetal.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC23D2044BABC001B5D63 /* brushedMetal.png */; };
+		A9ADC2482044BB2A001B5D63 /* KnobHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2402044BB27001B5D63 /* KnobHighlighted.png */; };
+		A9ADC2492044BB2A001B5D63 /* KnobHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2402044BB27001B5D63 /* KnobHighlighted.png */; };
+		A9ADC24A2044BB2A001B5D63 /* Knob.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2412044BB27001B5D63 /* Knob.png */; };
+		A9ADC24B2044BB2A001B5D63 /* Knob.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2412044BB27001B5D63 /* Knob.png */; };
+		A9ADC24C2044BB2A001B5D63 /* KnobHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2422044BB28001B5D63 /* KnobHighlighted@2x.png */; };
+		A9ADC24D2044BB2A001B5D63 /* KnobHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2422044BB28001B5D63 /* KnobHighlighted@2x.png */; };
+		A9ADC24E2044BB2A001B5D63 /* KnobDisabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2432044BB28001B5D63 /* KnobDisabled@2x.png */; };
+		A9ADC24F2044BB2A001B5D63 /* KnobDisabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2432044BB28001B5D63 /* KnobDisabled@2x.png */; };
+		A9ADC2502044BB2A001B5D63 /* Knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2442044BB29001B5D63 /* Knob@2x.png */; };
+		A9ADC2512044BB2A001B5D63 /* Knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2442044BB29001B5D63 /* Knob@2x.png */; };
+		A9ADC2522044BB2A001B5D63 /* KnobBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2452044BB29001B5D63 /* KnobBackground@2x.png */; };
+		A9ADC2532044BB2A001B5D63 /* KnobBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2452044BB29001B5D63 /* KnobBackground@2x.png */; };
+		A9ADC2542044BB2A001B5D63 /* KnobDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2462044BB29001B5D63 /* KnobDisabled.png */; };
+		A9ADC2552044BB2A001B5D63 /* KnobDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2462044BB29001B5D63 /* KnobDisabled.png */; };
+		A9ADC2562044BB2A001B5D63 /* KnobBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2472044BB2A001B5D63 /* KnobBackground.png */; };
+		A9ADC2572044BB2A001B5D63 /* KnobBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2472044BB2A001B5D63 /* KnobBackground.png */; };
+		A9ADC2592044BB57001B5D63 /* showSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2582044BB57001B5D63 /* showSettings.png */; };
+		A9ADC25A2044BB57001B5D63 /* showSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2582044BB57001B5D63 /* showSettings.png */; };
+		A9ADC25C2044BB82001B5D63 /* knobAlt.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC25B2044BB81001B5D63 /* knobAlt.png */; };
+		A9ADC25D2044BB82001B5D63 /* knobAlt.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC25B2044BB81001B5D63 /* knobAlt.png */; };
 		A9C2CF0020424F24006373B5 /* playbackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CEFD20424F24006373B5 /* playbackViewController.mm */; };
 		A9C2CF0120424F24006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
 		A9C2CF0320425175006373B5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0220425175006373B5 /* MediaPlayer.framework */; };
@@ -86,6 +132,29 @@
 		A9287A0F204246E5000F6638 /* vox_reducer_fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer_fe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
 		A9A41D8C204249180025DCD7 /* libcommon_dsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp.a; path = vox_reducer/lib/libcommon_dsp.a; sourceTree = "<group>"; };
+		A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon120.png; sourceTree = "<group>"; };
+		A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon58.png; sourceTree = "<group>"; };
+		A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon180.png; sourceTree = "<group>"; };
+		A9ADC21C2044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = voxReducerIOSNewIcon1024.jpg; sourceTree = "<group>"; };
+		A9ADC21D2044B92D001B5D63 /* voxReducerIOSNewIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon80.png; sourceTree = "<group>"; };
+		A9ADC2282044BA65001B5D63 /* bypassButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bypassButton.png; sourceTree = "<group>"; };
+		A9ADC22B2044BAA7001B5D63 /* playerButtonsStopOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerButtonsStopOn.png; sourceTree = "<group>"; };
+		A9ADC22C2044BAA8001B5D63 /* playerButtonsPauseOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerButtonsPauseOn.png; sourceTree = "<group>"; };
+		A9ADC22D2044BAA8001B5D63 /* playerButtonsPlayOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerButtonsPlayOn.png; sourceTree = "<group>"; };
+		A9ADC22E2044BAA8001B5D63 /* playerButtonsPlayOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerButtonsPlayOff.png; sourceTree = "<group>"; };
+		A9ADC22F2044BAA8001B5D63 /* playerButtonsStopOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerButtonsStopOff.png; sourceTree = "<group>"; };
+		A9ADC2302044BAA9001B5D63 /* playerButtonsPauseOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerButtonsPauseOff.png; sourceTree = "<group>"; };
+		A9ADC23D2044BABC001B5D63 /* brushedMetal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brushedMetal.png; sourceTree = "<group>"; };
+		A9ADC2402044BB27001B5D63 /* KnobHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KnobHighlighted.png; sourceTree = "<group>"; };
+		A9ADC2412044BB27001B5D63 /* Knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Knob.png; sourceTree = "<group>"; };
+		A9ADC2422044BB28001B5D63 /* KnobHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KnobHighlighted@2x.png"; sourceTree = "<group>"; };
+		A9ADC2432044BB28001B5D63 /* KnobDisabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KnobDisabled@2x.png"; sourceTree = "<group>"; };
+		A9ADC2442044BB29001B5D63 /* Knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Knob@2x.png"; sourceTree = "<group>"; };
+		A9ADC2452044BB29001B5D63 /* KnobBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KnobBackground@2x.png"; sourceTree = "<group>"; };
+		A9ADC2462044BB29001B5D63 /* KnobDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KnobDisabled.png; sourceTree = "<group>"; };
+		A9ADC2472044BB2A001B5D63 /* KnobBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KnobBackground.png; sourceTree = "<group>"; };
+		A9ADC2582044BB57001B5D63 /* showSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showSettings.png; sourceTree = "<group>"; };
+		A9ADC25B2044BB81001B5D63 /* knobAlt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knobAlt.png; sourceTree = "<group>"; };
 		A9C2CEFD20424F24006373B5 /* playbackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = playbackViewController.mm; sourceTree = "<group>"; };
 		A9C2CEFE20424F24006373B5 /* playbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = playbackViewController.xib; sourceTree = "<group>"; };
 		A9C2CEFF20424F24006373B5 /* playbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playbackViewController.h; sourceTree = "<group>"; };
@@ -212,6 +281,7 @@
 		A92879EB20424699000F6638 /* vox_reducer */ = {
 			isa = PBXGroup;
 			children = (
+				A9ADC2182044B917001B5D63 /* Images */,
 				A9ADC2172044B798001B5D63 /* Controls */,
 				A9C2CF1320425559006373B5 /* Helper */,
 				A9C2CEFC20424EF9006373B5 /* View */,
@@ -238,6 +308,36 @@
 				A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		A9ADC2182044B917001B5D63 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */,
+				A9ADC21D2044B92D001B5D63 /* voxReducerIOSNewIcon80.png */,
+				A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */,
+				A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */,
+				A9ADC21C2044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg */,
+				A9ADC2282044BA65001B5D63 /* bypassButton.png */,
+				A9ADC2302044BAA9001B5D63 /* playerButtonsPauseOff.png */,
+				A9ADC22C2044BAA8001B5D63 /* playerButtonsPauseOn.png */,
+				A9ADC22E2044BAA8001B5D63 /* playerButtonsPlayOff.png */,
+				A9ADC22D2044BAA8001B5D63 /* playerButtonsPlayOn.png */,
+				A9ADC22F2044BAA8001B5D63 /* playerButtonsStopOff.png */,
+				A9ADC22B2044BAA7001B5D63 /* playerButtonsStopOn.png */,
+				A9ADC23D2044BABC001B5D63 /* brushedMetal.png */,
+				A9ADC2412044BB27001B5D63 /* Knob.png */,
+				A9ADC2442044BB29001B5D63 /* Knob@2x.png */,
+				A9ADC2472044BB2A001B5D63 /* KnobBackground.png */,
+				A9ADC2452044BB29001B5D63 /* KnobBackground@2x.png */,
+				A9ADC2462044BB29001B5D63 /* KnobDisabled.png */,
+				A9ADC2432044BB28001B5D63 /* KnobDisabled@2x.png */,
+				A9ADC2402044BB27001B5D63 /* KnobHighlighted.png */,
+				A9ADC2422044BB28001B5D63 /* KnobHighlighted@2x.png */,
+				A9ADC2582044BB57001B5D63 /* showSettings.png */,
+				A9ADC25B2044BB81001B5D63 /* knobAlt.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		A9C2CEFA20424ED9006373B5 /* Controller */ = {
@@ -373,13 +473,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9ADC2372044BAA9001B5D63 /* playerButtonsPlayOff.png in Resources */,
 				A92879F920424699000F6638 /* LaunchScreen.storyboard in Resources */,
+				A9ADC2292044BA66001B5D63 /* bypassButton.png in Resources */,
+				A9ADC23E2044BABC001B5D63 /* brushedMetal.png in Resources */,
 				A9C2CF222042581F006373B5 /* TargetViewController.xib in Resources */,
 				A9C2CF0120424F24006373B5 /* playbackViewController.xib in Resources */,
+				A9ADC24C2044BB2A001B5D63 /* KnobHighlighted@2x.png in Resources */,
+				A9ADC2542044BB2A001B5D63 /* KnobDisabled.png in Resources */,
 				A92879F620424699000F6638 /* Assets.xcassets in Resources */,
+				A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */,
 				A92879F420424699000F6638 /* Main.storyboard in Resources */,
+				A9ADC2262044B92D001B5D63 /* voxReducerIOSNewIcon80.png in Resources */,
+				A9ADC2222044B92D001B5D63 /* voxReducerIOSNewIcon180.png in Resources */,
+				A9ADC2592044BB57001B5D63 /* showSettings.png in Resources */,
+				A9ADC2352044BAA9001B5D63 /* playerButtonsPlayOn.png in Resources */,
 				A9C2CF3220425830006373B5 /* InfoViewController.xib in Resources */,
+				A9ADC2562044BB2A001B5D63 /* KnobBackground.png in Resources */,
+				A9ADC23B2044BAA9001B5D63 /* playerButtonsPauseOff.png in Resources */,
+				A9ADC2502044BB2A001B5D63 /* Knob@2x.png in Resources */,
+				A9ADC21E2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */,
+				A9ADC2242044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg in Resources */,
+				A9ADC2332044BAA9001B5D63 /* playerButtonsPauseOn.png in Resources */,
+				A9ADC24E2044BB2A001B5D63 /* KnobDisabled@2x.png in Resources */,
+				A9ADC25C2044BB82001B5D63 /* knobAlt.png in Resources */,
+				A9ADC24A2044BB2A001B5D63 /* Knob.png in Resources */,
+				A9ADC2482044BB2A001B5D63 /* KnobHighlighted.png in Resources */,
+				A9ADC2522044BB2A001B5D63 /* KnobBackground@2x.png in Resources */,
 				A9C2CF3020425830006373B5 /* PresetsViewController.xib in Resources */,
+				A9ADC2392044BAA9001B5D63 /* playerButtonsStopOff.png in Resources */,
+				A9ADC2312044BAA9001B5D63 /* playerButtonsStopOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,13 +510,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9ADC2382044BAA9001B5D63 /* playerButtonsPlayOff.png in Resources */,
 				A9C2CF7020425EA1006373B5 /* playbackViewController.xib in Resources */,
+				A9ADC22A2044BA66001B5D63 /* bypassButton.png in Resources */,
+				A9ADC23F2044BABC001B5D63 /* brushedMetal.png in Resources */,
 				A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */,
 				A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */,
+				A9ADC24D2044BB2A001B5D63 /* KnobHighlighted@2x.png in Resources */,
+				A9ADC2552044BB2A001B5D63 /* KnobDisabled.png in Resources */,
 				A9287A0B204246E5000F6638 /* Main.storyboard in Resources */,
+				A9ADC2212044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */,
 				A9C2CF3120425830006373B5 /* PresetsViewController.xib in Resources */,
+				A9ADC2272044B92D001B5D63 /* voxReducerIOSNewIcon80.png in Resources */,
+				A9ADC2232044B92D001B5D63 /* voxReducerIOSNewIcon180.png in Resources */,
+				A9ADC25A2044BB57001B5D63 /* showSettings.png in Resources */,
+				A9ADC2362044BAA9001B5D63 /* playerButtonsPlayOn.png in Resources */,
 				A9C2CF3320425830006373B5 /* InfoViewController.xib in Resources */,
+				A9ADC2572044BB2A001B5D63 /* KnobBackground.png in Resources */,
+				A9ADC23C2044BAA9001B5D63 /* playerButtonsPauseOff.png in Resources */,
+				A9ADC2512044BB2A001B5D63 /* Knob@2x.png in Resources */,
+				A9ADC21F2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */,
+				A9ADC2252044B92D001B5D63 /* voxReducerIOSNewIcon1024.jpg in Resources */,
+				A9ADC2342044BAA9001B5D63 /* playerButtonsPauseOn.png in Resources */,
+				A9ADC24F2044BB2A001B5D63 /* KnobDisabled@2x.png in Resources */,
+				A9ADC25D2044BB82001B5D63 /* knobAlt.png in Resources */,
+				A9ADC24B2044BB2A001B5D63 /* Knob.png in Resources */,
+				A9ADC2492044BB2A001B5D63 /* KnobHighlighted.png in Resources */,
+				A9ADC2532044BB2A001B5D63 /* KnobBackground@2x.png in Resources */,
 				A9C2CF232042581F006373B5 /* TargetViewController.xib in Resources */,
+				A9ADC23A2044BAA9001B5D63 /* playerButtonsStopOff.png in Resources */,
+				A9ADC2322044BAA9001B5D63 /* playerButtonsStopOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
