@@ -885,7 +885,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer-fe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -915,7 +915,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer-fe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
