@@ -212,7 +212,8 @@
 		A92879EB20424699000F6638 /* vox_reducer */ = {
 			isa = PBXGroup;
 			children = (
-				A9C2CF1320425559006373B5 /* helper */,
+				A9ADC2172044B798001B5D63 /* Controls */,
+				A9C2CF1320425559006373B5 /* Helper */,
 				A9C2CEFC20424EF9006373B5 /* View */,
 				A9C2CEFB20424EE4006373B5 /* Xib */,
 				A9C2CEFA20424ED9006373B5 /* Controller */,
@@ -230,6 +231,15 @@
 			path = vox_reducer;
 			sourceTree = "<group>";
 		};
+		A9ADC2172044B798001B5D63 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2CF3420425864006373B5 /* loudRotaryKnob.h */,
+				A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		A9C2CEFA20424ED9006373B5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,8 +251,6 @@
 				A9C2CF2620425830006373B5 /* InfoViewController.mm */,
 				A9C2CF2720425830006373B5 /* PresetsViewController.h */,
 				A9C2CF2920425830006373B5 /* PresetsViewController.mm */,
-				A9C2CF3420425864006373B5 /* loudRotaryKnob.h */,
-				A9C2CF3520425864006373B5 /* loudRotaryKnob.mm */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,7 +273,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A9C2CF1320425559006373B5 /* helper */ = {
+		A9C2CF1320425559006373B5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				A9C2CF142042556E006373B5 /* utility.h */,
@@ -277,7 +285,7 @@
 				A9C2CF4020425910006373B5 /* FileHelpers.h */,
 				A9C2CF4120425910006373B5 /* FileHelpers.mm */,
 			);
-			path = helper;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
