@@ -366,12 +366,6 @@
 
     [self setUserMediaItemCollection:mediaItemCollection];
 
-    // The media item picker uses the default UI style, so it needs a
-    // default-style
-    //		status bar to match it visually
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
-                                                animated:YES];
-
     // stop player
     [self playbackCompleted:nil];
 
