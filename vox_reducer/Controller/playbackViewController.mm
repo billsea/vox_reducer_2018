@@ -123,7 +123,8 @@
 	GADBannerView *adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
 	adView.backgroundColor = [UIColor clearColor];
 	adView.rootViewController = self;
-	adView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+	adView.adUnitID = @"ca-app-pub-4669665110468399/5527082443";//Active id
+	//test id: @"ca-app-pub-3940256099942544/2934735716";
 	[self.view addSubview:adView]; // Request an ad without any additional targeting information.
 	[adView loadRequest:[GADRequest request]];
 	
