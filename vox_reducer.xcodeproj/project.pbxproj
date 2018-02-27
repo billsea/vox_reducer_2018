@@ -128,7 +128,6 @@
 		A9287A0F204246E5000F6638 /* vox_reducer_fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer_fe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
 		A97499242044D29500854FA7 /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = vox_reducer/lib/libcommon_dsp_combined.a; sourceTree = "<group>"; };
-		A9A41D8C204249180025DCD7 /* libcommon_dsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp.a; path = vox_reducer/lib/libcommon_dsp.a; sourceTree = "<group>"; };
 		A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon120.png; sourceTree = "<group>"; };
 		A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon58.png; sourceTree = "<group>"; };
 		A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon180.png; sourceTree = "<group>"; };
@@ -247,7 +246,6 @@
 				A9C2CF07204254F9006373B5 /* CoreMedia.framework */,
 				A9C2CF05204254DD006373B5 /* Foundation.framework */,
 				A9C2CF0220425175006373B5 /* MediaPlayer.framework */,
-				A9A41D8C204249180025DCD7 /* libcommon_dsp.a */,
 				C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */,
 				0024DB3A745A78FA12404943 /* libPods-vox_reducer_fe.a */,
 			);
