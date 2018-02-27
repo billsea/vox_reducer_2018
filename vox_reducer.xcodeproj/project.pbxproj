@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		49F97CEEA01A8013D9D544B8 /* libPods-vox_reducer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */; };
 		79A1D497C6C4B8028DC2517C /* libPods-vox_reducer_fe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0024DB3A745A78FA12404943 /* libPods-vox_reducer_fe.a */; };
+		A91B446220452593009EBFD9 /* vrlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = A91B446120452593009EBFD9 /* vrlaunch.png */; };
+		A91B446320452593009EBFD9 /* vrlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = A91B446120452593009EBFD9 /* vrlaunch.png */; };
 		A92879EE20424699000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
-		A92879F420424699000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
 		A92879F620424699000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
 		A92879F920424699000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A92879FC20424699000F6638 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A92879FB20424699000F6638 /* main.m */; };
@@ -18,7 +19,6 @@
 		A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
 		A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
-		A9287A0B204246E5000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
 		A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
 		A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
 		A974992A2044ED8E00854FA7 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = A97499292044ED8E00854FA7 /* ToDo */; };
@@ -118,10 +118,10 @@
 		64F0336C1FC474C309891F29 /* Pods-vox_reducer_fe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer_fe.release.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe.release.xcconfig"; sourceTree = "<group>"; };
 		8B0E2C1E16F7DE6D3CE99240 /* Pods-vox_reducer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer/Pods-vox_reducer.debug.xcconfig"; sourceTree = "<group>"; };
 		92673F0A0F19DFF0C989BBF7 /* Pods-vox_reducer_fe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer_fe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe.debug.xcconfig"; sourceTree = "<group>"; };
+		A91B446120452593009EBFD9 /* vrlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vrlaunch.png; sourceTree = "<group>"; };
 		A92879E920424699000F6638 /* vox_reducer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92879EC20424699000F6638 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A92879ED20424699000F6638 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		A92879F320424699000F6638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A92879F520424699000F6638 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92879F820424699000F6638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92879FA20424699000F6638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -285,7 +285,6 @@
 				A9C2CEFA20424ED9006373B5 /* Controller */,
 				A92879EC20424699000F6638 /* AppDelegate.h */,
 				A92879ED20424699000F6638 /* AppDelegate.mm */,
-				A92879F220424699000F6638 /* Main.storyboard */,
 				A92879F520424699000F6638 /* Assets.xcassets */,
 				A92879F720424699000F6638 /* LaunchScreen.storyboard */,
 				A92879FA20424699000F6638 /* Info.plist */,
@@ -308,6 +307,7 @@
 		A9ADC2182044B917001B5D63 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A91B446120452593009EBFD9 /* vrlaunch.png */,
 				A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */,
 				A9ADC21D2044B92D001B5D63 /* voxReducerIOSNewIcon80.png */,
 				A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */,
@@ -470,6 +470,7 @@
 			files = (
 				A9ADC2372044BAA9001B5D63 /* playerButtonsPlayOff.png in Resources */,
 				A92879F920424699000F6638 /* LaunchScreen.storyboard in Resources */,
+				A91B446220452593009EBFD9 /* vrlaunch.png in Resources */,
 				A9ADC2292044BA66001B5D63 /* bypassButton.png in Resources */,
 				A9ADC23E2044BABC001B5D63 /* brushedMetal.png in Resources */,
 				A9C2CF222042581F006373B5 /* TargetViewController.xib in Resources */,
@@ -479,7 +480,6 @@
 				A9ADC2542044BB2A001B5D63 /* KnobDisabled.png in Resources */,
 				A92879F620424699000F6638 /* Assets.xcassets in Resources */,
 				A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */,
-				A92879F420424699000F6638 /* Main.storyboard in Resources */,
 				A9ADC2262044B92D001B5D63 /* voxReducerIOSNewIcon80.png in Resources */,
 				A9ADC2222044B92D001B5D63 /* voxReducerIOSNewIcon180.png in Resources */,
 				A9ADC2592044BB57001B5D63 /* showSettings.png in Resources */,
@@ -514,7 +514,6 @@
 				A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */,
 				A9ADC24D2044BB2A001B5D63 /* KnobHighlighted@2x.png in Resources */,
 				A9ADC2552044BB2A001B5D63 /* KnobDisabled.png in Resources */,
-				A9287A0B204246E5000F6638 /* Main.storyboard in Resources */,
 				A9ADC2212044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */,
 				A9C2CF3120425830006373B5 /* PresetsViewController.xib in Resources */,
 				A9ADC2272044B92D001B5D63 /* voxReducerIOSNewIcon80.png in Resources */,
@@ -522,6 +521,7 @@
 				A9ADC25A2044BB57001B5D63 /* showSettings.png in Resources */,
 				A9ADC2362044BAA9001B5D63 /* playerButtonsPlayOn.png in Resources */,
 				A9C2CF3320425830006373B5 /* InfoViewController.xib in Resources */,
+				A91B446320452593009EBFD9 /* vrlaunch.png in Resources */,
 				A9ADC2572044BB2A001B5D63 /* KnobBackground.png in Resources */,
 				A9ADC23C2044BAA9001B5D63 /* playerButtonsPauseOff.png in Resources */,
 				A9ADC2512044BB2A001B5D63 /* Knob@2x.png in Resources */,
@@ -680,14 +680,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A92879F220424699000F6638 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A92879F320424699000F6638 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A92879F720424699000F6638 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
