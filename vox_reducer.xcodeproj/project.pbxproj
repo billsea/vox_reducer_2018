@@ -820,7 +820,7 @@
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.loudsoftware.VoxReducer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -847,7 +847,7 @@
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.loudsoftware.VoxReducer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -879,7 +879,7 @@
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer-fe";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.Vox-Reducer-FE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -911,7 +911,7 @@
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer-fe";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.Vox-Reducer-FE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
