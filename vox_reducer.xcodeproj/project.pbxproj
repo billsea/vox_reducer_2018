@@ -257,6 +257,7 @@
 		A92879E020424699000F6638 = {
 			isa = PBXGroup;
 			children = (
+				A97499292044ED8E00854FA7 /* ToDo */,
 				A92879EB20424699000F6638 /* vox_reducer */,
 				A92879EA20424699000F6638 /* Products */,
 				A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */,
@@ -290,7 +291,6 @@
 				A92879FA20424699000F6638 /* Info.plist */,
 				A92879FB20424699000F6638 /* main.m */,
 				A9C2CF44204259BA006373B5 /* PrefixHeader.pch */,
-				A97499292044ED8E00854FA7 /* ToDo */,
 			);
 			path = vox_reducer;
 			sourceTree = "<group>";
