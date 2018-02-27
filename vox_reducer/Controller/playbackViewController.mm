@@ -146,9 +146,9 @@
 
 - (GADRequest *)request {
 	GADRequest *request = [GADRequest request];
-	//Add device and simulatore id's used for testing
+	//device and simulator test ids
 	request.testDevices = @[@"4d24c3b28eb81a16d68fe0c414891c27", kGADSimulatorID];
-	return request;//thanks
+	return request;
 }
 - (void)showAdView {
 	//Interstitial ad view
