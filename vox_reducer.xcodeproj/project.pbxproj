@@ -21,7 +21,8 @@
 		A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
 		A9287A0B204246E5000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
-		A9A41D8E204249240025DCD7 /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A41D8C204249180025DCD7 /* libcommon_dsp.a */; };
+		A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
+		A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
 		A9ADC21E2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC21F2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */; };
@@ -108,7 +109,6 @@
 		A9C2CF3F204258A7006373B5 /* PresetStore.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF3A204258A7006373B5 /* PresetStore.mm */; };
 		A9C2CF4220425910006373B5 /* FileHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF4120425910006373B5 /* FileHelpers.mm */; };
 		A9C2CF4320425910006373B5 /* FileHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF4120425910006373B5 /* FileHelpers.mm */; };
-		A9C2CF4520425C4D006373B5 /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A41D8C204249180025DCD7 /* libcommon_dsp.a */; };
 		A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CEFD20424F24006373B5 /* playbackViewController.mm */; };
 		A9C2CF7020425EA1006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
 /* End PBXBuildFile section */
@@ -131,6 +131,7 @@
 		A92879FB20424699000F6638 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9287A0F204246E5000F6638 /* vox_reducer_fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer_fe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
+		A97499242044D29500854FA7 /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = vox_reducer/lib/libcommon_dsp_combined.a; sourceTree = "<group>"; };
 		A9A41D8C204249180025DCD7 /* libcommon_dsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp.a; path = vox_reducer/lib/libcommon_dsp.a; sourceTree = "<group>"; };
 		A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon120.png; sourceTree = "<group>"; };
 		A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon58.png; sourceTree = "<group>"; };
@@ -194,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */,
 				A9C2CF122042553E006373B5 /* CoreGraphics.framework in Frameworks */,
 				A9C2CF1020425536006373B5 /* UIKit.framework in Frameworks */,
 				A9C2CF0420425187006373B5 /* MediaPlayer.framework in Frameworks */,
@@ -202,7 +204,6 @@
 				A9C2CF0A20425500006373B5 /* AVFoundation.framework in Frameworks */,
 				A9C2CF08204254F9006373B5 /* CoreMedia.framework in Frameworks */,
 				A9C2CF06204254DD006373B5 /* Foundation.framework in Frameworks */,
-				A9A41D8E204249240025DCD7 /* libcommon_dsp.a in Frameworks */,
 				49F97CEEA01A8013D9D544B8 /* libPods-vox_reducer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C2CF4520425C4D006373B5 /* libcommon_dsp.a in Frameworks */,
+				A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */,
 				A9C2CF1E2042561C006373B5 /* Foundation.framework in Frameworks */,
 				A9C2CF1D20425615006373B5 /* CoreMedia.framework in Frameworks */,
 				A9C2CF1C2042560B006373B5 /* AVFoundation.framework in Frameworks */,
@@ -241,6 +242,7 @@
 		9E6FE7F1B0307EE8EA3FCC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A97499242044D29500854FA7 /* libcommon_dsp_combined.a */,
 				A9C2CF112042553D006373B5 /* CoreGraphics.framework */,
 				A9C2CF0F20425536006373B5 /* UIKit.framework */,
 				A9C2CF0D20425519006373B5 /* AudioToolbox.framework */,
@@ -830,6 +832,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -855,6 +858,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -885,6 +889,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer-fe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -915,6 +920,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/vox_reducer/lib",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducer-fe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

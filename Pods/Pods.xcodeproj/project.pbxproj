@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,15 +23,15 @@
 		7C7528997A9CAC26322096DF4B531D25 /* Pods-vox_reducer_fe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-vox_reducer_fe-dummy.m"; sourceTree = "<group>"; };
 		7F56FA8328B7103B2EA2C0F36A4F1655 /* Pods-vox_reducer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vox_reducer.release.xcconfig"; sourceTree = "<group>"; };
 		838B5BA18F0F56EFC353A5EBFB564533 /* Pods-vox_reducer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-vox_reducer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8541B74AC12457F6C20B2895CF17D921 /* libPods-vox_reducer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-vox_reducer.a"; path = "libPods-vox_reducer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8541B74AC12457F6C20B2895CF17D921 /* libPods-vox_reducer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vox_reducer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8790155D1817AC21CE6A62A143A68290 /* Pods-vox_reducer_fe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vox_reducer_fe-frameworks.sh"; sourceTree = "<group>"; };
 		8A2CB16F4BBB3C887EFCC2E2A9B42ADB /* Pods-vox_reducer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vox_reducer.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ACFF1E3FEE644275E01AE0360BF13C4F /* Pods-vox_reducer_fe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vox_reducer_fe.release.xcconfig"; sourceTree = "<group>"; };
 		BF661A4473C93E482E5ABA1A937CEB91 /* Pods-vox_reducer_fe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-vox_reducer_fe-acknowledgements.plist"; sourceTree = "<group>"; };
 		C4DB134CC50BEF35D33E9DFCFAD59F30 /* Pods-vox_reducer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vox_reducer-frameworks.sh"; sourceTree = "<group>"; };
 		CC31BB2309336ADF5C048A355AD3747A /* Pods-vox_reducer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-vox_reducer-dummy.m"; sourceTree = "<group>"; };
-		E21A4191B57D12F3FA55FEC24A87DA18 /* libPods-vox_reducer_fe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-vox_reducer_fe.a"; path = "libPods-vox_reducer_fe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E21A4191B57D12F3FA55FEC24A87DA18 /* libPods-vox_reducer_fe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vox_reducer_fe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87BBE855D70C2F87C02A1CCA30E262D /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,6 @@
 			children = (
 				953FD61A3CECC96530CB5CA297A086C1 /* Frameworks */,
 			);
-			name = "Google-Mobile-Ads-SDK";
 			path = "Google-Mobile-Ads-SDK";
 			sourceTree = "<group>";
 		};
@@ -245,6 +244,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
@@ -265,6 +265,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
@@ -346,6 +347,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
@@ -367,6 +369,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
