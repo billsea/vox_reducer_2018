@@ -10,6 +10,7 @@
 #import <CoreMedia/CoreMedia.h>
 //#import "AdViewController.h"
 #import "audioPlayback.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #define softwareMinimum 7.0
 
@@ -66,6 +67,8 @@
 	if ([version floatValue] < softwareMinimum)
 		[utility showAlertWithTitle:@"Error" andMessage:@"VoxReducer requires iOS 7.0 or higher" andVC:self];
 	
+	_playbackBarView.layer.cornerRadius = 5;
+	
 	#if defined(TARGET_ADS)
 		[self displayAdBanner];
 		NSLog(@"Ads version");
@@ -76,16 +79,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	// NSLog(@"playbackview loaded...");
-	
-	//    //add background image
-	//    UIImage *backgroundimg = [UIImage imageNamed: @"vrMobileBg.png"];
-	//    UIImageView *imageView = [[UIImageView alloc] initWithImage:
-	//    backgroundimg];
-	//    [self.view addSubview: imageView];
-	//    [self.view sendSubviewToBack:imageView];
-	//    [imageView release];
-	
 	// navigation bar
 	UIBarButtonItem *selectButton =
 	[[UIBarButtonItem alloc] initWithTitle:@"Select"
@@ -116,25 +109,25 @@
 	[_tableView reloadData];
 }
 
-
 - (void)viewDidUnload {
 	_fileLoadingBusy = nil;
 	_player = nil;
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
+#pragma mark Ads
 - (void)displayAdBanner {
-	//add bottom iAd banner
-	_playbackBarView.layer.cornerRadius = 5;
-	
+	//Display Google Ad banner
 	float bannerHeight = 50.0f;
-//	_bannerView = [[ADBannerView alloc]initWithFrame:
-//								 CGRectMake(0, 0, 320, bannerHeight)];
-//	// Optional to set background color to clear color
-//	[_bannerView setBackgroundColor:[UIColor clearColor]];
-//	_bannerView.delegate = self;
-//	[self.view addSubview: _bannerView];
 	
+	GADBannerView *adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+	adView.backgroundColor = [UIColor clearColor];
+	adView.rootViewController = self;
+	adView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+	[self.view addSubview:adView]; // Request an ad without any additional targeting information.
+	[adView loadRequest:[GADRequest request]];
+	
+	//adjust subviews
 	CGRect r = _headerWrapper.frame;
 	r.origin.y = bannerHeight;
 	_headerWrapper.frame = r;
@@ -147,6 +140,13 @@
 	r.origin.y = _playbackBarView.frame.origin.y + _playbackBarView.frame.size.height;
 	_tableView.frame = r;
 }
+
+- (void)showAdView {
+	//Interstitial ad view
+	//[self.navigationController pushViewController:adViewController animated:YES];
+}
+
+#pragma mark filters
 - (IBAction)showTarget:(id)sender {
   TargetViewController *targetViewController =
       [[TargetViewController alloc] init];
@@ -261,6 +261,7 @@
   [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+#pragma mark player transport actions
 - (IBAction)playAudio:(id)sender {
   // start playback
   [_player start];
@@ -333,12 +334,6 @@
   btnImage = [UIImage imageNamed:@"playerButtonsPauseOff.png"];
   [_playbackPause setImage:btnImage forState:0];
 
-}
-
-
-- (void)showAdView {
-	//Interstitial ad view
-	//[self.navigationController pushViewController:adViewController animated:YES];
 }
 
 - (void)activatePlayback:(NSNotification *)note {
@@ -432,16 +427,10 @@
   return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-//
-// numberOfSectionsInTableView:
-//
-// Return the number of sections for the table.
-//
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
 }
 
-// Returns the number of rows in a given section.
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
   return 4;
@@ -509,9 +498,7 @@
         whiteColor]; // [UIColor colorWithRed:1.0 green:1.0 blue:0.9 alpha:1.0];
     bottomLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize] - 2];
 
-    //
     // Create a background image view.
-    //
     cell.backgroundView = [[UIImageView alloc] init];
     cell.selectedBackgroundView = [[UIImageView alloc] init];
   } else {
