@@ -10,9 +10,9 @@
 //#import "audioPlayback.h"
 #import "TargetViewController.h"
 #import "PresetsViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-
-@interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate> 
+@interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate, GADBannerViewDelegate> 
 @property (weak, nonatomic) IBOutlet UIView *headerWrapper;
 @property(weak, nonatomic) IBOutlet UILabel *lblArtist;
 @property(weak, nonatomic) IBOutlet UIButton *onOff;

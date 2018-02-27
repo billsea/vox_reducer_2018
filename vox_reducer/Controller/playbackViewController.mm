@@ -10,7 +10,6 @@
 #import <CoreMedia/CoreMedia.h>
 //#import "AdViewController.h"
 #import "audioPlayback.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #define softwareMinimum 7.0
 
@@ -123,10 +122,13 @@
 	GADBannerView *adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
 	adView.backgroundColor = [UIColor clearColor];
 	adView.rootViewController = self;
+	adView.delegate = self;
 	adView.adUnitID = @"ca-app-pub-4669665110468399/5527082443";//Active id
 	//test id: @"ca-app-pub-3940256099942544/2934735716";
 	[self.view addSubview:adView]; // Request an ad without any additional targeting information.
-	[adView loadRequest:[GADRequest request]];
+	//adds test ads
+	[adView loadRequest:self.request];
+	
 	
 	//adjust subviews
 	CGRect r = _headerWrapper.frame;
@@ -142,6 +144,13 @@
 	_tableView.frame = r;
 }
 
+- (GADRequest *)request {
+	GADRequest *request = [GADRequest request];
+	// Make the request for a test ad. Put in an identifier for the simulator as well as any devices
+	// you want to receive test ads.
+	request.testDevices = @[@"4d24c3b28eb81a16d68fe0c414891c27", kGADSimulatorID];
+	return request;//thanks
+}
 - (void)showAdView {
 	//Interstitial ad view
 	//[self.navigationController pushViewController:adViewController animated:YES];
@@ -559,6 +568,40 @@
   default:
     break;
   }
+}
+
+#pragma mark AdMob delegates
+/// Tells the delegate an ad request loaded an ad.
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+	NSLog(@"adViewDidReceiveAd");
+}
+
+/// Tells the delegate an ad request failed.
+- (void)adView:(GADBannerView *)adView
+didFailToReceiveAdWithError:(GADRequestError *)error {
+	NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+/// Tells the delegate that a full-screen view will be presented in response
+/// to the user clicking on an ad.
+- (void)adViewWillPresentScreen:(GADBannerView *)adView {
+	NSLog(@"adViewWillPresentScreen");
+}
+
+/// Tells the delegate that the full-screen view will be dismissed.
+- (void)adViewWillDismissScreen:(GADBannerView *)adView {
+	NSLog(@"adViewWillDismissScreen");
+}
+
+/// Tells the delegate that the full-screen view has been dismissed.
+- (void)adViewDidDismissScreen:(GADBannerView *)adView {
+	NSLog(@"adViewDidDismissScreen");
+}
+
+/// Tells the delegate that a user click will open another app (such as
+/// the App Store), backgrounding the current app.
+- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
+	NSLog(@"adViewWillLeaveApplication");
 }
 
 @end
