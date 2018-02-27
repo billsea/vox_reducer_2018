@@ -21,6 +21,7 @@
 		A9287A0B204246E5000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
 		A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
 		A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
+		A974992A2044ED8E00854FA7 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = A97499292044ED8E00854FA7 /* ToDo */; };
 		A9ADC21E2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC21F2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */; };
@@ -128,6 +129,7 @@
 		A9287A0F204246E5000F6638 /* vox_reducer_fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer_fe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
 		A97499242044D29500854FA7 /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = vox_reducer/lib/libcommon_dsp_combined.a; sourceTree = "<group>"; };
+		A97499292044ED8E00854FA7 /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon120.png; sourceTree = "<group>"; };
 		A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon58.png; sourceTree = "<group>"; };
 		A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon180.png; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				A92879FA20424699000F6638 /* Info.plist */,
 				A92879FB20424699000F6638 /* main.m */,
 				A9C2CF44204259BA006373B5 /* PrefixHeader.pch */,
+				A97499292044ED8E00854FA7 /* ToDo */,
 			);
 			path = vox_reducer;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				A9ADC2292044BA66001B5D63 /* bypassButton.png in Resources */,
 				A9ADC23E2044BABC001B5D63 /* brushedMetal.png in Resources */,
 				A9C2CF222042581F006373B5 /* TargetViewController.xib in Resources */,
+				A974992A2044ED8E00854FA7 /* ToDo in Resources */,
 				A9C2CF0120424F24006373B5 /* playbackViewController.xib in Resources */,
 				A9ADC24C2044BB2A001B5D63 /* KnobHighlighted@2x.png in Resources */,
 				A9ADC2542044BB2A001B5D63 /* KnobDisabled.png in Resources */,

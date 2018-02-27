@@ -146,8 +146,7 @@
 
 - (GADRequest *)request {
 	GADRequest *request = [GADRequest request];
-	// Make the request for a test ad. Put in an identifier for the simulator as well as any devices
-	// you want to receive test ads.
+	//Add device and simulatore id's used for testing
 	request.testDevices = @[@"4d24c3b28eb81a16d68fe0c414891c27", kGADSimulatorID];
 	return request;//thanks
 }
