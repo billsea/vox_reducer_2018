@@ -10,12 +10,10 @@
 		49F97CEEA01A8013D9D544B8 /* libPods-vox_reducer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */; };
 		79A1D497C6C4B8028DC2517C /* libPods-vox_reducer_fe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0024DB3A745A78FA12404943 /* libPods-vox_reducer_fe.a */; };
 		A92879EE20424699000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
-		A92879F120424699000F6638 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879F020424699000F6638 /* ViewController.mm */; };
 		A92879F420424699000F6638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F220424699000F6638 /* Main.storyboard */; };
 		A92879F620424699000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
 		A92879F920424699000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A92879FC20424699000F6638 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A92879FB20424699000F6638 /* main.m */; };
-		A9287A04204246E5000F6638 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879F020424699000F6638 /* ViewController.mm */; };
 		A9287A05204246E5000F6638 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A92879FB20424699000F6638 /* main.m */; };
 		A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
 		A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
@@ -122,8 +120,6 @@
 		A92879E920424699000F6638 /* vox_reducer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92879EC20424699000F6638 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A92879ED20424699000F6638 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		A92879EF20424699000F6638 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A92879F020424699000F6638 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		A92879F320424699000F6638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A92879F520424699000F6638 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92879F820424699000F6638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -289,8 +285,6 @@
 				A9C2CEFA20424ED9006373B5 /* Controller */,
 				A92879EC20424699000F6638 /* AppDelegate.h */,
 				A92879ED20424699000F6638 /* AppDelegate.mm */,
-				A92879EF20424699000F6638 /* ViewController.h */,
-				A92879F020424699000F6638 /* ViewController.mm */,
 				A92879F220424699000F6638 /* Main.storyboard */,
 				A92879F520424699000F6638 /* Assets.xcassets */,
 				A92879F720424699000F6638 /* LaunchScreen.storyboard */,
@@ -650,7 +644,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C2CF2C20425830006373B5 /* InfoViewController.mm in Sources */,
-				A92879F120424699000F6638 /* ViewController.mm in Sources */,
 				A9C2CF3620425865006373B5 /* loudRotaryKnob.mm in Sources */,
 				A9C2CF242042581F006373B5 /* TargetViewController.mm in Sources */,
 				A9C2CF3C204258A7006373B5 /* Preset.mm in Sources */,
@@ -670,7 +663,6 @@
 			files = (
 				A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */,
 				A9C2CF3720425865006373B5 /* loudRotaryKnob.mm in Sources */,
-				A9287A04204246E5000F6638 /* ViewController.mm in Sources */,
 				A9C2CF2F20425830006373B5 /* PresetsViewController.mm in Sources */,
 				A9C2CF3D204258A7006373B5 /* Preset.mm in Sources */,
 				A9C2CF252042581F006373B5 /* TargetViewController.mm in Sources */,
