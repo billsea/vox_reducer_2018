@@ -147,7 +147,7 @@
 - (GADRequest *)request {
 	GADRequest *request = [GADRequest request];
 	//device and simulator test ids
-	request.testDevices = @[@"4d24c3b28eb81a16d68fe0c414891c27", kGADSimulatorID];
+	request.testDevices = @[@"device_id_here", kGADSimulatorID];
 	return request;
 }
 - (void)showAdView {
