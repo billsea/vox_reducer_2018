@@ -44,12 +44,12 @@
   [self.view sendSubviewToBack:imageView];
 
   // Set the title of the navigation item
-  [[self navigationItem] setTitle:_SenderName];
+	[[self navigationItem] setTitle:_senderName];
 
   // load default values here
   float currentValue = 0;
 
-  if ([_SenderName isEqual:@"Target"]) {
+	if ([_senderName isEqual:@"Target"]) {
     currentValue = [_player targetFrequency];
     [_labelHeading setText:@"Target Frequency (Hz)"];
     [_lowerFreqBound setText:@"100"];
@@ -61,7 +61,7 @@
     if (![_player getFilterState]) {
       [self showFilterAlert];
     }
-  } else if ([_SenderName isEqual:@"Width"]) {
+	} else if ([_senderName isEqual:@"Width"]) {
     currentValue = [_player targetBandwidth];
     [_labelHeading setText:@"Target Bandwidth (Hz)"];
     [_lowerFreqBound setText:@"50"];
@@ -73,7 +73,7 @@
     if (![_player getFilterState]) {
       [self showFilterAlert];
     }
-  } else if ([_SenderName isEqual:@"Intensity"]) {
+	} else if ([_senderName isEqual:@"Intensity"]) {
     currentValue = [_player reductionIntensity];
     currentValue = currentValue * 10;
     [_labelHeading setText:@"Reduction Intensity"];
@@ -154,7 +154,7 @@
   InfoViewController *infoViewController = [[InfoViewController alloc] init];
 
   // passes and sets type
-  [infoViewController setSenderName:_SenderName];
+	[infoViewController setSenderName:_senderName];
 
   // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:infoViewController
@@ -171,13 +171,13 @@
 - (IBAction)rotaryKnobDidChange {
   // NSLog(@"rotaryKnobDidChange called ...%@",SenderName);
 
-  if ([_SenderName isEqual:@"Target"]) {
+	if ([_senderName isEqual:@"Target"]) {
     _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
     [_player setTarget:_rotaryKnob.value];
-  } else if ([_SenderName isEqual:@"Width"]) {
+	} else if ([_senderName isEqual:@"Width"]) {
     _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
     [_player setTargetWidth:_rotaryKnob.value];
-  } else if ([_SenderName isEqual:@"Intensity"]) {
+	} else if ([_senderName isEqual:@"Intensity"]) {
     _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
     [_player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
   }
@@ -190,15 +190,15 @@
 - (void)decrementKnobValue {
   if (_rotaryKnob.value > _rotaryKnob.minimumValue) {
 
-    if ([_SenderName isEqual:@"Target"]) {
+		if ([_senderName isEqual:@"Target"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
       [_player setTarget:_rotaryKnob.value];
-    } else if ([_SenderName isEqual:@"Width"]) {
+		} else if ([_senderName isEqual:@"Width"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
       [_player setTargetWidth:_rotaryKnob.value];
-    } else if ([_SenderName isEqual:@"Intensity"]) {
+		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 0.1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
       [_player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
@@ -213,15 +213,15 @@
 - (void)incrementKnobValue {
   if (_rotaryKnob.value < _rotaryKnob.maximumValue) {
 
-    if ([_SenderName isEqual:@"Target"]) {
+		if ([_senderName isEqual:@"Target"]) {
       _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
       [_player setTarget:_rotaryKnob.value];
-    } else if ([_SenderName isEqual:@"Width"]) {
+		} else if ([_senderName isEqual:@"Width"]) {
       _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
       [_player setTargetWidth:_rotaryKnob.value];
-    } else if ([_SenderName isEqual:@"Intensity"]) {
+		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value + 0.1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
       [_player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];

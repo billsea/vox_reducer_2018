@@ -13,7 +13,7 @@
 
 @interface TargetViewController
     : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
-@property(nonatomic, retain) NSString *SenderName;
+@property(nonatomic, retain) NSString *senderName;
 @property(nonatomic, retain) audioPlayback *player;
 @property(nonatomic, retain) IBOutlet UILabel *label;
 @property(nonatomic, retain) IBOutlet UILabel *labelHeading;

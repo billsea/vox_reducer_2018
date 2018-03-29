@@ -68,6 +68,7 @@
 		A9ADC25A2044BB57001B5D63 /* showSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2582044BB57001B5D63 /* showSettings.png */; };
 		A9ADC25C2044BB82001B5D63 /* knobAlt.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC25B2044BB81001B5D63 /* knobAlt.png */; };
 		A9ADC25D2044BB82001B5D63 /* knobAlt.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC25B2044BB81001B5D63 /* knobAlt.png */; };
+		A9B5405D206D9C5900D4BBED /* vox_reducerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B5405C206D9C5900D4BBED /* vox_reducerTests.m */; };
 		A9C2CF0020424F24006373B5 /* playbackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CEFD20424F24006373B5 /* playbackViewController.mm */; };
 		A9C2CF0120424F24006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
 		A9C2CF0320425175006373B5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C2CF0220425175006373B5 /* MediaPlayer.framework */; };
@@ -112,6 +113,16 @@
 		A9C2CF7020425EA1006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A9B5405F206D9C5900D4BBED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A92879E120424699000F6638 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A92879E820424699000F6638;
+			remoteInfo = vox_reducer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0024DB3A745A78FA12404943 /* libPods-vox_reducer_fe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vox_reducer_fe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA3940540DCDAE865F4D3E /* Pods-vox_reducer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer.release.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer/Pods-vox_reducer.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +164,9 @@
 		A9ADC2472044BB2A001B5D63 /* KnobBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KnobBackground.png; sourceTree = "<group>"; };
 		A9ADC2582044BB57001B5D63 /* showSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showSettings.png; sourceTree = "<group>"; };
 		A9ADC25B2044BB81001B5D63 /* knobAlt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knobAlt.png; sourceTree = "<group>"; };
+		A9B5405A206D9C5900D4BBED /* vox_reducerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vox_reducerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B5405C206D9C5900D4BBED /* vox_reducerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vox_reducerTests.m; sourceTree = "<group>"; };
+		A9B5405E206D9C5900D4BBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C2CEFD20424F24006373B5 /* playbackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = playbackViewController.mm; sourceTree = "<group>"; };
 		A9C2CEFE20424F24006373B5 /* playbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = playbackViewController.xib; sourceTree = "<group>"; };
 		A9C2CEFF20424F24006373B5 /* playbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playbackViewController.h; sourceTree = "<group>"; };
@@ -222,6 +236,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9B54057206D9C5900D4BBED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -259,6 +280,7 @@
 			children = (
 				A97499292044ED8E00854FA7 /* ToDo */,
 				A92879EB20424699000F6638 /* vox_reducer */,
+				A9B5405B206D9C5900D4BBED /* vox_reducerTests */,
 				A92879EA20424699000F6638 /* Products */,
 				A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */,
 				2C4CCF32D900E925AE2C85DE /* Pods */,
@@ -271,6 +293,7 @@
 			children = (
 				A92879E920424699000F6638 /* vox_reducer.app */,
 				A9287A0F204246E5000F6638 /* vox_reducer_fe.app */,
+				A9B5405A206D9C5900D4BBED /* vox_reducerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,6 +356,15 @@
 				A9ADC25B2044BB81001B5D63 /* knobAlt.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		A9B5405B206D9C5900D4BBED /* vox_reducerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9B5405C206D9C5900D4BBED /* vox_reducerTests.m */,
+				A9B5405E206D9C5900D4BBED /* Info.plist */,
+			);
+			path = vox_reducerTests;
 			sourceTree = "<group>";
 		};
 		A9C2CEFA20424ED9006373B5 /* Controller */ = {
@@ -426,6 +458,24 @@
 			productReference = A9287A0F204246E5000F6638 /* vox_reducer_fe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A9B54059206D9C5900D4BBED /* vox_reducerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9B54063206D9C5900D4BBED /* Build configuration list for PBXNativeTarget "vox_reducerTests" */;
+			buildPhases = (
+				A9B54056206D9C5900D4BBED /* Sources */,
+				A9B54057206D9C5900D4BBED /* Frameworks */,
+				A9B54058206D9C5900D4BBED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9B54060206D9C5900D4BBED /* PBXTargetDependency */,
+			);
+			name = vox_reducerTests;
+			productName = vox_reducerTests;
+			productReference = A9B5405A206D9C5900D4BBED /* vox_reducerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -441,6 +491,11 @@
 					};
 					A9287A02204246E5000F6638 = {
 						ProvisioningStyle = Automatic;
+					};
+					A9B54059206D9C5900D4BBED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A92879E820424699000F6638;
 					};
 				};
 			};
@@ -459,6 +514,7 @@
 			targets = (
 				A92879E820424699000F6638 /* vox_reducer */,
 				A9287A02204246E5000F6638 /* vox_reducer_fe */,
+				A9B54059206D9C5900D4BBED /* vox_reducerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -536,6 +592,13 @@
 				A9C2CF232042581F006373B5 /* TargetViewController.xib in Resources */,
 				A9ADC23A2044BAA9001B5D63 /* playerButtonsStopOff.png in Resources */,
 				A9ADC2322044BAA9001B5D63 /* playerButtonsStopOn.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9B54058206D9C5900D4BBED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,7 +740,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9B54056206D9C5900D4BBED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9B5405D206D9C5900D4BBED /* vox_reducerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9B54060206D9C5900D4BBED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A92879E820424699000F6638 /* vox_reducer */;
+			targetProxy = A9B5405F206D9C5900D4BBED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A92879F720424699000F6638 /* LaunchScreen.storyboard */ = {
@@ -917,6 +996,39 @@
 			};
 			name = Release;
 		};
+		A9B54061206D9C5900D4BBED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZGJ2UYWJY;
+				INFOPLIST_FILE = vox_reducerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vox_reducer.app/vox_reducer";
+			};
+			name = Debug;
+		};
+		A9B54062206D9C5900D4BBED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZGJ2UYWJY;
+				INFOPLIST_FILE = vox_reducerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.loudsoftware.vox-reducerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vox_reducer.app/vox_reducer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -943,6 +1055,15 @@
 			buildConfigurations = (
 				A9287A0D204246E5000F6638 /* Debug */,
 				A9287A0E204246E5000F6638 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9B54063206D9C5900D4BBED /* Build configuration list for PBXNativeTarget "vox_reducerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9B54061206D9C5900D4BBED /* Debug */,
+				A9B54062206D9C5900D4BBED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
