@@ -10,6 +10,7 @@
 #import "TargetViewController.h"
 #import "PresetsViewController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "FreqSpectrumView.h"
 
 @interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate, GADBannerViewDelegate> 
 @property (weak, nonatomic) IBOutlet UIView *headerWrapper;
@@ -26,6 +27,7 @@
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(weak, nonatomic) IBOutlet UIView *playbackBarView;
 @property(weak, nonatomic) IBOutlet UIButton *filterButton;
+@property (weak, nonatomic) IBOutlet FreqSpectrumView *spectrumView;
 
 - (IBAction)showMusic:(id)sender;
 - (IBAction)playAudio:(id)sender;

@@ -28,6 +28,26 @@
     // allocate the audio player
     _player = [[audioPlayback alloc] init];
     [_player initializeAudio];
+		
+		//Callback for spectrum view display refresh
+		playbackViewController __weak *weakSelf = self;
+		
+		weakSelf.spectrumView.showFrequencyLabels = YES;
+		//weakSelf.spectrumView.selectedFrequency = 1000;
+		
+		_player.frequencyCallback = ^(Float32* freqData,UInt32 size){
+			int length = (int)size;
+			NSMutableArray *freqValues = [NSMutableArray new];
+			
+			for (UInt32 i = 0; i < length; i++) {
+				[freqValues addObject:@(freqData[i])];
+			}
+			
+			//Validate 256 length
+			if (freqValues.count == 256) {
+				weakSelf.spectrumView.frequencyValues = freqValues;//TODO:fix warning
+			}
+		};
 
     // notification for when audio data is finished loading
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -128,7 +148,6 @@
 	[self.view addSubview:adView]; // Request an ad without any additional targeting information.
 	//adds test ads
 	[adView loadRequest:self.request];
-	
 	
 	//adjust subviews
 	CGRect r = _headerWrapper.frame;
