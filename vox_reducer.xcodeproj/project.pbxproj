@@ -24,10 +24,10 @@
 		A92F22D1206F197700E4E80E /* FrequencySpectrumBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */; };
 		A92F22D2206F197700E4E80E /* FrequencySpectrumBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */; };
 		A974992A2044ED8E00854FA7 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = A97499292044ED8E00854FA7 /* ToDo */; };
-		A98410C0206F21D800F11551 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E568D7206F1FC600AFECCB /* libcommon_dsp_combined.a */; };
-		A98410C1206F230200F11551 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E568D7206F1FC600AFECCB /* libcommon_dsp_combined.a */; };
 		A98410C3206F235A00F11551 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98410C2206F235A00F11551 /* Accelerate.framework */; };
 		A98410C4206F235F00F11551 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98410C2206F235A00F11551 /* Accelerate.framework */; };
+		A99E0816207080EA0035B091 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A99E081320707DC00035B091 /* libcommon_dsp_combined.a */; };
+		A99E0817207080F50035B091 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A99E081320707DC00035B091 /* libcommon_dsp_combined.a */; };
 		A9ADC21E2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC21F2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */; };
@@ -149,9 +149,9 @@
 		A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencySpectrumBarView.m; sourceTree = "<group>"; };
 		A92F22CD206F197700E4E80E /* FreqSpectrumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreqSpectrumView.h; sourceTree = "<group>"; };
 		A92F22CE206F197700E4E80E /* FrequencySpectrumBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencySpectrumBarView.h; sourceTree = "<group>"; };
-		A97499242044D29500854FA7 /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = vox_reducer/lib/libcommon_dsp_combined.a; sourceTree = "<group>"; };
 		A97499292044ED8E00854FA7 /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		A98410C2206F235A00F11551 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A99E081320707DC00035B091 /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = ../../Static_Libraries/common_dsp/Build/Products/libcommon_dsp_combined.a; sourceTree = "<group>"; };
 		A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon120.png; sourceTree = "<group>"; };
 		A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon58.png; sourceTree = "<group>"; };
 		A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon180.png; sourceTree = "<group>"; };
@@ -209,7 +209,6 @@
 		A9C2CF4020425910006373B5 /* FileHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelpers.h; sourceTree = "<group>"; };
 		A9C2CF4120425910006373B5 /* FileHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelpers.mm; sourceTree = "<group>"; };
 		A9C2CF44204259BA006373B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		A9E568D7206F1FC600AFECCB /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = ../../Static_Libraries/common_dsp/Build/Products/libcommon_dsp_combined.a; sourceTree = "<group>"; };
 		C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vox_reducer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,8 +217,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99E0817207080F50035B091 /* libcommon_dsp_combined.a in Frameworks */,
 				A98410C3206F235A00F11551 /* Accelerate.framework in Frameworks */,
-				A98410C0206F21D800F11551 /* libcommon_dsp_combined.a in Frameworks */,
 				A9C2CF122042553E006373B5 /* CoreGraphics.framework in Frameworks */,
 				A9C2CF1020425536006373B5 /* UIKit.framework in Frameworks */,
 				A9C2CF0420425187006373B5 /* MediaPlayer.framework in Frameworks */,
@@ -236,8 +235,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99E0816207080EA0035B091 /* libcommon_dsp_combined.a in Frameworks */,
 				A98410C4206F235F00F11551 /* Accelerate.framework in Frameworks */,
-				A98410C1206F230200F11551 /* libcommon_dsp_combined.a in Frameworks */,
 				A9C2CF1E2042561C006373B5 /* Foundation.framework in Frameworks */,
 				A9C2CF1D20425615006373B5 /* CoreMedia.framework in Frameworks */,
 				A9C2CF1C2042560B006373B5 /* AVFoundation.framework in Frameworks */,
@@ -274,9 +273,8 @@
 		9E6FE7F1B0307EE8EA3FCC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A99E081320707DC00035B091 /* libcommon_dsp_combined.a */,
 				A98410C2206F235A00F11551 /* Accelerate.framework */,
-				A97499242044D29500854FA7 /* libcommon_dsp_combined.a */,
-				A9E568D7206F1FC600AFECCB /* libcommon_dsp_combined.a */,
 				A9C2CF112042553D006373B5 /* CoreGraphics.framework */,
 				A9C2CF0F20425536006373B5 /* UIKit.framework */,
 				A9C2CF0D20425519006373B5 /* AudioToolbox.framework */,

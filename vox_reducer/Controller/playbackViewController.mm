@@ -43,9 +43,12 @@
 				[freqValues addObject:@(freqData[i])];
 			}
 			
+			//TODO: UI main thread bogged down, Put something on background thread?
+			//ALSO: App is crashing after a few minutes...check for memory leak
+			
 			//Validate 256 length
 			if (freqValues.count == 256) {
-				weakSelf.spectrumView.frequencyValues = freqValues;//TODO:fix warning
+				weakSelf.spectrumView.frequencyValues = freqValues;
 			}
 		};
 
