@@ -19,10 +19,10 @@
 		A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
 		A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
-		A92F22CF206F197700E4E80E /* FreqSpectrumView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CB206F197600E4E80E /* FreqSpectrumView.m */; };
-		A92F22D0206F197700E4E80E /* FreqSpectrumView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CB206F197600E4E80E /* FreqSpectrumView.m */; };
-		A92F22D1206F197700E4E80E /* FrequencySpectrumBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */; };
-		A92F22D2206F197700E4E80E /* FrequencySpectrumBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */; };
+		A92F22CF206F197700E4E80E /* FreqSpectrumView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CB206F197600E4E80E /* FreqSpectrumView.mm */; };
+		A92F22D0206F197700E4E80E /* FreqSpectrumView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CB206F197600E4E80E /* FreqSpectrumView.mm */; };
+		A92F22D1206F197700E4E80E /* FrequencySpectrumBarView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.mm */; };
+		A92F22D2206F197700E4E80E /* FrequencySpectrumBarView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.mm */; };
 		A974992A2044ED8E00854FA7 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = A97499292044ED8E00854FA7 /* ToDo */; };
 		A98410C3206F235A00F11551 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98410C2206F235A00F11551 /* Accelerate.framework */; };
 		A98410C4206F235F00F11551 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98410C2206F235A00F11551 /* Accelerate.framework */; };
@@ -145,8 +145,8 @@
 		A92879FB20424699000F6638 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9287A0F204246E5000F6638 /* vox_reducer_fe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer_fe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
-		A92F22CB206F197600E4E80E /* FreqSpectrumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreqSpectrumView.m; sourceTree = "<group>"; };
-		A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencySpectrumBarView.m; sourceTree = "<group>"; };
+		A92F22CB206F197600E4E80E /* FreqSpectrumView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FreqSpectrumView.mm; sourceTree = "<group>"; };
+		A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FrequencySpectrumBarView.mm; sourceTree = "<group>"; };
 		A92F22CD206F197700E4E80E /* FreqSpectrumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreqSpectrumView.h; sourceTree = "<group>"; };
 		A92F22CE206F197700E4E80E /* FrequencySpectrumBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencySpectrumBarView.h; sourceTree = "<group>"; };
 		A97499292044ED8E00854FA7 /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
@@ -411,9 +411,9 @@
 			isa = PBXGroup;
 			children = (
 				A92F22CD206F197700E4E80E /* FreqSpectrumView.h */,
-				A92F22CB206F197600E4E80E /* FreqSpectrumView.m */,
+				A92F22CB206F197600E4E80E /* FreqSpectrumView.mm */,
 				A92F22CE206F197700E4E80E /* FrequencySpectrumBarView.h */,
-				A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.m */,
+				A92F22CC206F197600E4E80E /* FrequencySpectrumBarView.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -727,7 +727,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C2CF2C20425830006373B5 /* InfoViewController.mm in Sources */,
-				A92F22CF206F197700E4E80E /* FreqSpectrumView.m in Sources */,
+				A92F22CF206F197700E4E80E /* FreqSpectrumView.mm in Sources */,
 				A9C2CF3620425865006373B5 /* loudRotaryKnob.mm in Sources */,
 				A9C2CF242042581F006373B5 /* TargetViewController.mm in Sources */,
 				A9C2CF3C204258A7006373B5 /* Preset.mm in Sources */,
@@ -735,7 +735,7 @@
 				A92879EE20424699000F6638 /* AppDelegate.mm in Sources */,
 				A9C2CF3E204258A7006373B5 /* PresetStore.mm in Sources */,
 				A9C2CF2E20425830006373B5 /* PresetsViewController.mm in Sources */,
-				A92F22D1206F197700E4E80E /* FrequencySpectrumBarView.m in Sources */,
+				A92F22D1206F197700E4E80E /* FrequencySpectrumBarView.mm in Sources */,
 				A9C2CF4220425910006373B5 /* FileHelpers.mm in Sources */,
 				A9C2CF162042556E006373B5 /* utility.mm in Sources */,
 				A9C2CF0020424F24006373B5 /* playbackViewController.mm in Sources */,
@@ -747,7 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */,
-				A92F22D0206F197700E4E80E /* FreqSpectrumView.m in Sources */,
+				A92F22D0206F197700E4E80E /* FreqSpectrumView.mm in Sources */,
 				A9C2CF3720425865006373B5 /* loudRotaryKnob.mm in Sources */,
 				A9C2CF2F20425830006373B5 /* PresetsViewController.mm in Sources */,
 				A9C2CF3D204258A7006373B5 /* Preset.mm in Sources */,
@@ -755,7 +755,7 @@
 				A9C2CF2D20425830006373B5 /* InfoViewController.mm in Sources */,
 				A9287A05204246E5000F6638 /* main.m in Sources */,
 				A9C2CF172042556E006373B5 /* utility.mm in Sources */,
-				A92F22D2206F197700E4E80E /* FrequencySpectrumBarView.m in Sources */,
+				A92F22D2206F197700E4E80E /* FrequencySpectrumBarView.mm in Sources */,
 				A9C2CF3F204258A7006373B5 /* PresetStore.mm in Sources */,
 				A9C2CF4320425910006373B5 /* FileHelpers.mm in Sources */,
 				A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */,

@@ -28,29 +28,6 @@
     // allocate the audio player
     _player = [[audioPlayback alloc] init];
     [_player initializeAudio];
-		
-		//Callback for spectrum view display refresh
-		playbackViewController __weak *weakSelf = self;
-		
-		weakSelf.spectrumView.showFrequencyLabels = YES;
-		//weakSelf.spectrumView.selectedFrequency = 1000;
-		
-		_player.frequencyCallback = ^(Float32* freqData,UInt32 size){
-			int length = (int)size;
-			NSMutableArray *freqValues = [NSMutableArray new];
-			
-			for (UInt32 i = 0; i < length; i++) {
-				[freqValues addObject:@(freqData[i])];
-			}
-			
-			//TODO: UI main thread bogged down, Put something on background thread?
-			//ALSO: App is crashing after a few minutes...check for memory leak
-			
-			//Validate 256 length
-			if (freqValues.count == 256) {
-				weakSelf.spectrumView.frequencyValues = freqValues;
-			}
-		};
 
     // notification for when audio data is finished loading
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -101,6 +78,38 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+	_spectrumView.showFrequencyLabels = NO;
+	
+	//Callback for spectrum view display refresh
+	playbackViewController __weak *weakSelf = self;
+	
+	_player.frequencyCallback = ^(Float32* freqData,UInt32 size){
+		int length = (int)size;
+		NSMutableArray *freqValues = [NSMutableArray new];
+		
+		for (UInt32 i = 0; i < length; i++) {
+			[freqValues addObject:@(freqData[i])];
+		}
+		
+		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+		dispatch_async(queue, ^{
+			// Perform async operation
+			float freq = weakSelf.player.targetFrequency;
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				// Update UI
+				weakSelf.spectrumView.selectedFrequency = freq;
+			});
+		});
+		
+		//TODO: UI main thread bogged down, Put something on background thread?
+		//ALSO: App is crashing after a few minutes...check for memory leak
+		
+		//Validate 256 length
+		if (freqValues.count == 256) {
+			weakSelf.spectrumView.frequencyValues = freqValues;
+		}
+	};
+	
 	// navigation bar
 	UIBarButtonItem *selectButton =
 	[[UIBarButtonItem alloc] initWithTitle:@"Select"

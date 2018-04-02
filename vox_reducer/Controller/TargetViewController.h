@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "FreqSpectrumView.h"
 
 @class audioPlayback;
 @class loudRotaryKnob;
@@ -21,6 +22,7 @@
 @property(nonatomic, retain) IBOutlet UILabel *upperFreqBound;
 @property(nonatomic, retain) IBOutlet loudRotaryKnob *rotaryKnob;
 @property(nonatomic, retain) NSTimer *scanTimer;
+@property (weak, nonatomic) IBOutlet FreqSpectrumView *spectrumView;
 
 - (IBAction)rotaryKnobDidChange;
 - (IBAction)incrementNudge;

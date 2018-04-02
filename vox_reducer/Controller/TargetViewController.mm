@@ -20,11 +20,14 @@
                bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    // Custom initialization
+
   }
   return self;
 }
 
+- (void)setPlayer:(audioPlayback *)player {
+	_player = player;
+}
 - (void)didReceiveMemoryWarning {
   // Releases the view if it doesn't have a superview.
   [super didReceiveMemoryWarning];
@@ -37,6 +40,38 @@
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
+	_spectrumView.showFrequencyLabels = YES;
+
+	//Callback for spectrum view display refresh
+	TargetViewController __weak *weakSelf = self;
+	
+	_player.frequencyCallback = ^(Float32* freqData,UInt32 size){
+		int length = (int)size;
+		NSMutableArray *freqValues = [NSMutableArray new];
+		
+		for (UInt32 i = 0; i < length; i++) {
+			[freqValues addObject:@(freqData[i])];
+		}
+		
+		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+		dispatch_async(queue, ^{
+			// Perform async operation
+			float freq = weakSelf.player.targetFrequency;
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				// Update UI
+				weakSelf.spectrumView.selectedFrequency = freq;
+			});
+		});
+		
+		//TODO: UI main thread bogged down, Put something on background thread?
+		//ALSO: App is crashing after a few minutes...check for memory leak
+		
+		//Validate 256 length
+		if (freqValues.count == 256) {
+			weakSelf.spectrumView.frequencyValues = freqValues;
+		}
+	};
+	
   // add background image
   UIImage *backgroundimg = [UIImage imageNamed:@"vrMobileBg.png"];
   UIImageView *imageView = [[UIImageView alloc] initWithImage:backgroundimg];
@@ -99,7 +134,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
+	
   _rotaryKnob.defaultValue = _rotaryKnob.value;
   _rotaryKnob.resetsToDefault = YES;
   _rotaryKnob.backgroundColor = [UIColor clearColor];

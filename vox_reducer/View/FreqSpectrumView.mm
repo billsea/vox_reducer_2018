@@ -53,11 +53,13 @@
 				float padding = 5.0f;
 				UILabel* fLabel = [[UILabel alloc] initWithFrame:CGRectMake(barWidth*i, self.frame.size.height + padding, labelWidth, labelHeight)];
 				fLabel.text = [NSString stringWithFormat:@"%d",i * _barBandwidth];
+				fLabel.textColor = [UIColor whiteColor];
 				[self addSubview:fLabel];
 				
 				UILabel* axisLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width - labelWidth, self.frame.size.height + padding, labelWidth, labelHeight)];
 				axisLabel.text = @"Hz";
 				[axisLabel setTextAlignment:NSTextAlignmentRight];
+				axisLabel.textColor = [UIColor whiteColor];
 				[self addSubview: axisLabel];
 			}
 		}
