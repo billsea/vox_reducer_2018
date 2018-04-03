@@ -164,12 +164,6 @@
   [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:
-    (UIInterfaceOrientation)interfaceOrientation {
-  // Return YES for supported orientations
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)showFilterAlert {
   NSString *message_title = @"Filters Disabled";
   NSString *message = @"Target and width filtering is currently disabled. To "
