@@ -41,7 +41,8 @@
   [super viewWillAppear:animated];
 
 	_spectrumView.showFrequencyLabels = YES;
-
+	_spectrumView.showSelectedBandwidth = YES;
+	
 	//Callback for spectrum view display refresh
 	TargetViewController __weak *weakSelf = self;
 	
@@ -57,9 +58,11 @@
 		dispatch_async(queue, ^{
 			// Perform async operation
 			float freq = weakSelf.player.targetFrequency;
+			float effectiveBandwidth = weakSelf.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;
+				weakSelf.spectrumView.selectedBandwidth = effectiveBandwidth;
 			});
 		});
 		
@@ -86,32 +89,32 @@
 
 	if ([_senderName isEqual:@"Target"]) {
     currentValue = [_player targetFrequency];
-    [_labelHeading setText:@"Target Frequency (Hz)"];
+		[_labelHeading setText:@"Target Frequency:"];
     [_lowerFreqBound setText:@"100"];
     [_upperFreqBound setText:@"3K"];
     minKnobValue = 100;
     maxKnobValue = 3000;
     scanTimeInterval = 0.005;
-    _label.text = [NSString stringWithFormat:@"%.0f", currentValue];
+    _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
     if (![_player getFilterState]) {
       [self showFilterAlert];
     }
 	} else if ([_senderName isEqual:@"Width"]) {
     currentValue = [_player targetBandwidth];
-    [_labelHeading setText:@"Target Bandwidth (Hz)"];
+		[_labelHeading setText:@"Target Bandwidth:"];
     [_lowerFreqBound setText:@"50"];
     [_upperFreqBound setText:@"5K"];
     minKnobValue = 50;
     maxKnobValue = 5000;
     scanTimeInterval = 0.005;
-    _label.text = [NSString stringWithFormat:@"%.0f", currentValue];
+    _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
     if (![_player getFilterState]) {
       [self showFilterAlert];
     }
 	} else if ([_senderName isEqual:@"Intensity"]) {
     currentValue = [_player reductionIntensity];
     currentValue = currentValue * 10;
-    [_labelHeading setText:@"Reduction Intensity"];
+		[_labelHeading setText:@"Reduction Intensity:"];
     [_lowerFreqBound setText:@"0"];
     [_upperFreqBound setText:@"10"];
     minKnobValue = 0;
@@ -201,10 +204,10 @@
   // NSLog(@"rotaryKnobDidChange called ...%@",SenderName);
 
 	if ([_senderName isEqual:@"Target"]) {
-    _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
+    _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
     [_player setTarget:_rotaryKnob.value];
 	} else if ([_senderName isEqual:@"Width"]) {
-    _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
+    _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
     [_player setTargetWidth:_rotaryKnob.value];
 	} else if ([_senderName isEqual:@"Intensity"]) {
     _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
@@ -221,11 +224,11 @@
 
 		if ([_senderName isEqual:@"Target"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
-      _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
+      _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_player setTarget:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Width"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
-      _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
+      _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_player setTargetWidth:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 0.1 animated:YES];
@@ -243,11 +246,11 @@
   if (_rotaryKnob.value < _rotaryKnob.maximumValue) {
 
 		if ([_senderName isEqual:@"Target"]) {
-      _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
+      _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
       [_player setTarget:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Width"]) {
-      _label.text = [NSString stringWithFormat:@"%.0f", _rotaryKnob.value];
+      _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
       [_player setTargetWidth:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Intensity"]) {

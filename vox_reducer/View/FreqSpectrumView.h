@@ -15,5 +15,7 @@
 @property(nonatomic)NSMutableArray* barViews;
 @property(nonatomic)NSMutableArray* customBarViews;
 @property(nonatomic)bool showFrequencyLabels;
+@property(nonatomic)bool showSelectedBandwidth;
 @property(nonatomic)float selectedFrequency;
+@property(nonatomic)float selectedBandwidth;
 @end

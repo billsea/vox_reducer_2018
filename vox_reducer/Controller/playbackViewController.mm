@@ -79,6 +79,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	_spectrumView.showFrequencyLabels = NO;
+	_spectrumView.showSelectedBandwidth = NO;
 	
 	//Callback for spectrum view display refresh
 	playbackViewController __weak *weakSelf = self;
@@ -95,9 +96,11 @@
 		dispatch_async(queue, ^{
 			// Perform async operation
 			float freq = weakSelf.player.targetFrequency;
+			float effectiveBandwidth = weakSelf.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;
+				weakSelf.spectrumView.selectedBandwidth = effectiveBandwidth;
 			});
 		});
 		

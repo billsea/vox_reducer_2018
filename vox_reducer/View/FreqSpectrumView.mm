@@ -74,6 +74,16 @@
 	float adjustedHighlightFreq = _selectedFrequency + 35;//just a tweak
 	for(int i = 0;i < _customBarViews.count; i++){
 		FrequencySpectrumBarView* barView = [_customBarViews objectAtIndex:i];
+		
+		//update effective bandwith display
+		float variance = _selectedBandwidth/2;
+		if((i*_barBandwidth >= (_selectedFrequency - variance))&& (i*_barBandwidth <= (_selectedFrequency + variance)) && _showSelectedBandwidth) {
+			barView.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.1];
+		} else {
+			barView.backgroundColor = [UIColor clearColor];
+		}
+		
+		
 		if (_frequencyValues.count > i) {
 			if(i<_customBarViews.count)
 				barView.isHighlightedBand = (adjustedHighlightFreq > i * _barBandwidth && adjustedHighlightFreq < (i + 1) * _barBandwidth) ? YES : NO;//determine highlighted band from "target" setting
