@@ -8,8 +8,6 @@
 
 #import "playbackViewController.h"
 #import <CoreMedia/CoreMedia.h>
-//#import "AdViewController.h"
-#import "audioPlayback.h"
 
 #define softwareMinimum 7.0
 
@@ -18,6 +16,16 @@
 @end
 
 @implementation playbackViewController
+
++ (instancetype)sharedInstance
+{
+	static playbackViewController *sharedInstance = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		sharedInstance = [[playbackViewController alloc] init];
+	});
+	return sharedInstance;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil {
@@ -111,6 +119,7 @@
 		if (freqValues.count == 256) {
 			weakSelf.spectrumView.frequencyValues = freqValues;
 		}
+		
 	};
 	
 	// navigation bar
@@ -193,10 +202,7 @@
 - (IBAction)showTarget:(id)sender {
   TargetViewController *targetViewController =
       [[TargetViewController alloc] init];
-
-  // passes and sets the audioPlayer object in the targetViewController
-  [targetViewController setPlayer:_player];
-
+	
   // passes and sets type
   [targetViewController setSenderName:@"Target"];
 
@@ -210,9 +216,6 @@
   TargetViewController *targetViewController =
       [[TargetViewController alloc] init];
 
-  // passes and sets the audioPlayer object in the targetViewController
-  [targetViewController setPlayer:_player];
-
   // passes and sets type
   [targetViewController setSenderName:@"Width"];
 
@@ -225,9 +228,6 @@
   TargetViewController *targetViewController =
       [[TargetViewController alloc] init];
 
-  // passes and sets the audioPlayer object in the targetViewController
-  [targetViewController setPlayer:_player];
-
   // passes and sets type
   [targetViewController setSenderName:@"Intensity"];
 
@@ -239,9 +239,6 @@
 - (IBAction)showPresets:(id)sender {
   PresetsViewController *presetsViewController =
       [[PresetsViewController alloc] init];
-
-  // passes and sets the audioPlayer object in the targetViewController
-  [presetsViewController setPlayer:_player];
 
   // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:presetsViewController

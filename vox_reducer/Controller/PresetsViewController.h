@@ -7,13 +7,12 @@
 //
 
 #import "InfoViewController.h"
-#import "audioPlayback.h"
+
 
 @interface PresetsViewController : UIViewController <UIPickerViewDelegate> {
   int _factoryDefaultCount;
 }
 @property(nonatomic, retain) UIPickerView *presetSelect;
-@property(nonatomic, retain) audioPlayback *player;
 @property(nonatomic, retain) NSMutableArray *presetOptions;
 
 - (IBAction)showInfo:(id)sender;

@@ -7,7 +7,6 @@
 //
 
 #import "TargetViewController.h"
-#include "audioPlayback.h"
 #import "loudRotaryKnob.h"
 
 @implementation TargetViewController {
@@ -20,14 +19,10 @@
                bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-
   }
   return self;
 }
 
-- (void)setPlayer:(audioPlayback *)player {
-	_player = player;
-}
 - (void)didReceiveMemoryWarning {
   // Releases the view if it doesn't have a superview.
   [super didReceiveMemoryWarning];
@@ -46,7 +41,7 @@
 	//Callback for spectrum view display refresh
 	TargetViewController __weak *weakSelf = self;
 	
-	_player.frequencyCallback = ^(Float32* freqData,UInt32 size){
+	playbackViewController.sharedInstance.player.frequencyCallback = ^(Float32* freqData,UInt32 size){
 		int length = (int)size;
 		NSMutableArray *freqValues = [NSMutableArray new];
 		
@@ -57,8 +52,8 @@
 		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 		dispatch_async(queue, ^{
 			// Perform async operation
-			float freq = weakSelf.player.targetFrequency;
-			float effectiveBandwidth = weakSelf.player.targetBandwidth;
+			float freq = playbackViewController.sharedInstance.player.targetFrequency;
+			float effectiveBandwidth = playbackViewController.sharedInstance.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;
@@ -88,7 +83,7 @@
   float currentValue = 0;
 
 	if ([_senderName isEqual:@"Target"]) {
-    currentValue = [_player targetFrequency];
+    currentValue = [playbackViewController.sharedInstance.player targetFrequency];
 		[_labelHeading setText:@"Target Frequency:"];
     [_lowerFreqBound setText:@"100"];
     [_upperFreqBound setText:@"3K"];
@@ -96,11 +91,11 @@
     maxKnobValue = 3000;
     scanTimeInterval = 0.005;
     _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
-    if (![_player getFilterState]) {
+    if (![playbackViewController.sharedInstance.player getFilterState]) {
       [self showFilterAlert];
     }
 	} else if ([_senderName isEqual:@"Width"]) {
-    currentValue = [_player targetBandwidth];
+    currentValue = [playbackViewController.sharedInstance.player targetBandwidth];
 		[_labelHeading setText:@"Target Bandwidth:"];
     [_lowerFreqBound setText:@"50"];
     [_upperFreqBound setText:@"5K"];
@@ -108,11 +103,11 @@
     maxKnobValue = 5000;
     scanTimeInterval = 0.005;
     _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
-    if (![_player getFilterState]) {
+    if (![playbackViewController.sharedInstance.player getFilterState]) {
       [self showFilterAlert];
     }
 	} else if ([_senderName isEqual:@"Intensity"]) {
-    currentValue = [_player reductionIntensity];
+    currentValue = [playbackViewController.sharedInstance.player reductionIntensity];
     currentValue = currentValue * 10;
 		[_labelHeading setText:@"Reduction Intensity:"];
     [_lowerFreqBound setText:@"0"];
@@ -205,13 +200,13 @@
 
 	if ([_senderName isEqual:@"Target"]) {
     _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-    [_player setTarget:_rotaryKnob.value];
+    [playbackViewController.sharedInstance.player setTarget:_rotaryKnob.value];
 	} else if ([_senderName isEqual:@"Width"]) {
     _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-    [_player setTargetWidth:_rotaryKnob.value];
+    [playbackViewController.sharedInstance.player setTargetWidth:_rotaryKnob.value];
 	} else if ([_senderName isEqual:@"Intensity"]) {
     _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
-    [_player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
+    [playbackViewController.sharedInstance.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
   }
 }
 
@@ -225,15 +220,15 @@
 		if ([_senderName isEqual:@"Target"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-      [_player setTarget:_rotaryKnob.value];
+      [playbackViewController.sharedInstance.player setTarget:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Width"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-      [_player setTargetWidth:_rotaryKnob.value];
+      [playbackViewController.sharedInstance.player setTargetWidth:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 0.1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
-      [_player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
+      [playbackViewController.sharedInstance.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
     }
   }
 }
@@ -248,15 +243,15 @@
 		if ([_senderName isEqual:@"Target"]) {
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
-      [_player setTarget:_rotaryKnob.value];
+      [playbackViewController.sharedInstance.player setTarget:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Width"]) {
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
-      [_player setTargetWidth:_rotaryKnob.value];
+      [playbackViewController.sharedInstance.player setTargetWidth:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value + 0.1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
-      [_player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
+      [playbackViewController.sharedInstance.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
     }
   }
 }

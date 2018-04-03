@@ -9,6 +9,7 @@
 #import "PresetsViewController.h"
 #import "Preset.h"
 #import "PresetStore.h"
+#import "playbackViewController.h"
 
 @implementation PresetsViewController
 
@@ -99,10 +100,10 @@
       [presets objectAtIndex:[_presetSelect selectedRowInComponent:0]];
 
   // set properies of player
-  [_player setTarget:[pre presetTarget]];
-  [_player setTargetWidth:[pre presetWidth]];
-  [_player setIntensity:[pre presetIntensity]];
-  [_player setPresetName:[pre presetName]];
+  [playbackViewController.sharedInstance.player setTarget:[pre presetTarget]];
+  [playbackViewController.sharedInstance.player setTargetWidth:[pre presetWidth]];
+  [playbackViewController.sharedInstance.player setIntensity:[pre presetIntensity]];
+  [playbackViewController.sharedInstance.player setPresetName:[pre presetName]];
 }
 
 - (IBAction)removePreset:(id)sender {
@@ -135,9 +136,9 @@
 													 NSString *entered = [[alert textFields][0] text];
 													 PresetStore *ps = [PresetStore defaultStore];
 													 [ps createPresetWithName:entered
-																					andTarget:_player.targetFrequency
-																					 andWidth:_player.targetBandwidth
-																			 andIntensity:_player.reductionIntensity];
+																					andTarget:playbackViewController.sharedInstance.player.targetFrequency
+																					 andWidth:playbackViewController.sharedInstance.player.targetBandwidth
+																			 andIntensity:playbackViewController.sharedInstance.player.reductionIntensity];
 													 [ps saveChanges];
 													 [self loadUserPresets];
 												 }];

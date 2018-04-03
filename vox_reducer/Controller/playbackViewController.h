@@ -7,18 +7,19 @@
 //
 
 #import <MediaPlayer/MediaPlayer.h>
+#import "audioPlayback.h"
 #import "TargetViewController.h"
 #import "PresetsViewController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "FreqSpectrumView.h"
 
-@interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate, GADBannerViewDelegate> 
+@interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate, GADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerWrapper;
 @property(weak, nonatomic) IBOutlet UILabel *lblArtist;
 @property(weak, nonatomic) IBOutlet UIButton *onOff;
 @property(nonatomic, retain) MPMediaItemCollection *userMediaItemCollection;
 @property(nonatomic, weak) IBOutlet UIButton *playButton;
-@property(nonatomic) audioPlayback *player;
+@property(nonatomic, retain) audioPlayback *player;
 @property(nonatomic) NSTimer *loadTimer;
 @property(weak, nonatomic) IBOutlet UIButton *playbackStop;
 @property(weak, nonatomic) IBOutlet UIActivityIndicatorView *fileLoadingBusy;
@@ -48,4 +49,6 @@
 - (void)activatePlayback:(NSNotification *)note;
 - (void)playbackCompleted:(NSNotification *)note;
 - (void)playerReset:(NSNotification *)note;
+
++ (instancetype)sharedInstance;
 @end
