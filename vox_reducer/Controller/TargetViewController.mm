@@ -21,6 +21,7 @@
                bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
+			_sharedManager = [AudioManager sharedManager];
   }
   return self;
 }
@@ -60,7 +61,6 @@
 									action:@selector(rotaryKnobDidChange)
 				forControlEvents:UIControlEventValueChanged];
 	
-	_sharedManager = [AudioManager sharedManager];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,8 +84,8 @@
 		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 		dispatch_async(queue, ^{
 			// Perform async operation
-			float freq = _sharedManager.player.targetFrequency;
-			float effectiveBandwidth = _sharedManager.player.targetBandwidth;
+			float freq = weakSharedManager.player.targetFrequency;
+			float effectiveBandwidth = weakSharedManager.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;
@@ -113,7 +113,8 @@
 
   // load default values here
   float currentValue = 0;
-
+	bool filterOn = [_sharedManager.player getFilterState];
+	
 	if ([_senderName isEqual:@"Target"]) {
     currentValue = [_sharedManager.player targetFrequency];
 		[_labelHeading setText:@"Target Frequency:"];
@@ -122,10 +123,8 @@
     minKnobValue = 100;
     maxKnobValue = 3000;
     scanTimeInterval = 0.005;
-    _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
-    if (![_sharedManager.player getFilterState]) {
-      [self showFilterAlert];
-    }
+		_label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
+		_filterMessage.hidden = filterOn;
 	} else if ([_senderName isEqual:@"Width"]) {
     currentValue = [_sharedManager.player targetBandwidth];
 		[_labelHeading setText:@"Target Bandwidth:"];
@@ -135,9 +134,7 @@
     maxKnobValue = 5000;
     scanTimeInterval = 0.005;
     _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
-    if (![_sharedManager.player getFilterState]) {
-      [self showFilterAlert];
-    }
+		_filterMessage.hidden = filterOn;
 	} else if ([_senderName isEqual:@"Intensity"]) {
     currentValue = [_sharedManager.player reductionIntensity];
     currentValue = currentValue * 10;
@@ -148,6 +145,7 @@
     maxKnobValue = 10;
     scanTimeInterval = 0.1;
     _label.text = [NSString stringWithFormat:@"%.1f", currentValue];
+		_filterMessage.hidden = YES;
   }
 
   _rotaryKnob.maximumValue = maxKnobValue;
@@ -168,15 +166,6 @@
   [super viewDidUnload];
 }
 
-- (void)showFilterAlert {
-  NSString *message_title = @"Filters Disabled";
-  NSString *message = @"Target and width filtering is currently disabled. To "
-                      @"enable filters, go back to the main playback screen, "
-                      @"and toggle the Filters button in the playback control "
-                      @"display";
-
-  [utility showAlertWithTitle:message_title andMessage:message andVC:self];
-}
 - (IBAction)backgroundTapped:(id)sender {
   // NSLog(@"backgroundTapped");
   [[self view] endEditing:YES];
@@ -239,9 +228,6 @@
   }
 }
 
-- (IBAction)decrementNudge {
-  [self decrementKnobValue];
-}
 
 - (void)incrementKnobValue {
   if (_rotaryKnob.value < _rotaryKnob.maximumValue) {
@@ -260,10 +246,6 @@
       [_sharedManager.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
     }
   }
-}
-
-- (IBAction)incrementNudge {
-  [self incrementKnobValue];
 }
 
 - (void)incrementRepeat:(NSTimer *)timer {

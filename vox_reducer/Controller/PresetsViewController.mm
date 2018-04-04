@@ -16,7 +16,7 @@
                bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    // Custom initialization
+		_sharedManager = [AudioManager sharedManager];
   }
   return self;
 }
@@ -29,8 +29,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-	
-	_sharedManager = [AudioManager sharedManager];
 	
   // Set the title of the navigation item
   [[self navigationItem] setTitle:@"Presets"];

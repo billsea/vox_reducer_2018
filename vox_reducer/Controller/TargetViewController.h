@@ -21,10 +21,9 @@
 @property(nonatomic, retain) IBOutlet loudRotaryKnob *rotaryKnob;
 @property(nonatomic, retain) NSTimer *scanTimer;
 @property (weak, nonatomic) IBOutlet FreqSpectrumView *spectrumView;
+@property (weak, nonatomic) IBOutlet UILabel *filterMessage;
 
 - (IBAction)rotaryKnobDidChange;
-- (IBAction)incrementNudge;
-- (IBAction)decrementNudge;
 - (IBAction)incrementStartAction:(id)sender;
 - (IBAction)incrementStopAction:(id)sender;
 - (IBAction)decrementStartAction:(id)sender;

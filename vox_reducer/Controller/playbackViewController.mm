@@ -192,9 +192,8 @@
 
 #pragma mark filters
 - (IBAction)showTarget:(id)sender {
-  TargetViewController *targetViewController =
-      [[TargetViewController alloc] init];
-	
+	TargetViewController *targetViewController = [[TargetViewController alloc] 		initWithNibName:@"TargetViewController"
+																																												bundle:nil];
   // passes and sets type
   [targetViewController setSenderName:@"Target"];
 
@@ -204,10 +203,9 @@
 }
 
 - (IBAction)showWidth:(id)sender {
-
-  TargetViewController *targetViewController =
-      [[TargetViewController alloc] init];
-
+	TargetViewController *targetViewController = [[TargetViewController alloc] initWithNibName:@"TargetViewController"
+	 bundle:nil];
+	
   // passes and sets type
   [targetViewController setSenderName:@"Width"];
 
@@ -217,9 +215,8 @@
 }
 
 - (IBAction)showIntensity:(id)sender {
-  TargetViewController *targetViewController =
-      [[TargetViewController alloc] init];
-
+	TargetViewController *targetViewController = [[TargetViewController alloc] 		initWithNibName:@"TargetViewController" bundle:nil];
+	
   // passes and sets type
   [targetViewController setSenderName:@"Intensity"];
 
@@ -229,8 +226,8 @@
 }
 
 - (IBAction)showPresets:(id)sender {
-  PresetsViewController *presetsViewController =
-      [[PresetsViewController alloc] init];
+
+	PresetsViewController *presetsViewController = [[PresetsViewController alloc] 		initWithNibName:@"PresetsViewController" bundle:nil];
 
   // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:presetsViewController

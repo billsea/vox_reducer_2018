@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TargetViewController">
             <connections>
+                <outlet property="filterMessage" destination="j7B-Sl-Gbm" id="6Y4-Qx-bYl"/>
                 <outlet property="label" destination="52" id="53"/>
                 <outlet property="labelHeading" destination="6" id="80"/>
                 <outlet property="lowerFreqBound" destination="13" id="81"/>
@@ -56,6 +57,16 @@
                 <view contentMode="scaleToFill" misplaced="YES" id="2f1-Kx-rxE" customClass="FreqSpectrumView">
                     <rect key="frame" x="16" y="59" width="341" height="212"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j7B-Sl-Gbm">
+                            <rect key="frame" x="24" y="8" width="292" height="97"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <string key="text">Target and width filtering is currently disabled. To enable filters, go back to the main playback screen, and toggle the Filter button.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="10kHz" lineBreakMode="tailTruncation" minimumFontSize="10" id="8">
@@ -108,34 +119,6 @@
                     <connections>
                         <action selector="incrementStartAction:" destination="-1" eventType="touchDown" id="77"/>
                         <action selector="incrementStopAction:" destination="-1" eventType="touchUpInside" id="78"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="54">
-                    <rect key="frame" x="16" y="401" width="55" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                    <state key="normal" title="Decrease">
-                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="decrementNudge" destination="-1" eventType="touchUpInside" id="74"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="55">
-                    <rect key="frame" x="308" y="401" width="51" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                    <state key="normal" title="Increase">
-                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="incrementNudge" destination="-1" eventType="touchUpInside" id="73"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="24" id="52">
