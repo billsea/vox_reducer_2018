@@ -8,11 +8,11 @@
 
 #import "InfoViewController.h"
 #import "FreqSpectrumView.h"
-#import "playbackViewController.h"
+
 @class loudRotaryKnob;
 
 @interface TargetViewController
-    : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
+    : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> 
 @property(nonatomic, retain) NSString *senderName;
 @property(nonatomic, retain) IBOutlet UILabel *label;
 @property(nonatomic, retain) IBOutlet UILabel *labelHeading;

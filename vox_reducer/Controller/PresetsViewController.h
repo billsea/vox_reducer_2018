@@ -7,10 +7,11 @@
 //
 
 #import "InfoViewController.h"
-
+#import "AudioManager.h"
 
 @interface PresetsViewController : UIViewController <UIPickerViewDelegate> {
   int _factoryDefaultCount;
+	AudioManager * _sharedManager;
 }
 @property(nonatomic, retain) UIPickerView *presetSelect;
 @property(nonatomic, retain) NSMutableArray *presetOptions;

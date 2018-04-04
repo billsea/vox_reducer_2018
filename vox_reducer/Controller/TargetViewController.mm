@@ -8,11 +8,13 @@
 
 #import "TargetViewController.h"
 #import "loudRotaryKnob.h"
+#import "AudioManager.h"
 
 @implementation TargetViewController {
   float maxKnobValue;
   float minKnobValue;
   float scanTimeInterval;
+	AudioManager * _sharedManager;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
@@ -31,39 +33,69 @@
 }
 
 #pragma mark - View lifecycle
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	_rotaryKnob.defaultValue = _rotaryKnob.value;
+	_rotaryKnob.resetsToDefault = YES;
+	_rotaryKnob.backgroundColor = [UIColor clearColor];
+	_rotaryKnob.backgroundImage = [UIImage imageNamed:@"KnobBackground.png"];
+	
+	// this image has issues with not Retina displays
+	//[rotaryKnob setKnobImage:[UIImage imageNamed:@"Knob.png"]
+	//forState:UIControlStateNormal];
+	
+	// this works in simulator but not on device
+	[_rotaryKnob setKnobImage:[UIImage imageNamed:@"knobAlt.png"]
+									 forState:UIControlStateNormal];
+	
+	[_rotaryKnob setKnobImage:[UIImage imageNamed:@"KnobHighlighted.png"]
+									 forState:UIControlStateHighlighted];
+	
+	[_rotaryKnob setKnobImage:[UIImage imageNamed:@"KnobDisabled.png"]
+									 forState:UIControlStateDisabled];
+	
+	_rotaryKnob.knobImageCenter = CGPointMake(80.0f, 76.0f);
+	[_rotaryKnob addTarget:self
+									action:@selector(rotaryKnobDidChange)
+				forControlEvents:UIControlEventValueChanged];
+	
+	_sharedManager = [AudioManager sharedManager];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
 	_spectrumView.showFrequencyLabels = YES;
 	_spectrumView.showSelectedBandwidth = YES;
-	
+
 	//Callback for spectrum view display refresh
 	TargetViewController __weak *weakSelf = self;
+	AudioManager __weak *weakSharedManager = _sharedManager;
 	
-	playbackViewController.sharedInstance.player.frequencyCallback = ^(Float32* freqData,UInt32 size){
+	_sharedManager.player.frequencyCallback = ^(Float32* freqData,UInt32 size){
 		int length = (int)size;
 		NSMutableArray *freqValues = [NSMutableArray new];
-		
+
 		for (UInt32 i = 0; i < length; i++) {
 			[freqValues addObject:@(freqData[i])];
 		}
-		
+
 		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 		dispatch_async(queue, ^{
 			// Perform async operation
-			float freq = playbackViewController.sharedInstance.player.targetFrequency;
-			float effectiveBandwidth = playbackViewController.sharedInstance.player.targetBandwidth;
+			float freq = _sharedManager.player.targetFrequency;
+			float effectiveBandwidth = _sharedManager.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;
 				weakSelf.spectrumView.selectedBandwidth = effectiveBandwidth;
 			});
 		});
-		
+
 		//TODO: UI main thread bogged down, Put something on background thread?
 		//ALSO: App is crashing after a few minutes...check for memory leak
-		
+
 		//Validate 256 length
 		if (freqValues.count == 256) {
 			weakSelf.spectrumView.frequencyValues = freqValues;
@@ -83,7 +115,7 @@
   float currentValue = 0;
 
 	if ([_senderName isEqual:@"Target"]) {
-    currentValue = [playbackViewController.sharedInstance.player targetFrequency];
+    currentValue = [_sharedManager.player targetFrequency];
 		[_labelHeading setText:@"Target Frequency:"];
     [_lowerFreqBound setText:@"100"];
     [_upperFreqBound setText:@"3K"];
@@ -91,11 +123,11 @@
     maxKnobValue = 3000;
     scanTimeInterval = 0.005;
     _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
-    if (![playbackViewController.sharedInstance.player getFilterState]) {
+    if (![_sharedManager.player getFilterState]) {
       [self showFilterAlert];
     }
 	} else if ([_senderName isEqual:@"Width"]) {
-    currentValue = [playbackViewController.sharedInstance.player targetBandwidth];
+    currentValue = [_sharedManager.player targetBandwidth];
 		[_labelHeading setText:@"Target Bandwidth:"];
     [_lowerFreqBound setText:@"50"];
     [_upperFreqBound setText:@"5K"];
@@ -103,11 +135,11 @@
     maxKnobValue = 5000;
     scanTimeInterval = 0.005;
     _label.text = [NSString stringWithFormat:@"%.0f Hz", currentValue];
-    if (![playbackViewController.sharedInstance.player getFilterState]) {
+    if (![_sharedManager.player getFilterState]) {
       [self showFilterAlert];
     }
 	} else if ([_senderName isEqual:@"Intensity"]) {
-    currentValue = [playbackViewController.sharedInstance.player reductionIntensity];
+    currentValue = [_sharedManager.player reductionIntensity];
     currentValue = currentValue * 10;
 		[_labelHeading setText:@"Reduction Intensity:"];
     [_lowerFreqBound setText:@"0"];
@@ -130,33 +162,7 @@
   [[self view] endEditing:YES];
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-	
-  _rotaryKnob.defaultValue = _rotaryKnob.value;
-  _rotaryKnob.resetsToDefault = YES;
-  _rotaryKnob.backgroundColor = [UIColor clearColor];
-  _rotaryKnob.backgroundImage = [UIImage imageNamed:@"KnobBackground.png"];
 
-  // this image has issues with not Retina displays
-  //[rotaryKnob setKnobImage:[UIImage imageNamed:@"Knob.png"]
-  //forState:UIControlStateNormal];
-
-  // this works in simulator but not on device
-  [_rotaryKnob setKnobImage:[UIImage imageNamed:@"knobAlt.png"]
-                   forState:UIControlStateNormal];
-
-  [_rotaryKnob setKnobImage:[UIImage imageNamed:@"KnobHighlighted.png"]
-                   forState:UIControlStateHighlighted];
-
-  [_rotaryKnob setKnobImage:[UIImage imageNamed:@"KnobDisabled.png"]
-                   forState:UIControlStateDisabled];
-
-  _rotaryKnob.knobImageCenter = CGPointMake(80.0f, 76.0f);
-  [_rotaryKnob addTarget:self
-                  action:@selector(rotaryKnobDidChange)
-        forControlEvents:UIControlEventValueChanged];
-}
 
 - (void)viewDidUnload {
   [super viewDidUnload];
@@ -200,13 +206,13 @@
 
 	if ([_senderName isEqual:@"Target"]) {
     _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-    [playbackViewController.sharedInstance.player setTarget:_rotaryKnob.value];
+    [_sharedManager.player setTarget:_rotaryKnob.value];
 	} else if ([_senderName isEqual:@"Width"]) {
     _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-    [playbackViewController.sharedInstance.player setTargetWidth:_rotaryKnob.value];
+    [_sharedManager.player setTargetWidth:_rotaryKnob.value];
 	} else if ([_senderName isEqual:@"Intensity"]) {
     _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
-    [playbackViewController.sharedInstance.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
+    [_sharedManager.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
   }
 }
 
@@ -220,15 +226,15 @@
 		if ([_senderName isEqual:@"Target"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-      [playbackViewController.sharedInstance.player setTarget:_rotaryKnob.value];
+      [_sharedManager.player setTarget:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Width"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
-      [playbackViewController.sharedInstance.player setTargetWidth:_rotaryKnob.value];
+      [_sharedManager.player setTargetWidth:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value - 0.1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
-      [playbackViewController.sharedInstance.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
+      [_sharedManager.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
     }
   }
 }
@@ -243,15 +249,15 @@
 		if ([_senderName isEqual:@"Target"]) {
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
-      [playbackViewController.sharedInstance.player setTarget:_rotaryKnob.value];
+      [_sharedManager.player setTarget:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Width"]) {
       _label.text = [NSString stringWithFormat:@"%.0f Hz", _rotaryKnob.value];
       [_rotaryKnob setValue:_rotaryKnob.value + 1 animated:YES];
-      [playbackViewController.sharedInstance.player setTargetWidth:_rotaryKnob.value];
+      [_sharedManager.player setTargetWidth:_rotaryKnob.value];
 		} else if ([_senderName isEqual:@"Intensity"]) {
       [_rotaryKnob setValue:_rotaryKnob.value + 0.1 animated:YES];
       _label.text = [NSString stringWithFormat:@"%.1f", _rotaryKnob.value];
-      [playbackViewController.sharedInstance.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
+      [_sharedManager.player setIntensity:(_rotaryKnob.value / _rotaryKnob.maximumValue)];
     }
   }
 }

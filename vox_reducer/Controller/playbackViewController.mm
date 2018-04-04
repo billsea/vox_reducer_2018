@@ -8,24 +8,17 @@
 
 #import "playbackViewController.h"
 #import <CoreMedia/CoreMedia.h>
+#import "AudioManager.h"
 
 #define softwareMinimum 7.0
 
-@interface playbackViewController ()
+@interface playbackViewController (){
+	AudioManager * _sharedManager;
+}
 @property UIBarButtonItem *selectButton;
 @end
 
 @implementation playbackViewController
-
-+ (instancetype)sharedInstance
-{
-	static playbackViewController *sharedInstance = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		sharedInstance = [[playbackViewController alloc] init];
-	});
-	return sharedInstance;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil {
@@ -33,10 +26,6 @@
       [super initWithNibName:@"playbackViewController" bundle:nibBundleOrNil];
   if (self) {
 		
-    // allocate the audio player
-    _player = [[audioPlayback alloc] init];
-    [_player initializeAudio];
-
     // notification for when audio data is finished loading
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self
@@ -76,52 +65,6 @@
 	
 	_playbackBarView.layer.cornerRadius = 5;
 	
-	#if defined(TARGET_ADS)
-		[self displayAdBanner];
-		NSLog(@"Ads version");
-	#else
-		NSLog(@"Pay version");
-	#endif
-	
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-	_spectrumView.showFrequencyLabels = NO;
-	_spectrumView.showSelectedBandwidth = NO;
-	
-	//Callback for spectrum view display refresh
-	playbackViewController __weak *weakSelf = self;
-	
-	_player.frequencyCallback = ^(Float32* freqData,UInt32 size){
-		int length = (int)size;
-		NSMutableArray *freqValues = [NSMutableArray new];
-		
-		for (UInt32 i = 0; i < length; i++) {
-			[freqValues addObject:@(freqData[i])];
-		}
-		
-		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-		dispatch_async(queue, ^{
-			// Perform async operation
-			float freq = weakSelf.player.targetFrequency;
-			float effectiveBandwidth = weakSelf.player.targetBandwidth;
-			dispatch_sync(dispatch_get_main_queue(), ^{
-				// Update UI
-				weakSelf.spectrumView.selectedFrequency = freq;
-				weakSelf.spectrumView.selectedBandwidth = effectiveBandwidth;
-			});
-		});
-		
-		//TODO: UI main thread bogged down, Put something on background thread?
-		//ALSO: App is crashing after a few minutes...check for memory leak
-		
-		//Validate 256 length
-		if (freqValues.count == 256) {
-			weakSelf.spectrumView.frequencyValues = freqValues;
-		}
-		
-	};
-	
 	// navigation bar
 	UIBarButtonItem *selectButton =
 	[[UIBarButtonItem alloc] initWithTitle:@"Select"
@@ -149,12 +92,61 @@
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:@"Playback"];
 	
+	_sharedManager = [AudioManager sharedManager];
+	
+	#if defined(TARGET_ADS)
+		[self displayAdBanner];
+		NSLog(@"Ads version");
+	#else
+		NSLog(@"Pay version");
+	#endif
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	_spectrumView.showFrequencyLabels = NO;
+	_spectrumView.showSelectedBandwidth = NO;
+	
+	//Callback for spectrum view display refresh
+	playbackViewController __weak *weakSelf = self;
+	AudioManager __weak *weakSharedManager = _sharedManager;
+	
+	_sharedManager.player.frequencyCallback = ^(Float32* freqData,UInt32 size){
+		int length = (int)size;
+		NSMutableArray *freqValues = [NSMutableArray new];
+		
+		for (UInt32 i = 0; i < length; i++) {
+			[freqValues addObject:@(freqData[i])];
+		}
+		
+		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+		dispatch_async(queue, ^{
+			// Perform async operation
+			float freq = weakSharedManager.player.targetFrequency;
+			float effectiveBandwidth = weakSharedManager.player.targetBandwidth;
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				// Update UI
+				weakSelf.spectrumView.selectedFrequency = freq;
+				weakSelf.spectrumView.selectedBandwidth = effectiveBandwidth;
+			});
+		});
+		
+		//TODO: UI main thread bogged down, Put something on background thread?
+		//ALSO: App is crashing after a few minutes...check for memory leak
+		
+		//Validate 256 length
+		if (freqValues.count == 256) {
+			weakSelf.spectrumView.frequencyValues = freqValues;
+		}
+		
+	};
+	
 	[_tableView reloadData];
 }
 
 - (void)viewDidUnload {
 	_fileLoadingBusy = nil;
-	_player = nil;
+	_sharedManager.player = nil;
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
@@ -247,11 +239,11 @@
 
 - (IBAction)setOnOff:(UIButton *)sender {
   if ([[sender currentTitle] isEqualToString:@"OFF"]) {
-    [_player setBypass:YES];
+    [_sharedManager.player setBypass:YES];
     [sender setTitle:@"ON" forState:0];
     //[sender setBackgroundColor:[UIColor greenColor]];
   } else if ([[sender currentTitle] isEqualToString:@"ON"]) {
-    [_player setBypass:NO];
+    [_sharedManager.player setBypass:NO];
     [sender setTitle:@"OFF" forState:0];
     //[sender setBackgroundColor:[UIColor redColor]];
   }
@@ -259,10 +251,10 @@
 
 - (IBAction)filterToggle:(id)sender {
   if ([[sender currentTitle] isEqualToString:@"OFF"]) {
-    [_player setFilterState:true];
+    [_sharedManager.player setFilterState:true];
     [sender setTitle:@"ON" forState:0];
   } else if ([[sender currentTitle] isEqualToString:@"ON"]) {
-    [_player setFilterState:false];
+    [_sharedManager.player setFilterState:false];
     [sender setTitle:@"OFF" forState:0];
   }
 }
@@ -304,7 +296,7 @@
 #pragma mark player transport actions
 - (IBAction)playAudio:(id)sender {
   // start playback
-  [_player start];
+  [_sharedManager.player start];
 
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPlayOn.png"];
   [_playButton setBackgroundImage:btnImage forState:0];
@@ -326,7 +318,7 @@
 //		NSLog(@"Pay version");
 //	#endif
 	
-  [_player stop];
+  [_sharedManager.player stop];
 
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPlayOff.png"];
   [_playButton setBackgroundImage:btnImage forState:0];
@@ -336,32 +328,29 @@
 
   btnImage = [UIImage imageNamed:@"playerButtonsPauseOff.png"];
   [_playbackPause setImage:btnImage forState:0];
-
-	
-	
 }
 
 - (IBAction)pauseAudio:(id)sender {
-  [_player pause];
+  [_sharedManager.player pause];
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPauseOn.png"];
   [_playbackPause setImage:btnImage forState:0];
 }
 
 - (IBAction)setTarget:(UISlider *)sender {
   // NSLog(@"Target: %f",[sender value] );
-  [_player setTarget:[sender value]];
+  [_sharedManager.player setTarget:[sender value]];
 }
 
 - (IBAction)setWidth:(UISlider *)sender {
-  [_player setTargetWidth:[sender value]];
+  [_sharedManager.player setTargetWidth:[sender value]];
 }
 
 - (IBAction)setIntensity:(UISlider *)sender {
-  [_player setIntensity:[sender value]];
+  [_sharedManager.player setIntensity:[sender value]];
 }
 
 - (IBAction)setPhase:(UISlider *)sender {
-  [_player setPhaseValue:[sender value]];
+  [_sharedManager.player setPhaseValue:[sender value]];
 }
 
 - (void)playbackCompleted:(NSNotification *)note {
@@ -380,16 +369,16 @@
   // when audio data is ready, update ui for playback
   [_fileLoadingBusy stopAnimating];
   [_playButton setEnabled:true];
-  [_lblArtist setText:[_player artist]];
+  [_lblArtist setText:[_sharedManager.player artist]];
 }
 - (void)loadAudioData:(NSTimer *)timer {
-  [_player initBufferProcess];
+  [_sharedManager.player initBufferProcess];
 }
 
 - (void)playerReset:(NSNotification *)note {
   [_fileLoadingBusy stopAnimating];
   [_lblArtist setText:@""];
-  [_songLabelButton setTitle:_player.track forState:UIControlStateNormal];
+  [_songLabelButton setTitle:_sharedManager.player.track forState:UIControlStateNormal];
 }
 
 - (void)updatePlayerQueueWithMediaCollection:
@@ -424,12 +413,12 @@
     } else {
 
       // initialize audioPlayback
-      [_player setUserMediaItemCollection:_userMediaItemCollection];
+      [_sharedManager.player setUserMediaItemCollection:_userMediaItemCollection];
 
-      [_player processMediaItems];
+      [_sharedManager.player processMediaItems];
 
       // set song label button
-      [_songLabelButton setTitle:[_player track] forState:UIControlStateNormal];
+      [_songLabelButton setTitle:[_sharedManager.player track] forState:UIControlStateNormal];
 
       // status messages
       [_fileLoadingBusy startAnimating];
@@ -552,21 +541,21 @@
     //[[cell imageView] setImage:[UIImage imageNamed:@"blunderbuss-50.png"]];
     topLabel.text = [NSString stringWithFormat:@"Target"];
     bottomLabel.text =
-        [NSString stringWithFormat:@"%.0f Hz", [_player targetFrequency]];
+        [NSString stringWithFormat:@"%.0f Hz", [_sharedManager.player targetFrequency]];
   } else if (row == 1) {
     // [[cell imageView] setImage:[UIImage imageNamed:@"vrMobileWidth.png"]];
     topLabel.text = [NSString stringWithFormat:@"Width"];
     bottomLabel.text =
-        [NSString stringWithFormat:@"%.0f Hz", [_player targetBandwidth]];
+        [NSString stringWithFormat:@"%.0f Hz", [_sharedManager.player targetBandwidth]];
   } else if (row == 2) {
     //[[cell imageView] setImage:[UIImage imageNamed:@"vrMobileIntensity.png"]];
     topLabel.text = [NSString stringWithFormat:@"Intensity"];
     bottomLabel.text =
-        [NSString stringWithFormat:@"%.1f", [_player reductionIntensity] * 10];
+        [NSString stringWithFormat:@"%.1f", [_sharedManager.player reductionIntensity] * 10];
   } else {
     //  [[cell imageView] setImage:[UIImage imageNamed:@"vrMobilePresets.png"]];
     topLabel.text = [NSString stringWithFormat:@"Presets"];
-    bottomLabel.text = [_player presetName];
+    bottomLabel.text = [_sharedManager.player presetName];
   }
 
   return cell;
@@ -578,7 +567,7 @@
 
   switch ([indexPath row]) {
   case 0:
-    [self showTarget:nil];
+    [self showTarget:self];
     break;
   case 1:
     [self showWidth:self];

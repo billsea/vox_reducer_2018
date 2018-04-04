@@ -9,7 +9,6 @@
 #import "PresetsViewController.h"
 #import "Preset.h"
 #import "PresetStore.h"
-#import "playbackViewController.h"
 
 @implementation PresetsViewController
 
@@ -30,12 +29,16 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+	
+	_sharedManager = [AudioManager sharedManager];
+	
   // Set the title of the navigation item
   [[self navigationItem] setTitle:@"Presets"];
 
   _factoryDefaultCount = 1; // upper bound
   _presetOptions = [[NSMutableArray alloc] init];
   [self loadUserPresets];
+	
 }
 
 - (void)loadUserPresets {
@@ -100,10 +103,10 @@
       [presets objectAtIndex:[_presetSelect selectedRowInComponent:0]];
 
   // set properies of player
-  [playbackViewController.sharedInstance.player setTarget:[pre presetTarget]];
-  [playbackViewController.sharedInstance.player setTargetWidth:[pre presetWidth]];
-  [playbackViewController.sharedInstance.player setIntensity:[pre presetIntensity]];
-  [playbackViewController.sharedInstance.player setPresetName:[pre presetName]];
+  [_sharedManager.player setTarget:[pre presetTarget]];
+  [_sharedManager.player setTargetWidth:[pre presetWidth]];
+  [_sharedManager.player setIntensity:[pre presetIntensity]];
+  [_sharedManager.player setPresetName:[pre presetName]];
 }
 
 - (IBAction)removePreset:(id)sender {
@@ -136,9 +139,9 @@
 													 NSString *entered = [[alert textFields][0] text];
 													 PresetStore *ps = [PresetStore defaultStore];
 													 [ps createPresetWithName:entered
-																					andTarget:playbackViewController.sharedInstance.player.targetFrequency
-																					 andWidth:playbackViewController.sharedInstance.player.targetBandwidth
-																			 andIntensity:playbackViewController.sharedInstance.player.reductionIntensity];
+																					andTarget:_sharedManager.player.targetFrequency
+																					 andWidth:_sharedManager.player.targetBandwidth
+																			 andIntensity:_sharedManager.player.reductionIntensity];
 													 [ps saveChanges];
 													 [self loadUserPresets];
 												 }];
