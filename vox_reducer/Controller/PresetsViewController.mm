@@ -16,7 +16,7 @@
                bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    // Custom initialization
+		_sharedManager = [AudioManager sharedManager];
   }
   return self;
 }
@@ -29,12 +29,14 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+	
   // Set the title of the navigation item
   [[self navigationItem] setTitle:@"Presets"];
 
   _factoryDefaultCount = 1; // upper bound
   _presetOptions = [[NSMutableArray alloc] init];
   [self loadUserPresets];
+	
 }
 
 - (void)loadUserPresets {
@@ -52,12 +54,6 @@
 }
 - (void)viewWillDisappear:(BOOL)animated {
   [[PresetStore defaultStore] saveChanges];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:
-    (UIInterfaceOrientation)interfaceOrientation {
-  // Return YES for supported orientations
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark Picker DataSource/Delegate
@@ -105,10 +101,10 @@
       [presets objectAtIndex:[_presetSelect selectedRowInComponent:0]];
 
   // set properies of player
-  [_player setTarget:[pre presetTarget]];
-  [_player setTargetWidth:[pre presetWidth]];
-  [_player setIntensity:[pre presetIntensity]];
-  [_player setPresetName:[pre presetName]];
+  [_sharedManager.player setTarget:[pre presetTarget]];
+  [_sharedManager.player setTargetWidth:[pre presetWidth]];
+  [_sharedManager.player setIntensity:[pre presetIntensity]];
+  [_sharedManager.player setPresetName:[pre presetName]];
 }
 
 - (IBAction)removePreset:(id)sender {
@@ -141,9 +137,9 @@
 													 NSString *entered = [[alert textFields][0] text];
 													 PresetStore *ps = [PresetStore defaultStore];
 													 [ps createPresetWithName:entered
-																					andTarget:_player.targetFrequency
-																					 andWidth:_player.targetBandwidth
-																			 andIntensity:_player.reductionIntensity];
+																					andTarget:_sharedManager.player.targetFrequency
+																					 andWidth:_sharedManager.player.targetBandwidth
+																			 andIntensity:_sharedManager.player.reductionIntensity];
 													 [ps saveChanges];
 													 [self loadUserPresets];
 												 }];
