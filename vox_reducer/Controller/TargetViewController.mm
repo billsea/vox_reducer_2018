@@ -83,8 +83,8 @@
 			for (UInt32 i = 0; i < length; i++) {
 				[freqValues addObject:@(freqData[i])];
 			}
-			float freq = weakSharedManager.player.targetFrequency;
-			float effectiveBandwidth = weakSharedManager.player.targetBandwidth;
+			double freq = weakSharedManager.player.targetFrequency;
+			double effectiveBandwidth = weakSharedManager.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;

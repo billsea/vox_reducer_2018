@@ -120,8 +120,8 @@
 			for (UInt32 i = 0; i < length; i++) {
 				[freqValues addObject:@(freqData[i])];
 			}
-			float freq = weakSharedManager.player.targetFrequency;
-			float effectiveBandwidth = weakSharedManager.player.targetBandwidth;
+			double freq = weakSharedManager.player.targetFrequency;
+			double effectiveBandwidth = weakSharedManager.player.targetBandwidth;
 			dispatch_sync(dispatch_get_main_queue(), ^{
 				// Update UI
 				weakSelf.spectrumView.selectedFrequency = freq;
@@ -185,41 +185,39 @@
 }
 
 #pragma mark filters
-- (IBAction)showTarget:(id)sender {
+- (void)showTarget {
 	TargetViewController *targetViewController = [[TargetViewController alloc] 		initWithNibName:@"TargetViewController"
 																																												bundle:nil];
   // passes and sets type
-  [targetViewController setSenderName:@"Target"];
+  targetViewController.senderName = @"Target";
 
-  // Push it onto the top of the navigation controller's stack
-  [[self navigationController] pushViewController:targetViewController
-                                         animated:YES];
+	[[self navigationController] pushViewController:targetViewController
+																						 animated:YES];
+
 }
 
-- (IBAction)showWidth:(id)sender {
+- (void)showWidth {
 	TargetViewController *targetViewController = [[TargetViewController alloc] initWithNibName:@"TargetViewController"
 	 bundle:nil];
 	
   // passes and sets type
-  [targetViewController setSenderName:@"Width"];
+  targetViewController.senderName = @"Width";
 
-  // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:targetViewController
                                          animated:YES];
 }
 
-- (IBAction)showIntensity:(id)sender {
-	TargetViewController *targetViewController = [[TargetViewController alloc] 		initWithNibName:@"TargetViewController" bundle:nil];
+- (void)showIntensity {
+	TargetViewController *targetViewController = [[TargetViewController alloc] initWithNibName:@"TargetViewController" bundle:nil];
 	
   // passes and sets type
-  [targetViewController setSenderName:@"Intensity"];
+  targetViewController.senderName = @"Intensity";
 
-  // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:targetViewController
                                          animated:YES];
 }
 
-- (IBAction)showPresets:(id)sender {
+- (void)showPresets {
 
 	PresetsViewController *presetsViewController = [[PresetsViewController alloc] 		initWithNibName:@"PresetsViewController" bundle:nil];
 
@@ -559,16 +557,16 @@
 
   switch ([indexPath row]) {
   case 0:
-    [self showTarget:self];
+    [self showTarget];
     break;
   case 1:
-    [self showWidth:self];
+    [self showWidth];
     break;
   case 2:
-    [self showIntensity:self];
+    [self showIntensity];
     break;
   case 3:
-    [self showPresets:self];
+    [self showPresets];
     break;
 
   default:
