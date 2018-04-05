@@ -30,7 +30,7 @@
 }
 
 - (void)dealloc {
-	// Should never be called, but just here for clarity really.
+	// Should never be called
 }
 
 @end
