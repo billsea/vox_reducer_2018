@@ -26,6 +26,8 @@
       [super initWithNibName:@"playbackViewController" bundle:nibBundleOrNil];
   if (self) {
 		
+		_sharedManager = [AudioManager sharedManager];
+		
     // notification for when audio data is finished loading
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self
@@ -92,15 +94,12 @@
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:@"Playback"];
 	
-	_sharedManager = [AudioManager sharedManager];
-	
 	#if defined(TARGET_ADS)
 		[self displayAdBanner];
 		NSLog(@"Ads version");
 	#else
 		NSLog(@"Pay version");
 	#endif
-	
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -146,7 +145,6 @@
 
 - (void)viewDidUnload {
 	_fileLoadingBusy = nil;
-	_sharedManager.player = nil;
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
