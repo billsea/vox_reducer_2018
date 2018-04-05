@@ -7,24 +7,23 @@
 //
 
 #import "InfoViewController.h"
+#import "FreqSpectrumView.h"
 
-@class audioPlayback;
 @class loudRotaryKnob;
 
 @interface TargetViewController
-    : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
-@property(nonatomic, retain) NSString *SenderName;
-@property(nonatomic, retain) audioPlayback *player;
+    : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> 
+@property(nonatomic, retain) NSString *senderName;
 @property(nonatomic, retain) IBOutlet UILabel *label;
 @property(nonatomic, retain) IBOutlet UILabel *labelHeading;
 @property(nonatomic, retain) IBOutlet UILabel *lowerFreqBound;
 @property(nonatomic, retain) IBOutlet UILabel *upperFreqBound;
 @property(nonatomic, retain) IBOutlet loudRotaryKnob *rotaryKnob;
 @property(nonatomic, retain) NSTimer *scanTimer;
+@property (weak, nonatomic) IBOutlet FreqSpectrumView *spectrumView;
+@property (weak, nonatomic) IBOutlet UILabel *filterMessage;
 
 - (IBAction)rotaryKnobDidChange;
-- (IBAction)incrementNudge;
-- (IBAction)decrementNudge;
 - (IBAction)incrementStartAction:(id)sender;
 - (IBAction)incrementStopAction:(id)sender;
 - (IBAction)decrementStartAction:(id)sender;
