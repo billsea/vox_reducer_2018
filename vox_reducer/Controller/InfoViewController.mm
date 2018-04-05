@@ -44,8 +44,7 @@
 
   if ([_SenderName isEqual:@"Target"]) {
     [_infoText setText:@"Adjusting the Target sets the target frequency of the "
-                       @"music track to be processed. The selected frequency is the red segmented bar in the visual display. Use the touch dial to get a "
-                       @"rough setting, and fine tune with the scan (<< , >>) buttons."];
+                       @"music track to be processed. The selected frequency is contained in the red segmented bar in the visual display. Use the touch dial to get a rough setting, and fine tune with the scan (<< , >>) buttons."];
   }
 
   if ([_SenderName isEqual:@"Width"]) {
