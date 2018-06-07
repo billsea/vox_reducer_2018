@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		49F97CEEA01A8013D9D544B8 /* libPods-vox_reducer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */; };
 		79A1D497C6C4B8028DC2517C /* libPods-vox_reducer_fe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0024DB3A745A78FA12404943 /* libPods-vox_reducer_fe.a */; };
+		A9083D5D20C8CCE900AAA771 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9083D5C20C8CCE900AAA771 /* GoogleService-Info.plist */; };
+		A9083D5E20C8CCE900AAA771 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9083D5C20C8CCE900AAA771 /* GoogleService-Info.plist */; };
 		A91B446520452E07009EBFD9 /* vrlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = A91B446420452E06009EBFD9 /* vrlaunch.png */; };
 		A91B446620452E07009EBFD9 /* vrlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = A91B446420452E06009EBFD9 /* vrlaunch.png */; };
 		A92879EE20424699000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
@@ -119,6 +121,7 @@
 		8B0E2C1E16F7DE6D3CE99240 /* Pods-vox_reducer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer/Pods-vox_reducer.debug.xcconfig"; sourceTree = "<group>"; };
 		92673F0A0F19DFF0C989BBF7 /* Pods-vox_reducer_fe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer_fe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe.debug.xcconfig"; sourceTree = "<group>"; };
 		A9083D5B20C8C75300AAA771 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		A9083D5C20C8CCE900AAA771 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A91B446420452E06009EBFD9 /* vrlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vrlaunch.png; sourceTree = "<group>"; };
 		A92879E920424699000F6638 /* vox_reducer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92879EC20424699000F6638 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -258,6 +261,7 @@
 		A92879E020424699000F6638 = {
 			isa = PBXGroup;
 			children = (
+				A9083D5C20C8CCE900AAA771 /* GoogleService-Info.plist */,
 				A97499292044ED8E00854FA7 /* ToDo */,
 				A92879EB20424699000F6638 /* vox_reducer */,
 				A92879EA20424699000F6638 /* Products */,
@@ -491,6 +495,7 @@
 				A9ADC2332044BAA9001B5D63 /* playerButtonsPauseOn.png in Resources */,
 				A9ADC24E2044BB2A001B5D63 /* KnobDisabled@2x.png in Resources */,
 				A9ADC25C2044BB82001B5D63 /* knobAlt.png in Resources */,
+				A9083D5D20C8CCE900AAA771 /* GoogleService-Info.plist in Resources */,
 				A9ADC24A2044BB2A001B5D63 /* Knob.png in Resources */,
 				A9ADC2482044BB2A001B5D63 /* KnobHighlighted.png in Resources */,
 				A9ADC2522044BB2A001B5D63 /* KnobBackground@2x.png in Resources */,
@@ -519,6 +524,7 @@
 				A91B446620452E07009EBFD9 /* vrlaunch.png in Resources */,
 				A9ADC25A2044BB57001B5D63 /* showSettings.png in Resources */,
 				A9ADC2362044BAA9001B5D63 /* playerButtonsPlayOn.png in Resources */,
+				A9083D5E20C8CCE900AAA771 /* GoogleService-Info.plist in Resources */,
 				A9C2CF3320425830006373B5 /* InfoViewController.xib in Resources */,
 				A9ADC2572044BB2A001B5D63 /* KnobBackground.png in Resources */,
 				A9ADC23C2044BAA9001B5D63 /* playerButtonsPauseOff.png in Resources */,

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AB4B73C000DBB231E7D56BBCA8D44E20"
+               BlueprintIdentifier = "29A5F8DEBB4ECA9BE6982169DD236D5B"
                BlueprintName = "Pods-vox_reducer_fe"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-vox_reducer_fe.a">
