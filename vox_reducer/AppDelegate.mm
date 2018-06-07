@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "playbackViewController.h"
+#import <Rollbar/Rollbar.h>
+#import "Global.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	
+	[Rollbar initWithAccessToken:kRollbarAccessToken];
 	
 	UIViewController *playViewController = [[playbackViewController alloc] init];
 	

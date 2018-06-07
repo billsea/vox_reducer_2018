@@ -118,6 +118,7 @@
 		64F0336C1FC474C309891F29 /* Pods-vox_reducer_fe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer_fe.release.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe.release.xcconfig"; sourceTree = "<group>"; };
 		8B0E2C1E16F7DE6D3CE99240 /* Pods-vox_reducer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer/Pods-vox_reducer.debug.xcconfig"; sourceTree = "<group>"; };
 		92673F0A0F19DFF0C989BBF7 /* Pods-vox_reducer_fe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer_fe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe.debug.xcconfig"; sourceTree = "<group>"; };
+		A9083D5B20C8C75300AAA771 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		A91B446420452E06009EBFD9 /* vrlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vrlaunch.png; sourceTree = "<group>"; };
 		A92879E920424699000F6638 /* vox_reducer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92879EC20424699000F6638 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 				A92879EC20424699000F6638 /* AppDelegate.h */,
 				A92879ED20424699000F6638 /* AppDelegate.mm */,
 				A92879F520424699000F6638 /* Assets.xcassets */,
+				A9083D5B20C8C75300AAA771 /* Global.h */,
 				A92879F720424699000F6638 /* LaunchScreen.storyboard */,
 				A92879FA20424699000F6638 /* Info.plist */,
 				A92879FB20424699000F6638 /* main.m */,
@@ -394,8 +396,6 @@
 				A92879E520424699000F6638 /* Sources */,
 				A92879E620424699000F6638 /* Frameworks */,
 				A92879E720424699000F6638 /* Resources */,
-				873D42307AD18F893059588B /* [CP] Embed Pods Frameworks */,
-				4AF21F3DA283E2031C9DAB9C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -414,8 +414,6 @@
 				A9287A03204246E5000F6638 /* Sources */,
 				A9287A07204246E5000F6638 /* Frameworks */,
 				A9287A08204246E5000F6638 /* Resources */,
-				A6478BD044A0C9516D1E7064 /* [CP] Embed Pods Frameworks */,
-				7A0C1E8B2083FF6D1948EDBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -560,36 +558,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4AF21F3DA283E2031C9DAB9C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vox_reducer/Pods-vox_reducer-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A0C1E8B2083FF6D1948EDBA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7E0CB2C153889E4E0E16D0C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,36 +574,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		873D42307AD18F893059588B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vox_reducer/Pods-vox_reducer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6478BD044A0C9516D1E7064 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

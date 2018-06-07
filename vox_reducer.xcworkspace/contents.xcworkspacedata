@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../Static_Libraries/common_dsp/common_dsp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:vox_reducer.xcodeproj">
    </FileRef>
    <FileRef
