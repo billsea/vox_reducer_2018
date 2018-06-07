@@ -122,6 +122,8 @@
 		92673F0A0F19DFF0C989BBF7 /* Pods-vox_reducer_fe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vox_reducer_fe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vox_reducer_fe/Pods-vox_reducer_fe.debug.xcconfig"; sourceTree = "<group>"; };
 		A9083D5B20C8C75300AAA771 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		A9083D5C20C8CCE900AAA771 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9083D5F20C8D7B000AAA771 /* vox_reducer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vox_reducer.entitlements; sourceTree = "<group>"; };
+		A9083D6020C8D7B800AAA771 /* vox_reducer_fe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vox_reducer_fe.entitlements; sourceTree = "<group>"; };
 		A91B446420452E06009EBFD9 /* vrlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vrlaunch.png; sourceTree = "<group>"; };
 		A92879E920424699000F6638 /* vox_reducer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vox_reducer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92879EC20424699000F6638 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		A92879E020424699000F6638 = {
 			isa = PBXGroup;
 			children = (
+				A9083D6020C8D7B800AAA771 /* vox_reducer_fe.entitlements */,
 				A9083D5C20C8CCE900AAA771 /* GoogleService-Info.plist */,
 				A97499292044ED8E00854FA7 /* ToDo */,
 				A92879EB20424699000F6638 /* vox_reducer */,
@@ -283,6 +286,7 @@
 		A92879EB20424699000F6638 /* vox_reducer */ = {
 			isa = PBXGroup;
 			children = (
+				A9083D5F20C8D7B000AAA771 /* vox_reducer.entitlements */,
 				A9ADC2182044B917001B5D63 /* Images */,
 				A9ADC2172044B798001B5D63 /* Controls */,
 				A9C2CF1320425559006373B5 /* Helper */,
@@ -440,9 +444,22 @@
 					A92879E820424699000F6638 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					A9287A02204246E5000F6638 = {
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
