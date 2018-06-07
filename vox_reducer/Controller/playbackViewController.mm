@@ -123,8 +123,7 @@
 	adView.backgroundColor = [UIColor clearColor];
 	adView.rootViewController = self;
 	adView.delegate = self;
-	adView.adUnitID = @"ca-app-pub-4669665110468399/5527082443";//Active id
-	//test id: @"ca-app-pub-3940256099942544/2934735716";
+	adView.adUnitID = kAdUnitId;
 	[self.view addSubview:adView]; // Request an ad without any additional targeting information.
 	//adds test ads
 	[adView loadRequest:self.request];
