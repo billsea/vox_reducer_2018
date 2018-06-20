@@ -348,7 +348,7 @@
   // when audio data is ready, update ui for playback
   [_fileLoadingBusy stopAnimating];
   [_playButton setEnabled:true];
-  [_lblArtist setText:[_player artist]];
+	[_lblArtist setText:[_player artist] ? [_player artist] : @"Artist Unavailable"];
 }
 - (void)loadAudioData:(NSTimer *)timer {
   [_player initBufferProcess];
@@ -397,7 +397,7 @@
       [_player processMediaItems];
 
       // set song label button
-      [_songLabelButton setTitle:[_player track] forState:UIControlStateNormal];
+			[_songLabelButton setTitle:[_player track] ? [_player track] : @"Track Unavailable" forState:UIControlStateNormal];
 
       // status messages
       [_fileLoadingBusy startAnimating];
