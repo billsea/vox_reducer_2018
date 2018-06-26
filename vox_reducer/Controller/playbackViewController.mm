@@ -202,8 +202,7 @@
 }
 
 - (IBAction)showPresets:(id)sender {
-  PresetsViewController *presetsViewController =
-      [[PresetsViewController alloc] init];
+  PresetsViewController *presetsViewController = [[PresetsViewController alloc] init];
 
   // passes and sets the audioPlayer object in the targetViewController
   [presetsViewController setPlayer:_player];
@@ -217,11 +216,9 @@
   if ([[sender currentTitle] isEqualToString:@"OFF"]) {
     [_player setBypass:YES];
     [sender setTitle:@"ON" forState:0];
-    //[sender setBackgroundColor:[UIColor greenColor]];
   } else if ([[sender currentTitle] isEqualToString:@"ON"]) {
     [_player setBypass:NO];
     [sender setTitle:@"OFF" forState:0];
-    //[sender setBackgroundColor:[UIColor redColor]];
   }
 }
 
@@ -247,24 +244,18 @@
   [self presentViewController:picker animated:YES completion:nil];
 }
 
-// Invoked when the user taps the Done button in the media item picker after
-// having chosen
-//		one or more media items to play.
+// Get media from iTunes library
 - (void)mediaPicker:(MPMediaPickerController *)mediaPicker
     didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
 
   // Dismiss the media item picker.
   [self dismissViewControllerAnimated:NO completion:nil];
 
-  NSLog(@"media item coll: %lu",
-        (unsigned long)[mediaItemCollection mediaTypes]);
   // Apply the chosen songs to the music player's queue.
   [self updatePlayerQueueWithMediaCollection:mediaItemCollection];
 }
 
-// Invoked when the user taps the Done button in the media item picker having
-// chosen zero
-//		media items to play
+//iTunes browser cancel
 - (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
   [self dismissViewControllerAnimated:NO completion:nil];
 }
@@ -285,15 +276,6 @@
 }
 
 - (IBAction)stopAudio:(id)sender {
-//	//Is this the Free(Ads) or Pay version?
-//	#if defined(TARGET_ADS)
-//	if(_player.playbackElapsedSeconds > 120)
-//		[self showAdView];
-//		NSLog(@"Ads version");
-//	#else
-//		NSLog(@"Pay version");
-//	#endif
-	
   [_player stop];
 
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPlayOff.png"];
@@ -304,9 +286,6 @@
 
   btnImage = [UIImage imageNamed:@"playerButtonsPauseOff.png"];
   [_playbackPause setImage:btnImage forState:0];
-
-	
-	
 }
 
 - (IBAction)pauseAudio:(id)sender {
@@ -316,7 +295,6 @@
 }
 
 - (IBAction)setTarget:(UISlider *)sender {
-  // NSLog(@"Target: %f",[sender value] );
   [_player setTarget:[sender value]];
 }
 
@@ -345,7 +323,7 @@
 }
 
 - (void)activatePlayback:(NSNotification *)note {
-  // when audio data is ready, update ui for playback
+  //audio data is ready, update ui for playback
   [_fileLoadingBusy stopAnimating];
   [_playButton setEnabled:true];
 	[_lblArtist setText:[_player artist] ? [_player artist] : @"Artist Unavailable"];
@@ -360,56 +338,39 @@
   [_songLabelButton setTitle:_player.track forState:UIControlStateNormal];
 }
 
-- (void)updatePlayerQueueWithMediaCollection:
-    (MPMediaItemCollection *)mediaItemCollection {
-
-  // Configure the music player, but only if the user chose at least one song to
-  // play
+- (void)updatePlayerQueueWithMediaCollection: (MPMediaItemCollection *)mediaItemCollection {
+  // Configure the music player, if song is selected from iTunes library
   if (mediaItemCollection) {
-
     [self setUserMediaItemCollection:mediaItemCollection];
-
+		
     // stop player
     [self playbackCompleted:nil];
 
+		//Get media items
     MPMediaItem *mediaItem = [[_userMediaItemCollection items] objectAtIndex:0];
+    NSNumber *isCloud = [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem];
 
-    NSNumber *isCloud =
-        [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem];
-    // NSLog (@"cloud item: %@",[mediaItem valueForProperty:
-    // MPMediaItemPropertyIsCloudItem]);
-
+		//Cloud media is not allowed
     if ([isCloud isEqual:[NSNumber numberWithInt:1]]) {
       // media is from cloud, not supported. must be local media file
-      // loading status
       [_lblArtist setText:@"Not Supported"];
-
-      [utility
-          showAlertWithTitle:@"Media file not supported"
+      [utility showAlertWithTitle:@"Media file not supported"
                   andMessage:@"Please select a song from your local device "
                              @"library. Songs from the Cloud are not supported"
                        andVC:self];
     } else {
-
       // initialize audioPlayback
       [_player setUserMediaItemCollection:_userMediaItemCollection];
-
       [_player processMediaItems];
-
-      // set song label button
 			[_songLabelButton setTitle:[_player track] ? [_player track] : @"Track Unavailable" forState:UIControlStateNormal];
 
       // status messages
       [_fileLoadingBusy startAnimating];
-
-      // loading status
       [_lblArtist setText:@"Loading"];
-
       [_playButton setEnabled:false];
 
       // this timer lets the picker window close before filling audio data
-      _loadTimer =
-          [NSTimer scheduledTimerWithTimeInterval:0.5
+      _loadTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                            target:self
                                          selector:@selector(loadAudioData:)
                                          userInfo:nil
