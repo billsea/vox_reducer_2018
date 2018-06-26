@@ -19,9 +19,7 @@
 @property(nonatomic, retain) MPMediaItemCollection *userMediaItemCollection;
 @property(nonatomic, weak) IBOutlet UIButton *playButton;
 @property(nonatomic) audioPlayback *player;
-@property(nonatomic) NSTimer *loadTimer;
 @property(weak, nonatomic) IBOutlet UIButton *playbackStop;
-@property(weak, nonatomic) IBOutlet UIActivityIndicatorView *fileLoadingBusy;
 @property(weak, nonatomic) IBOutlet UIButton *playbackPause;
 @property(weak, nonatomic) IBOutlet UIButton *songLabelButton;
 @property(nonatomic, weak) IBOutlet UITableView *tableView;

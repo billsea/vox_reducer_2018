@@ -21,7 +21,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="playbackViewController">
             <connections>
-                <outlet property="fileLoadingBusy" destination="83" id="SUZ-U4-chc"/>
                 <outlet property="filterButton" destination="LfV-jF-JeS" id="v1P-LG-0f5"/>
                 <outlet property="headerWrapper" destination="Tkf-pn-JhI" id="YOf-0U-Udr"/>
                 <outlet property="lblArtist" destination="62" id="33H-h2-5lF"/>
@@ -67,10 +66,6 @@
                                 <action selector="showMusic:" destination="-1" eventType="touchUpInside" id="106"/>
                             </connections>
                         </button>
-                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" hidesWhenStopped="YES" style="white" id="83">
-                            <rect key="frame" x="177" y="67" width="20" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.11422678083181381" green="0.098866857588291168" blue="0.027094105258584023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>

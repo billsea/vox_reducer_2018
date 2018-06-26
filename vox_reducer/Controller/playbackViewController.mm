@@ -109,7 +109,6 @@
 }
 
 - (void)viewDidUnload {
-	_fileLoadingBusy = nil;
 	_player = nil;
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
@@ -248,11 +247,12 @@
 - (void)mediaPicker:(MPMediaPickerController *)mediaPicker
     didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
 
-  // Dismiss the media item picker.
-  [self dismissViewControllerAnimated:NO completion:nil];
+	[_lblArtist setText:@"Loading..."];
 
-  // Apply the chosen songs to the music player's queue.
-  [self updatePlayerQueueWithMediaCollection:mediaItemCollection];
+  // Dismiss the media item picker.
+	[self dismissViewControllerAnimated:NO completion:^{
+		[self updatePlayerQueueWithMediaCollection:mediaItemCollection];
+	}];
 }
 
 //iTunes browser cancel
@@ -324,16 +324,11 @@
 
 - (void)activatePlayback:(NSNotification *)note {
   //audio data is ready, update ui for playback
-  [_fileLoadingBusy stopAnimating];
   [_playButton setEnabled:true];
 	[_lblArtist setText:[_player artist] ? [_player artist] : @"Artist Unavailable"];
 }
-- (void)loadAudioData:(NSTimer *)timer {
-  [_player initBufferProcess];
-}
 
 - (void)playerReset:(NSNotification *)note {
-  [_fileLoadingBusy stopAnimating];
   [_lblArtist setText:@""];
   [_songLabelButton setTitle:_player.track forState:UIControlStateNormal];
 }
@@ -363,18 +358,7 @@
       [_player setUserMediaItemCollection:_userMediaItemCollection];
       [_player processMediaItems];
 			[_songLabelButton setTitle:[_player track] ? [_player track] : @"Track Unavailable" forState:UIControlStateNormal];
-
-      // status messages
-      [_fileLoadingBusy startAnimating];
-      [_lblArtist setText:@"Loading"];
-      [_playButton setEnabled:false];
-
-      // this timer lets the picker window close before filling audio data
-      _loadTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                           target:self
-                                         selector:@selector(loadAudioData:)
-                                         userInfo:nil
-                                          repeats:NO];
+			[_player initBufferProcess];
     }
   }
 }
