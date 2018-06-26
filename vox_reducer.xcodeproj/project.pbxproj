@@ -112,6 +112,14 @@
 		A9C2CF4320425910006373B5 /* FileHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CF4120425910006373B5 /* FileHelpers.mm */; };
 		A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9C2CEFD20424F24006373B5 /* playbackViewController.mm */; };
 		A9C2CF7020425EA1006373B5 /* playbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2CEFE20424F24006373B5 /* playbackViewController.xib */; };
+		A9D88AEB20E2BE490007BBE4 /* FrequencySpectrumBarView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AE820E2BE490007BBE4 /* FrequencySpectrumBarView.mm */; };
+		A9D88AEC20E2BE490007BBE4 /* FreqSpectrumView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AE920E2BE490007BBE4 /* FreqSpectrumView.mm */; };
+		A9D88AEE20E2BF0C0007BBE4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D88AED20E2BF0C0007BBE4 /* Accelerate.framework */; };
+		A9D88AEF20E2BF150007BBE4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D88AED20E2BF0C0007BBE4 /* Accelerate.framework */; };
+		A9D88AF220E2C0380007BBE4 /* AudioManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AF020E2C0380007BBE4 /* AudioManager.mm */; };
+		A9D88AF320E2C1830007BBE4 /* AudioManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AF020E2C0380007BBE4 /* AudioManager.mm */; };
+		A9D88AF420E2C18C0007BBE4 /* FreqSpectrumView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AE920E2BE490007BBE4 /* FreqSpectrumView.mm */; };
+		A9D88AF520E2C1900007BBE4 /* FrequencySpectrumBarView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AE820E2BE490007BBE4 /* FrequencySpectrumBarView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +198,13 @@
 		A9C2CF4020425910006373B5 /* FileHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelpers.h; sourceTree = "<group>"; };
 		A9C2CF4120425910006373B5 /* FileHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelpers.mm; sourceTree = "<group>"; };
 		A9C2CF44204259BA006373B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A9D88AE720E2BE480007BBE4 /* FreqSpectrumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreqSpectrumView.h; path = vox_reducer/View/FreqSpectrumView.h; sourceTree = SOURCE_ROOT; };
+		A9D88AE820E2BE490007BBE4 /* FrequencySpectrumBarView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FrequencySpectrumBarView.mm; path = vox_reducer/View/FrequencySpectrumBarView.mm; sourceTree = SOURCE_ROOT; };
+		A9D88AE920E2BE490007BBE4 /* FreqSpectrumView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FreqSpectrumView.mm; path = vox_reducer/View/FreqSpectrumView.mm; sourceTree = SOURCE_ROOT; };
+		A9D88AEA20E2BE490007BBE4 /* FrequencySpectrumBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrequencySpectrumBarView.h; path = vox_reducer/View/FrequencySpectrumBarView.h; sourceTree = SOURCE_ROOT; };
+		A9D88AED20E2BF0C0007BBE4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A9D88AF020E2C0380007BBE4 /* AudioManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioManager.mm; path = vox_reducer/AudioManager.mm; sourceTree = SOURCE_ROOT; };
+		A9D88AF120E2C0380007BBE4 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioManager.h; path = vox_reducer/AudioManager.h; sourceTree = SOURCE_ROOT; };
 		C4DF7B2C94C4A823BD971247 /* libPods-vox_reducer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vox_reducer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -198,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D88AEF20E2BF150007BBE4 /* Accelerate.framework in Frameworks */,
 				A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */,
 				A9C2CF122042553E006373B5 /* CoreGraphics.framework in Frameworks */,
 				A9C2CF1020425536006373B5 /* UIKit.framework in Frameworks */,
@@ -215,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D88AEE20E2BF0C0007BBE4 /* Accelerate.framework in Frameworks */,
 				A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */,
 				A9C2CF1E2042561C006373B5 /* Foundation.framework in Frameworks */,
 				A9C2CF1D20425615006373B5 /* CoreMedia.framework in Frameworks */,
@@ -245,6 +262,7 @@
 		9E6FE7F1B0307EE8EA3FCC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9D88AED20E2BF0C0007BBE4 /* Accelerate.framework */,
 				A97499242044D29500854FA7 /* libcommon_dsp_combined.a */,
 				A9C2CF112042553D006373B5 /* CoreGraphics.framework */,
 				A9C2CF0F20425536006373B5 /* UIKit.framework */,
@@ -348,6 +366,12 @@
 		A9C2CEFA20424ED9006373B5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A9D88AF120E2C0380007BBE4 /* AudioManager.h */,
+				A9D88AF020E2C0380007BBE4 /* AudioManager.mm */,
+				A9D88AE720E2BE480007BBE4 /* FreqSpectrumView.h */,
+				A9D88AE920E2BE490007BBE4 /* FreqSpectrumView.mm */,
+				A9D88AEA20E2BE490007BBE4 /* FrequencySpectrumBarView.h */,
+				A9D88AE820E2BE490007BBE4 /* FrequencySpectrumBarView.mm */,
 				A9C2CEFF20424F24006373B5 /* playbackViewController.h */,
 				A9C2CEFD20424F24006373B5 /* playbackViewController.mm */,
 				A9C2CF212042581E006373B5 /* TargetViewController.h */,
@@ -606,12 +630,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D88AEC20E2BE490007BBE4 /* FreqSpectrumView.mm in Sources */,
 				A9C2CF2C20425830006373B5 /* InfoViewController.mm in Sources */,
 				A9C2CF3620425865006373B5 /* loudRotaryKnob.mm in Sources */,
 				A9C2CF242042581F006373B5 /* TargetViewController.mm in Sources */,
 				A9C2CF3C204258A7006373B5 /* Preset.mm in Sources */,
 				A92879FC20424699000F6638 /* main.m in Sources */,
+				A9D88AEB20E2BE490007BBE4 /* FrequencySpectrumBarView.mm in Sources */,
 				A92879EE20424699000F6638 /* AppDelegate.mm in Sources */,
+				A9D88AF220E2C0380007BBE4 /* AudioManager.mm in Sources */,
 				A9C2CF3E204258A7006373B5 /* PresetStore.mm in Sources */,
 				A9C2CF2E20425830006373B5 /* PresetsViewController.mm in Sources */,
 				A9C2CF4220425910006373B5 /* FileHelpers.mm in Sources */,
@@ -624,15 +651,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D88AF320E2C1830007BBE4 /* AudioManager.mm in Sources */,
 				A9C2CF6F20425D8E006373B5 /* playbackViewController.mm in Sources */,
 				A9C2CF3720425865006373B5 /* loudRotaryKnob.mm in Sources */,
 				A9C2CF2F20425830006373B5 /* PresetsViewController.mm in Sources */,
+				A9D88AF520E2C1900007BBE4 /* FrequencySpectrumBarView.mm in Sources */,
 				A9C2CF3D204258A7006373B5 /* Preset.mm in Sources */,
 				A9C2CF252042581F006373B5 /* TargetViewController.mm in Sources */,
 				A9C2CF2D20425830006373B5 /* InfoViewController.mm in Sources */,
 				A9287A05204246E5000F6638 /* main.m in Sources */,
 				A9C2CF172042556E006373B5 /* utility.mm in Sources */,
 				A9C2CF3F204258A7006373B5 /* PresetStore.mm in Sources */,
+				A9D88AF420E2C18C0007BBE4 /* FreqSpectrumView.mm in Sources */,
 				A9C2CF4320425910006373B5 /* FileHelpers.mm in Sources */,
 				A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */,
 			);

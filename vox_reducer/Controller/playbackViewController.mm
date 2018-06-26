@@ -159,7 +159,7 @@
       [[TargetViewController alloc] init];
 
   // passes and sets the audioPlayer object in the targetViewController
-  [targetViewController setPlayer:_player];
+  //[targetViewController setPlayer:_player];
 
   // passes and sets type
   [targetViewController setSenderName:@"Target"];
@@ -175,7 +175,7 @@
       [[TargetViewController alloc] init];
 
   // passes and sets the audioPlayer object in the targetViewController
-  [targetViewController setPlayer:_player];
+  //[targetViewController setPlayer:_player];
 
   // passes and sets type
   [targetViewController setSenderName:@"Width"];
@@ -190,7 +190,7 @@
       [[TargetViewController alloc] init];
 
   // passes and sets the audioPlayer object in the targetViewController
-  [targetViewController setPlayer:_player];
+  //[targetViewController setPlayer:_player];
 
   // passes and sets type
   [targetViewController setSenderName:@"Intensity"];
@@ -204,7 +204,7 @@
   PresetsViewController *presetsViewController = [[PresetsViewController alloc] init];
 
   // passes and sets the audioPlayer object in the targetViewController
-  [presetsViewController setPlayer:_player];
+	//  [presetsViewController setPlayer:_player]; TODO: set player
 
   // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:presetsViewController

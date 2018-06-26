@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "FreqSpectrumView.h"
+#import "AudioManager.h"
 
 @class loudRotaryKnob;
 

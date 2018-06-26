@@ -9,6 +9,7 @@
 #import "PresetsViewController.h"
 #import "Preset.h"
 #import "PresetStore.h"
+#import "AudioManager.h"
 
 @implementation PresetsViewController
 
