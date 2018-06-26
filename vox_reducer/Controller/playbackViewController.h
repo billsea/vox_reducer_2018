@@ -7,27 +7,24 @@
 //
 
 #import <MediaPlayer/MediaPlayer.h>
+//#import "audioPlayback.h"
 #import "TargetViewController.h"
 #import "PresetsViewController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
-#import "FreqSpectrumView.h"
 
-@interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate, GADBannerViewDelegate>
+@interface playbackViewController : UIViewController <MPMediaPickerControllerDelegate, GADBannerViewDelegate> 
 @property (weak, nonatomic) IBOutlet UIView *headerWrapper;
 @property(weak, nonatomic) IBOutlet UILabel *lblArtist;
 @property(weak, nonatomic) IBOutlet UIButton *onOff;
 @property(nonatomic, retain) MPMediaItemCollection *userMediaItemCollection;
 @property(nonatomic, weak) IBOutlet UIButton *playButton;
-
-@property(nonatomic) NSTimer *loadTimer;
+@property(nonatomic) audioPlayback *player;
 @property(weak, nonatomic) IBOutlet UIButton *playbackStop;
-@property(weak, nonatomic) IBOutlet UIActivityIndicatorView *fileLoadingBusy;
 @property(weak, nonatomic) IBOutlet UIButton *playbackPause;
 @property(weak, nonatomic) IBOutlet UIButton *songLabelButton;
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(weak, nonatomic) IBOutlet UIView *playbackBarView;
 @property(weak, nonatomic) IBOutlet UIButton *filterButton;
-@property (weak, nonatomic) IBOutlet FreqSpectrumView *spectrumView;
 
 - (IBAction)showMusic:(id)sender;
 - (IBAction)playAudio:(id)sender;

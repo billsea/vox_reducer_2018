@@ -8,13 +8,12 @@
 
 #import "playbackViewController.h"
 #import <CoreMedia/CoreMedia.h>
-#import "AudioManager.h"
+//#import "AdViewController.h"
+#import "audioPlayback.h"
 
 #define softwareMinimum 7.0
 
-@interface playbackViewController (){
-	AudioManager * _sharedManager;
-}
+@interface playbackViewController ()
 @property UIBarButtonItem *selectButton;
 @end
 
@@ -26,8 +25,10 @@
       [super initWithNibName:@"playbackViewController" bundle:nibBundleOrNil];
   if (self) {
 		
-		_sharedManager = [AudioManager sharedManager];
-		
+    // allocate the audio player
+    _player = [[audioPlayback alloc] init];
+    [_player initializeAudio];
+
     // notification for when audio data is finished loading
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self
@@ -67,6 +68,16 @@
 	
 	_playbackBarView.layer.cornerRadius = 5;
 	
+	#if defined(TARGET_ADS)
+		[self displayAdBanner];
+		NSLog(@"Ads version");
+	#else
+		NSLog(@"Pay version");
+	#endif
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
 	// navigation bar
 	UIBarButtonItem *selectButton =
 	[[UIBarButtonItem alloc] initWithTitle:@"Select"
@@ -94,53 +105,11 @@
 	// Set the title of the navigation item
 	[[self navigationItem] setTitle:@"Playback"];
 	
-	#if defined(TARGET_ADS)
-		[self displayAdBanner];
-		NSLog(@"Ads version");
-	#else
-		NSLog(@"Pay version");
-	#endif
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-	_spectrumView.showFrequencyLabels = NO;
-	_spectrumView.showSelectedBandwidth = NO;
-	
-	//Callback for spectrum view display refresh
-	playbackViewController __weak *weakSelf = self;
-	AudioManager __weak *weakSharedManager = _sharedManager;
-	
-	_sharedManager.player.frequencyCallback = ^(Float32* freqData,UInt32 size){
-		int length = (int)size;
-		NSMutableArray *freqValues = [NSMutableArray new];
-
-		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-		dispatch_async(queue, ^{
-			// Perform async operation
-			for (UInt32 i = 0; i < length; i++) {
-				[freqValues addObject:@(freqData[i])];
-			}
-			double freq = weakSharedManager.player.targetFrequency;
-			double effectiveBandwidth = weakSharedManager.player.targetBandwidth;
-			dispatch_sync(dispatch_get_main_queue(), ^{
-				// Update UI
-				weakSelf.spectrumView.selectedFrequency = freq;
-				weakSelf.spectrumView.selectedBandwidth = effectiveBandwidth;
-				
-				//Validate 256 length
-				if (freqValues.count == 256) {
-					weakSelf.spectrumView.frequencyValues = freqValues;
-				}
-			});
-		});
-	};
-	
 	[_tableView reloadData];
-	
 }
 
 - (void)viewDidUnload {
-	_fileLoadingBusy = nil;
+	_player = nil;
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
@@ -153,11 +122,11 @@
 	adView.backgroundColor = [UIColor clearColor];
 	adView.rootViewController = self;
 	adView.delegate = self;
-	adView.adUnitID = @"ca-app-pub-4669665110468399/5527082443";//Active id
-	//test id: @"ca-app-pub-3940256099942544/2934735716";
+	adView.adUnitID = kAdUnitId;
 	[self.view addSubview:adView]; // Request an ad without any additional targeting information.
 	//adds test ads
 	[adView loadRequest:self.request];
+	
 	
 	//adjust subviews
 	CGRect r = _headerWrapper.frame;
@@ -185,41 +154,57 @@
 }
 
 #pragma mark filters
-- (void)showTarget {
-	TargetViewController *targetViewController = [[TargetViewController alloc] 		initWithNibName:@"TargetViewController"
-																																												bundle:nil];
+- (IBAction)showTarget:(id)sender {
+  TargetViewController *targetViewController =
+      [[TargetViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [targetViewController setPlayer:_player];
+
   // passes and sets type
-  targetViewController.senderName = @"Target";
+  [targetViewController setSenderName:@"Target"];
 
-	[[self navigationController] pushViewController:targetViewController
-																						 animated:YES];
-
-}
-
-- (void)showWidth {
-	TargetViewController *targetViewController = [[TargetViewController alloc] initWithNibName:@"TargetViewController"
-	 bundle:nil];
-	
-  // passes and sets type
-  targetViewController.senderName = @"Width";
-
+  // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:targetViewController
                                          animated:YES];
 }
 
-- (void)showIntensity {
-	TargetViewController *targetViewController = [[TargetViewController alloc] initWithNibName:@"TargetViewController" bundle:nil];
-	
-  // passes and sets type
-  targetViewController.senderName = @"Intensity";
+- (IBAction)showWidth:(id)sender {
 
+  TargetViewController *targetViewController =
+      [[TargetViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [targetViewController setPlayer:_player];
+
+  // passes and sets type
+  [targetViewController setSenderName:@"Width"];
+
+  // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:targetViewController
                                          animated:YES];
 }
 
-- (void)showPresets {
+- (IBAction)showIntensity:(id)sender {
+  TargetViewController *targetViewController =
+      [[TargetViewController alloc] init];
 
-	PresetsViewController *presetsViewController = [[PresetsViewController alloc] 		initWithNibName:@"PresetsViewController" bundle:nil];
+  // passes and sets the audioPlayer object in the targetViewController
+  [targetViewController setPlayer:_player];
+
+  // passes and sets type
+  [targetViewController setSenderName:@"Intensity"];
+
+  // Push it onto the top of the navigation controller's stack
+  [[self navigationController] pushViewController:targetViewController
+                                         animated:YES];
+}
+
+- (IBAction)showPresets:(id)sender {
+  PresetsViewController *presetsViewController = [[PresetsViewController alloc] init];
+
+  // passes and sets the audioPlayer object in the targetViewController
+  [presetsViewController setPlayer:_player];
 
   // Push it onto the top of the navigation controller's stack
   [[self navigationController] pushViewController:presetsViewController
@@ -228,22 +213,20 @@
 
 - (IBAction)setOnOff:(UIButton *)sender {
   if ([[sender currentTitle] isEqualToString:@"OFF"]) {
-    [_sharedManager.player setBypass:YES];
+    [_player setBypass:YES];
     [sender setTitle:@"ON" forState:0];
-    //[sender setBackgroundColor:[UIColor greenColor]];
   } else if ([[sender currentTitle] isEqualToString:@"ON"]) {
-    [_sharedManager.player setBypass:NO];
+    [_player setBypass:NO];
     [sender setTitle:@"OFF" forState:0];
-    //[sender setBackgroundColor:[UIColor redColor]];
   }
 }
 
 - (IBAction)filterToggle:(id)sender {
   if ([[sender currentTitle] isEqualToString:@"OFF"]) {
-    [_sharedManager.player setFilterState:true];
+    [_player setFilterState:true];
     [sender setTitle:@"ON" forState:0];
   } else if ([[sender currentTitle] isEqualToString:@"ON"]) {
-    [_sharedManager.player setFilterState:false];
+    [_player setFilterState:false];
     [sender setTitle:@"OFF" forState:0];
   }
 }
@@ -260,30 +243,27 @@
   [self presentViewController:picker animated:YES completion:nil];
 }
 
-// Invoked when the user taps the Done button in the media item picker after
-// having chosen
-//		one or more media items to play.
+// Get media from iTunes library
 - (void)mediaPicker:(MPMediaPickerController *)mediaPicker
     didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
 
-  // Dismiss the media item picker.
-  [self dismissViewControllerAnimated:NO completion:nil];
+	[_lblArtist setText:@"Loading..."];
 
-  NSLog(@"media item coll: %lu",
-        (unsigned long)[mediaItemCollection mediaTypes]);
-  // Apply the chosen songs to the music player's queue.
-  [self updatePlayerQueueWithMediaCollection:mediaItemCollection];
+  // Dismiss the media item picker.
+	[self dismissViewControllerAnimated:NO completion:^{
+		[self updatePlayerQueueWithMediaCollection:mediaItemCollection];
+	}];
 }
 
-// Invoked when the user taps the Done button in the media item picker having
-// chosen zero
-//		media items to play
+//iTunes browser cancel
 - (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
   [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 #pragma mark player transport actions
 - (IBAction)playAudio:(id)sender {
+  // start playback
+  [_player start];
 
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPlayOn.png"];
   [_playButton setBackgroundImage:btnImage forState:0];
@@ -293,22 +273,10 @@
 
   btnImage = [UIImage imageNamed:@"playerButtonsPauseOff.png"];
   [_playbackPause setImage:btnImage forState:0];
-	
-	// start playback
-	[_sharedManager.player start];
 }
 
 - (IBAction)stopAudio:(id)sender {
-//	//Is this the Free(Ads) or Pay version?
-//	#if defined(TARGET_ADS)
-//	if(_player.playbackElapsedSeconds > 120)
-//		[self showAdView];
-//		NSLog(@"Ads version");
-//	#else
-//		NSLog(@"Pay version");
-//	#endif
-	
-  [_sharedManager.player stop];
+  [_player stop];
 
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPlayOff.png"];
   [_playButton setBackgroundImage:btnImage forState:0];
@@ -321,26 +289,25 @@
 }
 
 - (IBAction)pauseAudio:(id)sender {
-  [_sharedManager.player pause];
+  [_player pause];
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPauseOn.png"];
   [_playbackPause setImage:btnImage forState:0];
 }
 
 - (IBAction)setTarget:(UISlider *)sender {
-  // NSLog(@"Target: %f",[sender value] );
-  [_sharedManager.player setTarget:[sender value]];
+  [_player setTarget:[sender value]];
 }
 
 - (IBAction)setWidth:(UISlider *)sender {
-  [_sharedManager.player setTargetWidth:[sender value]];
+  [_player setTargetWidth:[sender value]];
 }
 
 - (IBAction)setIntensity:(UISlider *)sender {
-  [_sharedManager.player setIntensity:[sender value]];
+  [_player setIntensity:[sender value]];
 }
 
 - (IBAction)setPhase:(UISlider *)sender {
-  [_sharedManager.player setPhaseValue:[sender value]];
+  [_player setPhaseValue:[sender value]];
 }
 
 - (void)playbackCompleted:(NSNotification *)note {
@@ -356,75 +323,42 @@
 }
 
 - (void)activatePlayback:(NSNotification *)note {
-  // when audio data is ready, update ui for playback
-  [_fileLoadingBusy stopAnimating];
+  //audio data is ready, update ui for playback
   [_playButton setEnabled:true];
-  [_lblArtist setText:[_sharedManager.player artist]];
-}
-- (void)loadAudioData:(NSTimer *)timer {
-  [_sharedManager.player initBufferProcess];
+	[_lblArtist setText:[_player artist] ? [_player artist] : @"Artist Unavailable"];
 }
 
 - (void)playerReset:(NSNotification *)note {
-  [_fileLoadingBusy stopAnimating];
   [_lblArtist setText:@""];
-  [_songLabelButton setTitle:_sharedManager.player.track forState:UIControlStateNormal];
+  [_songLabelButton setTitle:_player.track forState:UIControlStateNormal];
 }
 
-- (void)updatePlayerQueueWithMediaCollection:
-    (MPMediaItemCollection *)mediaItemCollection {
-
-  // Configure the music player, but only if the user chose at least one song to
-  // play
+- (void)updatePlayerQueueWithMediaCollection: (MPMediaItemCollection *)mediaItemCollection {
+  // Configure the music player, if song is selected from iTunes library
   if (mediaItemCollection) {
-
     [self setUserMediaItemCollection:mediaItemCollection];
-
+		
     // stop player
     [self playbackCompleted:nil];
 
+		//Get media items
     MPMediaItem *mediaItem = [[_userMediaItemCollection items] objectAtIndex:0];
+    NSNumber *isCloud = [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem];
 
-    NSNumber *isCloud =
-        [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem];
-    // NSLog (@"cloud item: %@",[mediaItem valueForProperty:
-    // MPMediaItemPropertyIsCloudItem]);
-
+		//Cloud media is not allowed
     if ([isCloud isEqual:[NSNumber numberWithInt:1]]) {
       // media is from cloud, not supported. must be local media file
-      // loading status
       [_lblArtist setText:@"Not Supported"];
-
-      [utility
-          showAlertWithTitle:@"Media file not supported"
+      [utility showAlertWithTitle:@"Media file not supported"
                   andMessage:@"Please select a song from your local device "
                              @"library. Songs from the Cloud are not supported"
                        andVC:self];
     } else {
-
       // initialize audioPlayback
-      [_sharedManager.player setUserMediaItemCollection:_userMediaItemCollection];
-
-      [_sharedManager.player processMediaItems];
-
-      // set song label button
-      [_songLabelButton setTitle:[_sharedManager.player track] forState:UIControlStateNormal];
-
-      // status messages
-      [_fileLoadingBusy startAnimating];
-
-      // loading status
-      [_lblArtist setText:@"Loading"];
-
-      [_playButton setEnabled:false];
-
-      // this timer lets the picker window close before filling audio data
-      _loadTimer =
-          [NSTimer scheduledTimerWithTimeInterval:0.5
-                                           target:self
-                                         selector:@selector(loadAudioData:)
-                                         userInfo:nil
-                                          repeats:NO];
+      [_player setUserMediaItemCollection:_userMediaItemCollection];
+      [_player processMediaItems];
+			[_songLabelButton setTitle:[_player track] ? [_player track] : @"Track Unavailable" forState:UIControlStateNormal];
+			[_player initBufferProcess];
     }
   }
 }
@@ -440,6 +374,11 @@
   // Release any cached data, images, etc that aren't in use.
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:
+    (UIInterfaceOrientation)interfaceOrientation {
+  // Return YES for supported orientations
+  return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -531,21 +470,21 @@
     //[[cell imageView] setImage:[UIImage imageNamed:@"blunderbuss-50.png"]];
     topLabel.text = [NSString stringWithFormat:@"Target"];
     bottomLabel.text =
-        [NSString stringWithFormat:@"%.0f Hz", [_sharedManager.player targetFrequency]];
+        [NSString stringWithFormat:@"%.0f Hz", [_player targetFrequency]];
   } else if (row == 1) {
     // [[cell imageView] setImage:[UIImage imageNamed:@"vrMobileWidth.png"]];
     topLabel.text = [NSString stringWithFormat:@"Width"];
     bottomLabel.text =
-        [NSString stringWithFormat:@"%.0f Hz", [_sharedManager.player targetBandwidth]];
+        [NSString stringWithFormat:@"%.0f Hz", [_player targetBandwidth]];
   } else if (row == 2) {
     //[[cell imageView] setImage:[UIImage imageNamed:@"vrMobileIntensity.png"]];
     topLabel.text = [NSString stringWithFormat:@"Intensity"];
     bottomLabel.text =
-        [NSString stringWithFormat:@"%.1f", [_sharedManager.player reductionIntensity] * 10];
+        [NSString stringWithFormat:@"%.1f", [_player reductionIntensity] * 10];
   } else {
     //  [[cell imageView] setImage:[UIImage imageNamed:@"vrMobilePresets.png"]];
     topLabel.text = [NSString stringWithFormat:@"Presets"];
-    bottomLabel.text = [_sharedManager.player presetName];
+    bottomLabel.text = [_player presetName];
   }
 
   return cell;
@@ -557,16 +496,16 @@
 
   switch ([indexPath row]) {
   case 0:
-    [self showTarget];
+    [self showTarget:nil];
     break;
   case 1:
-    [self showWidth];
+    [self showWidth:self];
     break;
   case 2:
-    [self showIntensity];
+    [self showIntensity:self];
     break;
   case 3:
-    [self showPresets];
+    [self showPresets:self];
     break;
 
   default:

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "playbackViewController.h"
+#import <Rollbar/Rollbar.h>
+#import <Firebase.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	
+	[Rollbar initWithAccessToken:kRollbarAccessToken];
+	
+	//Firebase = for Google Analytics tracking
+	[FIRApp configure];
 	
 	UIViewController *playViewController = [[playbackViewController alloc] init];
 	
