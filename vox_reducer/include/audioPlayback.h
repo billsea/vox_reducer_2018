@@ -6,14 +6,26 @@
 //
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Accelerate/Accelerate.h>
+
+#import <AudioToolbox/AudioToolbox.h>
+#import <AudioUnit/AudioUnit.h>
 
 #include "math.h"
 #include <stdio.h>
-#include <AVFoundation/AVFoundation.h>
 #include "center_reducer.h"
 
-@interface audioPlayback : NSObject 
+enum {SUCCESS, FAIL};
 
+@interface audioPlayback : NSObject {
+	 NSTimer* _frequencyTimer;
+}
+
+@property void (^frequencyCallback)(Float32*, UInt32);
+@property void (^playbackCompleted)(int status);
+@property void (^playbackReady)(int status);
+@property void (^playerReset)(int status);
 @property(nonatomic, retain) MPMediaItemCollection *userMediaItemCollection;
 @property(nonatomic, retain) NSString *artist;
 @property(nonatomic, retain) NSString *track;
@@ -34,6 +46,8 @@
 - (OSStatus)setTargetWidth:(float)value;
 - (NSData *)extractDataForAsset:(AVURLAsset *)songAsset
                      withFormat:(NSString *)fileFormat;
+
+
 - (void)setBypass:(BOOL)value;
 - (void)setFilterState:(BOOL)value;
 - (bool)getFilterState;

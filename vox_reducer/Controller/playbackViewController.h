@@ -42,7 +42,4 @@
 - (IBAction)filterToggle:(id)sender;
 
 - (void)loadAudioData:(NSTimer *)timer;
-- (void)activatePlayback:(NSNotification *)note;
-- (void)playbackCompleted:(NSNotification *)note;
-- (void)playerReset:(NSNotification *)note;
 @end

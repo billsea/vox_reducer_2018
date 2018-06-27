@@ -28,28 +28,21 @@
     // allocate the audio player
     _player = [[audioPlayback alloc] init];
     [_player initializeAudio];
-
-    // notification for when audio data is finished loading
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self
-           selector:@selector(activatePlayback:)
-               name:@"playbackReady"
-             object:nil];
-
-    // notification for when playback is completed
-    NSNotificationCenter *stp = [NSNotificationCenter defaultCenter];
-    [stp addObserver:self
-            selector:@selector(playbackCompleted:)
-                name:@"playbackCompleted"
-              object:nil];
-
-    // notification for bad file
-    NSNotificationCenter *pReset = [NSNotificationCenter defaultCenter];
-    [pReset addObserver:self
-               selector:@selector(playerReset:)
-                   name:@"badFileReset"
-                 object:nil];
-
+		
+		playbackViewController __weak* weakSelf = self;
+		
+		_player.playbackCompleted = ^(int status) {
+			[weakSelf playbackCompleted];
+		};
+		
+		_player.playbackReady = ^(int status) {
+			[weakSelf activatePlayback];
+		};
+		
+		_player.playerReset = ^(int status) {
+			[weakSelf playerReset];
+		};
+		
     // don't let device go to background(sleep mode)
     [UIApplication sharedApplication].idleTimerDisabled = YES;
   }
@@ -310,7 +303,7 @@
   [_player setPhaseValue:[sender value]];
 }
 
-- (void)playbackCompleted:(NSNotification *)note {
+- (void)playbackCompleted {
   UIImage *btnImage = [UIImage imageNamed:@"playerButtonsPlayOff.png"];
   [_playButton setBackgroundImage:btnImage forState:0];
 
@@ -322,13 +315,13 @@
 
 }
 
-- (void)activatePlayback:(NSNotification *)note {
+- (void)activatePlayback {
   //audio data is ready, update ui for playback
   [_playButton setEnabled:true];
 	[_lblArtist setText:[_player artist] ? [_player artist] : @"Artist Unavailable"];
 }
 
-- (void)playerReset:(NSNotification *)note {
+- (void)playerReset {
   [_lblArtist setText:@""];
   [_songLabelButton setTitle:_player.track forState:UIControlStateNormal];
 }
@@ -339,7 +332,7 @@
     [self setUserMediaItemCollection:mediaItemCollection];
 		
     // stop player
-    [self playbackCompleted:nil];
+    [self playbackCompleted];
 
 		//Get media items
     MPMediaItem *mediaItem = [[_userMediaItemCollection items] objectAtIndex:0];
@@ -364,7 +357,7 @@
 }
 
 - (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
