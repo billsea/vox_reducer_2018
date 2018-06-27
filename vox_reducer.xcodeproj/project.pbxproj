@@ -21,9 +21,11 @@
 		A9287A06204246E5000F6638 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92879ED20424699000F6638 /* AppDelegate.mm */; };
 		A9287A09204246E5000F6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92879F720424699000F6638 /* LaunchScreen.storyboard */; };
 		A9287A0A204246E5000F6638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92879F520424699000F6638 /* Assets.xcassets */; };
-		A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
-		A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97499242044D29500854FA7 /* libcommon_dsp_combined.a */; };
 		A974992A2044ED8E00854FA7 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = A97499292044ED8E00854FA7 /* ToDo */; };
+		A977559620E3093B0018F2FC /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A977559720E3093B0018F2FC /* libcommon_dsp.a */; };
+		A977559820E309400018F2FC /* libcommon_dsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A977559720E3093B0018F2FC /* libcommon_dsp.a */; };
+		A977559A20E309760018F2FC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A977559920E309760018F2FC /* Accelerate.framework */; };
+		A977559B20E3097B0018F2FC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A977559920E309760018F2FC /* Accelerate.framework */; };
 		A9ADC21E2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC21F2044B92D001B5D63 /* voxReducerIOSNewIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */; };
 		A9ADC2202044B92D001B5D63 /* voxReducerIOSNewIcon58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */; };
@@ -136,6 +138,8 @@
 		A9287A10204246E5000F6638 /* vox_reducer_fe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vox_reducer_fe-Info.plist"; path = "/Users/Bill/Documents/iOS_Projects/Vox_Reducer_ios_new/vox_reducer/vox_reducer_fe-Info.plist"; sourceTree = "<absolute>"; };
 		A97499242044D29500854FA7 /* libcommon_dsp_combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_dsp_combined.a; path = vox_reducer/lib/libcommon_dsp_combined.a; sourceTree = "<group>"; };
 		A97499292044ED8E00854FA7 /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		A977559720E3093B0018F2FC /* libcommon_dsp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcommon_dsp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A977559920E309760018F2FC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A9ADC2192044B92C001B5D63 /* voxReducerIOSNewIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon120.png; sourceTree = "<group>"; };
 		A9ADC21A2044B92C001B5D63 /* voxReducerIOSNewIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon58.png; sourceTree = "<group>"; };
 		A9ADC21B2044B92D001B5D63 /* voxReducerIOSNewIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voxReducerIOSNewIcon180.png; sourceTree = "<group>"; };
@@ -198,7 +202,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97499272044D55600854FA7 /* libcommon_dsp_combined.a in Frameworks */,
+				A977559A20E309760018F2FC /* Accelerate.framework in Frameworks */,
+				A977559620E3093B0018F2FC /* libcommon_dsp.a in Frameworks */,
 				A9C2CF122042553E006373B5 /* CoreGraphics.framework in Frameworks */,
 				A9C2CF1020425536006373B5 /* UIKit.framework in Frameworks */,
 				A9C2CF0420425187006373B5 /* MediaPlayer.framework in Frameworks */,
@@ -215,7 +220,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97499282044D56500854FA7 /* libcommon_dsp_combined.a in Frameworks */,
+				A977559B20E3097B0018F2FC /* Accelerate.framework in Frameworks */,
+				A977559820E309400018F2FC /* libcommon_dsp.a in Frameworks */,
 				A9C2CF1E2042561C006373B5 /* Foundation.framework in Frameworks */,
 				A9C2CF1D20425615006373B5 /* CoreMedia.framework in Frameworks */,
 				A9C2CF1C2042560B006373B5 /* AVFoundation.framework in Frameworks */,
@@ -245,6 +251,8 @@
 		9E6FE7F1B0307EE8EA3FCC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A977559920E309760018F2FC /* Accelerate.framework */,
+				A977559720E3093B0018F2FC /* libcommon_dsp.a */,
 				A97499242044D29500854FA7 /* libcommon_dsp_combined.a */,
 				A9C2CF112042553D006373B5 /* CoreGraphics.framework */,
 				A9C2CF0F20425536006373B5 /* UIKit.framework */,
