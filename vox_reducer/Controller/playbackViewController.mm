@@ -336,7 +336,7 @@
 
 		//Get media items
     MPMediaItem *mediaItem = [[_userMediaItemCollection items] objectAtIndex:0];
-    NSNumber *isCloud = [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem];
+    NSNumber *isCloud = [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem] ? [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem] : [NSNumber numberWithInt:-1];
 
 		//Cloud media is not allowed
     if ([isCloud isEqual:[NSNumber numberWithInt:1]]) {
