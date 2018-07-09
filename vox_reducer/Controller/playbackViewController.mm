@@ -335,25 +335,29 @@
     [self playbackCompleted];
 
 		//Get media items
-    MPMediaItem *mediaItem = [[_userMediaItemCollection items] objectAtIndex:0];
-    NSNumber *isCloud = [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem] ? [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem] : [NSNumber numberWithInt:-1];
+		if(_userMediaItemCollection && [[_userMediaItemCollection items] count] > 0){
+			MPMediaItem *mediaItem = [[_userMediaItemCollection items] objectAtIndex:0];
+			NSNumber *isCloud = [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem] ? [mediaItem valueForProperty:MPMediaItemPropertyIsCloudItem] : [NSNumber numberWithInt:-1];
 
-		//Cloud media is not allowed
-    if ([isCloud isEqual:[NSNumber numberWithInt:1]]) {
-      // media is from cloud, not supported. must be local media file
-      [_lblArtist setText:@"Not Supported"];
-      [utility showAlertWithTitle:@"Media file not supported"
-                  andMessage:@"Please select a song from your local device "
-                             @"library. Songs from the Cloud are not supported"
-                       andVC:self];
-    } else {
-      // initialize audioPlayback
-      [_player setUserMediaItemCollection:_userMediaItemCollection];
-      [_player processMediaItems];
-			[_songLabelButton setTitle:[_player track] ? [_player track] : @"Track Unavailable" forState:UIControlStateNormal];
-			[_player initBufferProcess];
-    }
-  }
+			//Cloud media is not allowed
+			if ([isCloud isEqual:[NSNumber numberWithInt:1]]) {
+				// media is from cloud, not supported. must be local media file
+				[_lblArtist setText:@"Not Supported"];
+				[utility showAlertWithTitle:@"Media file not supported"
+										andMessage:@"Please select a song from your local device "
+															 @"library. Songs from the Cloud are not supported"
+												 andVC:self];
+			} else {
+				// initialize audioPlayback
+				[_player setUserMediaItemCollection:_userMediaItemCollection];
+				[_player processMediaItems];
+				[_songLabelButton setTitle:[_player track] ? [_player track] : @"Track Unavailable" forState:UIControlStateNormal];
+				[_player initBufferProcess];
+			}
+		}
+	} else {
+		[_lblArtist setText:@"Media item not available"];
+	}
 }
 
 - (void)dealloc {
