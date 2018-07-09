@@ -322,6 +322,7 @@
 }
 
 - (void)playerReset {
+	[_playButton setEnabled:false];
   [_lblArtist setText:@""];
   [_songLabelButton setTitle:_player.track forState:UIControlStateNormal];
 }
@@ -342,6 +343,7 @@
 			//Cloud media is not allowed
 			if ([isCloud isEqual:[NSNumber numberWithInt:1]]) {
 				// media is from cloud, not supported. must be local media file
+				[_playButton setEnabled:false];
 				[_lblArtist setText:@"Not Supported"];
 				[utility showAlertWithTitle:@"Media file not supported"
 										andMessage:@"Please select a song from your local device "
@@ -356,6 +358,7 @@
 			}
 		}
 	} else {
+		[_playButton setEnabled:false];
 		[_lblArtist setText:@"Media item not available"];
 	}
 }
